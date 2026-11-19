@@ -9,4 +9,4 @@ Die Gestaltungsregeln stehen in [DESIGN.md](DESIGN.md). Beim Upload den Ordner `
 
 ## Gestaltung und Bedienung
 
-Der champagnerfarbene Edelstein eröffnet die Podcastseite. Termine, Format, Crowdfunding, Sponsoring und Kontakt liegen weiterhin in den entsprechenden Abschnitten. Bei aktivierter Bewegungsreduktion startet die Schliffstudie mit einem Standbild.
+Die Startseite führt vom Originalporträt am Mikrofon zu Format, Gastgeber, Crowdfunding, Sponsoring und Kontakt.
