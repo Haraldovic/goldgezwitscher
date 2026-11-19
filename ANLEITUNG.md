@@ -9,4 +9,4 @@ Die Gestaltungsregeln stehen in [DESIGN.md](DESIGN.md). Beim Upload den Ordner `
 
 ## Gestaltung und Bedienung
 
-Die Startseite führt vom Originalporträt am Mikrofon zu Format, Gastgeber, Crowdfunding, Sponsoring und Kontakt.
+Die Startseite führt von der Studioaufnahme zu Format, Gastgeber, Crowdfunding, Sponsoring und Kontakt.
