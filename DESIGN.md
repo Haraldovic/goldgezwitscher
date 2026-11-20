@@ -1,9 +1,26 @@
-# Dietmar Vogelmann · Markenfamilie
+# Goldgezwitscher · Menschen am Mikrofon
 
-Alle drei Auftritte tragen Dietmars vorhandenes Vogelzeichen und führen über dieselbe Markennavigation. Perlweiße Flächen, warme Metalltöne und großzügige Fotografie bilden den gemeinsamen Rahmen. Nachlassgold verwendet Petrol, Goldgezwitscher warmes Aubergine. Die Überschriften stehen in Cormorant Garamond, Text, Tabellen und Bedienelemente in DM Sans. Die Schriften liegen mit ihren Lizenzen im jeweiligen Angebot. Die offizielle Wortbildmarke und die Originalfotos sind bei den Bildnachweisen verzeichnet.
+## Eigenständige Gestaltung
+Warmer heller Grund, Senfgold als größere Farbfläche, kräftige Sans-Serif-Titel. Die Show erhält eine eigene große Wortzeile und Dietmars echtes Mikrofonporträt. Der Einstieg handelt von Gesprächen, Menschen und Themen.
 
-Feingold Vogel verbindet Schmuckfotografie mit Dietmars Katalogstücken. Nachlassgold zeigt moderne Feingoldbarren und führt direkt zum Ankaufsrechner oder zur Verkaufsanfrage. Bei Goldgezwitscher eröffnet eine Studiofotografie das Gesprächsformat. Dietmars Originalporträt steht jeweils bei seiner persönlichen Vorstellung.
+## Seiten
+- index.html: Show, Themen, Projektstart und bestehende Social-Media-Kanäle.
+- format.html: Gesprächsformat und mögliche Fragen.
+- dietmar.html: Der Gastgeber und seine Arbeit.
+- mitmachen.html: Geplanter Kampagnenstart und Sponsoringvorschläge.
+- Rechtliche und Bildnachweis-Seiten bleiben erhalten.
 
-Die Tafeln zu Farbe, Reinheit und Gewicht zeigen mehrere Beobachtungen zugleich. Die Zeichnungen illustrieren den Vergleich. Quellen und Bildnachweise sind am Atlas zugänglich.
+Keine erfundenen Folgen, Gäste, Reichweiten, Play-Schaltflächen oder Spendenabwicklung. Der Crowdfunding-Start ist als geplant bezeichnet. Links zu TikTok und Instagram laden Inhalte erst nach dem Verlassen der Website.
 
-Als Gestaltungsreferenz diente die Sammlung [awesome-design-md](https://github.com/VoltAgent/awesome-design-md). Schmuckaufnahme, Vogelzeichen und die fachlichen Vergleichstafeln bestimmen die Gestaltung dieser Fassung.
+## Gemeinsame Markenmerkmale
+- Vogelsignet, Gold als zurückhaltender Akzent und dieselbe jederzeit sichtbare Dreier-Markenleiste.
+- Lokal gespeicherte DM Sans und Cormorant Garamond; keine externen Font-Anfragen.
+- Eckige Bedienelemente, verständliche Linktexte, Tastaturfokus, einspaltiges mobiles Menü.
+- Keine Lupe, Modellwaage, künstliche 3D-Edelsteine oder automatischen Social-Media-Einbettungen.
+- Bewegung nur als sanftes Einblenden und Bild-Hover; reduced motion schaltet sie ab.
+
+## Gestaltung und Referenzen
+Ausgewertet wurden die offiziellen Auftritte von Hemmerle (Raum für ein einzelnes Stück), Boucheron (Farbedelsteine als fotografische Kapitel) und Bucherer (klare Produktinformation). Keine Bilder dieser Marken wurden übernommen. Das vom Auftraggeber gewünschte Repository https://github.com/VoltAgent/awesome-design-md diente ergänzend zur Strukturierung der Gestaltungsregeln.
+
+## Umsetzung
+Die aktuelle Gestaltung wird durch assets/family-v10.css und assets/identity-v10.css geladen. assets/experience-v10.js enthält kleine progressive Erweiterungen. Der Stand ist durch atelier-edition=atelier-v10 im HTML erkennbar. Rechtstexte und bestehende fachliche Tabellen wurden inhaltlich nicht neu verfasst.
