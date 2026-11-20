@@ -1,0 +1,204 @@
+/* Goldgezwitscher — clear programme chapters, a white stage and warm gold accents.
+   The shared brand strip, logo and tagline remain unchanged. */
+body.goldgezwitscher.identity-v10.edition22{
+  --gg27-ink:#193846;--gg27-copy:#364e59;--gg27-line:#b9c7cd;
+  --gg27-gold:#d8af52;--gg27-soft:#edf2f4;background:#fff;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication{
+  --gg-paper:#fff;--gg-cream:#fff;--gg-ink:#193846;--gg-copy:#364e59;
+  --gg-rule:#b9c7cd;--gg-gold:#735310;--gg-sand:#edf2f4;
+  background:#fff;color:var(--gg27-ink);
+}
+body.goldgezwitscher.identity-v10.edition22 main :is(h1,h2,h3){font-weight:600;color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 main :is(.v10-eyebrow,.gg-label,.v22-kicker){color:#735310;font-weight:600}
+body.goldgezwitscher.identity-v10.edition22 main :is(.v22-button,.gg-pill,.v10-action.primary){
+  background:var(--gg27-ink);border-color:var(--gg27-ink);color:#fff;border-radius:0;font-weight:600;
+}
+body.goldgezwitscher.identity-v10.edition22 main :is(.v22-button,.gg-pill,.v10-action.primary):hover{
+  background:#2c5364;border-color:#2c5364;color:#fff;
+}
+body.goldgezwitscher.identity-v10.edition22 main :is(.v22-text-link,.gg-line,.v10-action.text){
+  color:var(--gg27-ink);text-decoration-color:#9d7627;font-weight:600;
+}
+body.goldgezwitscher.identity-v10.edition22 main :is(a,button,summary):focus-visible{outline:3px solid #ad7a16;outline-offset:5px}
+
+/* Homepage: a bright portrait stage, with a firm transition into partners. */
+body.goldgezwitscher.identity-v10.edition22 .v22-show-hero{
+  background:#fff;border-bottom:5px solid var(--gg27-gold);margin-bottom:58px;
+}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-copy{color:var(--gg27-ink);padding-left:0;padding-right:clamp(30px,4vw,64px)}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-hero h1{color:var(--gg27-ink);font-weight:600}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-hero h1 em{color:#8a6119;font-weight:600}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-intro{color:var(--gg27-copy);font-size:1.0625rem}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-state{color:#4a5b63}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-state>span{background:#a8781f}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-facts{color:var(--gg27-copy);border-top:1px solid var(--gg27-line);padding-top:19px}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-facts strong{color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-portrait{background:#dbe2e4}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-portrait figcaption{background:linear-gradient(transparent,#193846f5);color:#fff}
+body.goldgezwitscher.identity-v10.edition22 .v22-show-portrait figcaption span{color:#f1d796}
+
+/* Partners: a deliberate dark chapter with genuinely separate logo spaces. */
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsors{
+  background:var(--gg27-ink);color:#fff;padding-block:54px 58px;border:0;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsors .gg-sponsor-heading h2{
+  color:#fff;font:600 clamp(1.9rem,3vw,2.8rem)/1.15 var(--sans);letter-spacing:-.035em;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsors .v10-eyebrow{color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsors .gg-wrap>p{color:#d8e2e6;font-size:1rem;line-height:1.75}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsors .v10-action.text{color:#fff;border-color:#f0d289;text-decoration-color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsors :is(a,button):focus-visible{outline-color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots{border:0;gap:18px;margin-top:30px}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li,
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li+li{
+  background:#fff;border:0;border-top:4px solid var(--gg27-gold);color:var(--gg27-ink);min-height:132px;padding:22px 16px;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li span{color:var(--gg27-ink);font:500 1.5rem/1.3 var(--sans)}
+body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li small{color:#465d68;font-size:.875rem;max-width:none}
+
+/* White discussion topics, ochre funding, and a clean social list. */
+body.goldgezwitscher.identity-v10.edition22 .gg-topics-home{background:#fff;padding-block:82px}
+body.goldgezwitscher.identity-v10.edition22 :is(.gg-topics-home,.gg-invite,.gg-feed) h2{
+  font:600 clamp(2.4rem,4vw,4rem)/1.1 var(--sans);letter-spacing:-.04em;color:var(--gg27-ink);
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-topic-list{border-block:2px solid var(--gg27-ink);background:var(--gg27-soft)}
+body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a,
+body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a+a{border-color:var(--gg27-line);padding:32px clamp(24px,2.5vw,44px);color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a>span{font:600 1.4rem/1.3 var(--sans);color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a>p{color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a:hover{background:#e0e9ed}
+body.goldgezwitscher.identity-v10.edition22 .gg-invite{
+  background:var(--gg27-gold);color:var(--gg27-ink);border-block:1px solid #bb923d;padding-block:78px;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-invite .v10-eyebrow{color:#263d43}
+body.goldgezwitscher.identity-v10.edition22 .gg-invite p{color:#263d43}
+body.goldgezwitscher.identity-v10.edition22 .gg-invite .v10-action.text{color:var(--gg27-ink);text-decoration-color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-feed{padding-block:80px;background:#fff}
+body.goldgezwitscher.identity-v10.edition22 .gg-profile-links{border-top:2px solid var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-profile-links a{border-bottom:1px solid var(--gg27-line);color:var(--gg27-ink);padding:26px 20px}
+body.goldgezwitscher.identity-v10.edition22 .gg-profile-links a>strong{font-weight:600;color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-profile-links a>span{color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22 .gg-profile-links a:hover{background:var(--gg27-soft)}
+
+/* Subpages: a full-width title band, then clearly different content chapters. */
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-page-heading{
+  width:100%;max-width:none;margin:0;padding:50px max(5vw,calc((100vw - 82rem)/2)) 48px;
+  background:#e8c575;border-bottom:4px solid var(--gg27-ink);box-sizing:border-box;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-page-heading h1{color:var(--gg27-ink);font-weight:600;margin:15px 0 0}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-page-heading .v10-eyebrow{color:#344651}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-format{background:#fff}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-sectionhead h2,
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-host-copy h2,
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-campaign-copy h2,
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-contact-copy h2{
+  color:var(--gg27-ink);font-weight:600;
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-sectionhead>p,
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-host-copy>p:not(.gg-label),
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-campaign-copy>p:not(.gg-label){color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-topics{background:var(--gg27-soft);padding:24px 30px;border-top:4px solid var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-topics details{border-color:#acbdc5;background:transparent}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-topics summary{color:var(--gg27-ink);font-weight:600}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-topics details p{color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-topics summary::after{color:#765312}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-host{background:#fff;border-bottom:1px solid var(--gg27-line)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-host-spread{padding-block:65px 80px}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-host-copy{border-top:4px solid var(--gg27-gold);padding-top:28px}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gp-suit figcaption{color:var(--gg27-copy);padding-top:12px}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-campaign{background:#fff}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .v16-funding-mark{background:var(--gg27-gold);color:var(--gg27-ink);border-bottom:5px solid var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .v16-funding-mark strong{font:600 7rem/1 var(--sans);letter-spacing:-.06em;color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .v16-funding-mark .gg-label{color:#344651}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners{background:var(--gg27-ink);color:#fff;border:0}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-sectionhead h2{color:#fff}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-label{color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-sectionhead>p,
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-partner-action p{color:#d8e2e6}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-line{color:#fff;text-decoration-color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-offers{border:0;gap:24px}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-offers article,
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-offers article+article{
+  background:#fff;border:0;border-top:4px solid var(--gg27-gold);padding:32px clamp(24px,2.5vw,42px);
+}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-offers h3{color:var(--gg27-ink);font:600 1.7rem/1.2 var(--sans)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-offers p{color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partner-action .gg-pill{background:#f0d289;border-color:#f0d289;color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partner-action .gg-pill:hover{background:#fff;border-color:#fff}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners :focus-visible{outline-color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-contact{background:var(--gg27-soft);border-top:4px solid var(--gg27-gold)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-contact-copy>p{color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-profiles a{border-color:#aebfc7;color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-profiles strong{color:var(--gg27-ink);font-weight:600}
+body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-profiles span{color:var(--gg27-copy)}
+
+/* Legal pages remain calm and readable, with an unmistakable title/body split. */
+body.goldgezwitscher.identity-v10.edition22.legal-page main{
+  --gg-paper:#fff;--gg-ink:#193846;--gg-copy:#364e59;background:#fff;color:var(--gg27-ink);
+}
+body.goldgezwitscher.identity-v10.edition22.legal-page main .legal-intro,
+body.goldgezwitscher.identity-v10.edition22 .v16-legal-intro{
+  width:100%;max-width:none;margin:0;background:var(--gg27-soft);border:0;border-bottom:4px solid var(--gg27-gold);border-radius:0;
+}
+body.goldgezwitscher.identity-v10.edition22.legal-page main .legal-intro .inner{width:min(90%,82rem);margin:auto;padding:48px 0 46px}
+body.goldgezwitscher.identity-v10.edition22 .v16-legal-intro{padding:48px max(5vw,calc((100vw - 71.25rem)/2)) 46px;box-sizing:border-box}
+body.goldgezwitscher.identity-v10.edition22.legal-page main .legal-intro h1,
+body.goldgezwitscher.identity-v10.edition22 .v16-legal .v16-legal-intro h1{font-weight:600;color:var(--gg27-ink)}
+body.goldgezwitscher.identity-v10.edition22.legal-page .legal-overview{border-top:3px solid var(--gg27-ink);padding-top:22px}
+body.goldgezwitscher.identity-v10.edition22.legal-page .legal-content :is(h2,h3),
+body.goldgezwitscher.identity-v10.edition22 .v16-legal .v16-legal-body h2{color:var(--gg27-ink);font-weight:600}
+body.goldgezwitscher.identity-v10.edition22.legal-page .legal-content :is(p,li,dt,dd,address),
+body.goldgezwitscher.identity-v10.edition22 .v16-legal-body p{color:var(--gg27-copy)}
+body.goldgezwitscher.identity-v10.edition22.legal-page .legal-content section+section{border-top:1px solid var(--gg27-line)}
+body.goldgezwitscher.identity-v10.edition22 .v16-legal-body section+section{border-top:1px solid var(--gg27-line);padding-top:30px}
+body.goldgezwitscher.identity-v10.edition22.legal-page :is(.legal-content,.legal-overview) a{color:#193846}
+
+/* A definitive end to every page; the association logo keeps a white backing. */
+body.goldgezwitscher.identity-v10.edition22 .journal-footer{background:var(--gg27-ink);color:#fff;border-top:5px solid var(--gg27-gold)}
+body.goldgezwitscher.identity-v10.edition22 .journal-footer :is(a,.foot-title,.gg21-regional,.gg21-regional span){color:#fff}
+body.goldgezwitscher.identity-v10.edition22 .journal-footer .foot-links a{border-color:#728995;text-decoration-color:#f0d289}
+body.goldgezwitscher.identity-v10.edition22 .journal-footer .gg21-regional img{mix-blend-mode:normal;background:#fff;padding:8px;width:145px}
+body.goldgezwitscher.identity-v10.edition22 .journal-footer .foot-title img{mix-blend-mode:normal}
+body.goldgezwitscher.identity-v10.edition22 .journal-footer a:focus-visible{outline:3px solid #f0d289;outline-offset:5px}
+
+@media(max-width:760px){
+  body.goldgezwitscher.identity-v10.edition22 .v22-show-hero{margin-bottom:35px;border-bottom-width:4px}
+  body.goldgezwitscher.identity-v10.edition22 .v22-show-copy{padding:30px 6% 36px}
+  body.goldgezwitscher.identity-v10.edition22 .v22-show-intro{font-size:1rem}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsors{padding-block:40px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots{gap:10px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li{padding:18px 8px;min-height:110px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li span{font-size:1.15rem}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li small{font-size:.8125rem;line-height:1.45}
+  body.goldgezwitscher.identity-v10.edition22 :is(.gg-topics-home,.gg-feed){padding-block:54px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-invite{padding-block:54px}
+  body.goldgezwitscher.identity-v10.edition22 :is(.gg-topics-home,.gg-invite,.gg-feed) h2{font-size:clamp(2rem,7.5vw,3rem)}
+  body.goldgezwitscher.identity-v10.edition22 .gg-profile-links a{padding:22px 12px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-page-heading{padding:35px 5% 32px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-host-spread{padding-block:40px 50px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-topics{padding:18px 22px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .v16-funding-mark strong{font-size:5.5rem}
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-partners .gg-offers{gap:20px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-offers article,
+  body.goldgezwitscher.identity-v10.edition22 .gg-publication .gg-offers article+article{padding:27px 24px}
+  body.goldgezwitscher.identity-v10.edition22.legal-page main .legal-intro .inner{padding-block:35px}
+  body.goldgezwitscher.identity-v10.edition22 .v16-legal-intro{padding:35px 5%}
+}
+@media(max-width:700px){
+  body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a,
+  body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a+a{padding:27px 24px;border-left:0;border-bottom:1px solid var(--gg27-line)}
+  body.goldgezwitscher.identity-v10.edition22 .gg-topic-list>a:last-child{border-bottom:0}
+}
+@media(max-width:360px){
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots{gap:6px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li{padding-inline:6px}
+  body.goldgezwitscher.identity-v10.edition22 .gg-sponsor-slots li span{font-size:1rem}
+}
+@media print{
+  body.goldgezwitscher.identity-v10.edition22 main,
+  body.goldgezwitscher.identity-v10.edition22 main :is(section,header,.v16-legal-intro),
+  body.goldgezwitscher.identity-v10.edition22 .journal-footer{background:#fff;color:#111}
+  body.goldgezwitscher.identity-v10.edition22 main :is(h1,h2,h3,p,a,span,strong,small),
+  body.goldgezwitscher.identity-v10.edition22 .journal-footer :is(a,span){color:#111}
+}
