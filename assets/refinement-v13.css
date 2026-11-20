@@ -1,0 +1,120 @@
+/* Revision 13: precise spacing, quiet motion, and shared finishing details. */
+@font-face{font-family:'Cormorant Garamond';src:url('fonts/cormorant-italic.woff2') format('woff2');font-weight:300 700;font-style:italic;font-display:swap}
+body.identity-v10{--finish-gold:#8a703e}
+body.identity-v10 .dv-head{border-bottom-color:#d5d1c5}
+body.identity-v10 .dv-head .dv-brandbar{background:#f6f5ef}
+body.identity-v10 .dv-head .dv-worlds a.dv-active{box-shadow:inset 0 -2px var(--finish-gold)}
+body.identity-v10 .dv-head .dv-links a{position:relative}
+body.identity-v10 .v10-eyebrow{letter-spacing:.14em}
+body.identity-v10 .v10-action{min-height:50px;padding:15px 27px;position:relative;isolation:isolate}
+body.identity-v10 .v10-action.text{min-height:44px;padding:10px 0}
+body.identity-v10 .v10-action.text::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--finish-gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+body.identity-v10 .v10-action.text:hover::after{transform:scaleX(1)}
+body.identity-v10 .site-footer{background:#f0f0e9}
+body.identity-v10 .site-footer .foot-inner{padding-top:68px}
+body.identity-v10 .site-footer .foot-base{border-color:#c8c9bc}
+body.identity-v10 .site-footer .foot-heading{color:#5d633e;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+body.identity-v10 :is(.fv-signature,.ng-material-layout,.gg-format-spread) figure{margin:0}
+@media(prefers-reduced-motion:no-preference){
+ @keyframes photo-arrive{from{transform:scale(1.025)}to{transform:scale(1)}}
+ @keyframes copy-arrive{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+ .identity-v10 :is(.fv-campaign>picture>img,.ng-person>img,.gg-show-stage>figure>img){animation:photo-arrive 1.3s cubic-bezier(.2,.65,.3,1) both}
+ .identity-v10 :is(.fv-campaign-copy,.ng-welcome-title,.gg-show-copy){animation:copy-arrive .8s ease-out both}
+}
+@media(max-width:700px){body.identity-v10 .v10-eyebrow{font-size:.875rem;letter-spacing:.08em}body.identity-v10 .dv-head .dv-worlds a{font-size:.875rem}body.identity-v10 .v10-action{padding:14px 23px}}
+@media(max-width:360px){body.identity-v10 .dv-head .dv-worlds a{font-size:.8rem}}
+
+/* Goldgezwitscher — a forthcoming conversation series, with its own warm cover. */
+body.goldgezwitscher.identity-v10{--paper:#faf8f1;--ink:#283d43;--muted:#52615d;--hair:#d5d0c0;--v10-accent:#293f43}
+body.goldgezwitscher.identity-v10 .gg-show{width:min(90%,88rem);padding-top:38px}
+body.goldgezwitscher.identity-v10 .gg-show-heading{padding-bottom:25px}
+body.goldgezwitscher.identity-v10 .gg-show-heading>.v10-eyebrow{display:flex;justify-content:space-between;align-items:center;gap:20px;letter-spacing:.1em;font-size:.8rem;margin-bottom:25px}
+.gg-prelaunch{display:inline-block;padding-left:20px;border-left:1px solid #c8b684;color:#776443;font-size:.75rem;letter-spacing:.08em;white-space:nowrap}
+body.goldgezwitscher.identity-v10 .gg-show h1{font:500 clamp(4rem,11vw,10.3rem)/.88 var(--serif);letter-spacing:-.04em;white-space:nowrap;margin:0}
+body.goldgezwitscher.identity-v10 .gg-show h1 span{color:#9a7939}
+body.goldgezwitscher.identity-v10 .gg-show-stage{position:relative;display:grid;grid-template-columns:1.08fr .92fr;background:#eae2cb}
+body.goldgezwitscher.identity-v10 .gg-show-stage>figure{position:relative;margin:0;min-width:0;background:#bdb9aa}
+body.goldgezwitscher.identity-v10 .gg-show-stage>figure>img{height:650px;object-fit:cover;object-position:50% 37%;width:100%}
+body.goldgezwitscher.identity-v10 .gg-show-stage figcaption{padding:60px 30px 25px;font:400 1rem/1.4 var(--sans);background:linear-gradient(transparent,#152a34b8)}
+body.goldgezwitscher.identity-v10 .gg-show-copy{padding:42px 10%;position:relative;align-self:center}
+body.goldgezwitscher.identity-v10 .gg-duration{align-items:flex-end;gap:24px;margin-bottom:25px;padding-bottom:28px;border-bottom:1px solid #c4b88f}
+body.goldgezwitscher.identity-v10 .gg-duration strong{font:400 8rem/.73 var(--serif);letter-spacing:-.065em;color:#8a6a2d}
+body.goldgezwitscher.identity-v10 .gg-duration span{font:.875rem/1.6 var(--sans);letter-spacing:.02em;padding-bottom:4px}
+body.goldgezwitscher.identity-v10 .gg-show-copy h2{font:500 clamp(2.2rem,3.2vw,3.6rem)/1.08 var(--sans);letter-spacing:-.025em;margin:0 0 22px;max-width:17ch}
+body.goldgezwitscher.identity-v10 .gg-show-copy>p{font:400 1rem/1.75 var(--sans);margin-bottom:18px}
+body.goldgezwitscher.identity-v10 .gg-show-copy .gg-start-note{font-size:.875rem;line-height:1.6;border-color:#99834f;padding-left:12px}
+body.goldgezwitscher.identity-v10 .gg-show-copy .v10-action{margin-top:6px;background:#293f43;color:white;border-color:#293f43}
+body.goldgezwitscher.identity-v10 .gg-show-copy .v10-action:hover{background:#fffef9;color:#293f43}
+body.goldgezwitscher.identity-v10 .gg-campaign-link{line-height:1.6;margin-top:18px}
+body.goldgezwitscher.identity-v10 .gg-sponsors{background:#faf8f1;padding:46px 0 48px;border-bottom:1px solid #cfcab8}
+body.goldgezwitscher.identity-v10 .gg-sponsor-heading h2{font:400 clamp(2.3rem,3.5vw,3.5rem)/1.1 var(--serif);letter-spacing:-.025em}
+body.goldgezwitscher.identity-v10 .gg-sponsor-heading .v10-eyebrow{margin-bottom:12px}
+body.goldgezwitscher.identity-v10 .gg-sponsors .gg-wrap>p{font-size:.875rem;max-width:80ch;margin:19px 0 25px;color:#626555}
+body.goldgezwitscher.identity-v10 .gg-sponsor-slots{border-color:#c9bf9e}
+body.goldgezwitscher.identity-v10 .gg-sponsor-slots li{min-height:130px;color:#776a4b;background:#f0ecdf}
+body.goldgezwitscher.identity-v10 .gg-sponsor-slots li+li{border-color:#d0c8b2}
+body.goldgezwitscher.identity-v10 .gg-sponsor-slots span{font:400 2.3rem/1.1 var(--serif);letter-spacing:.01em}
+body.goldgezwitscher.identity-v10 .gg-sponsor-slots small{font-size:.8rem;color:#71664c}
+body.goldgezwitscher.identity-v10 .gg-topics-home{padding-block:85px}
+body.goldgezwitscher.identity-v10 .gg-topics-home h2{font-size:clamp(2.8rem,4.9vw,5.2rem);letter-spacing:-.025em;max-width:23ch;margin:18px 0 45px}
+body.goldgezwitscher.identity-v10 .gg-topic-list{border-color:#bbb99f}
+body.goldgezwitscher.identity-v10 .gg-topic-list>a{padding-block:33px}
+body.goldgezwitscher.identity-v10 .gg-topic-list span{font:400 2rem/1.1 var(--serif);letter-spacing:0;color:#745e2c}
+body.goldgezwitscher.identity-v10 .gg-topic-list p{max-width:29ch;line-height:1.7}
+body.goldgezwitscher.identity-v10 .gg-invite{background:#d8bd78;padding-block:78px}
+body.goldgezwitscher.identity-v10 .gg-invite h2{font:400 clamp(3.1rem,5.6vw,5.7rem)/.99 var(--serif);letter-spacing:-.035em;max-width:22ch}
+body.goldgezwitscher.identity-v10 .gg-invite .v10-action.primary{background:#293f43;border-color:#293f43;color:white}
+body.goldgezwitscher.identity-v10 .gg-invite .v10-action.primary:hover{background:#faf8f1;color:#293f43}
+body.goldgezwitscher.identity-v10 .gg-feed{padding-block:80px}
+body.goldgezwitscher.identity-v10 .gg-feed h2{font-size:clamp(2.6rem,4.2vw,4.4rem);letter-spacing:-.025em}
+body.goldgezwitscher.identity-v10 .gg-profile-links a{padding-block:28px}
+body.goldgezwitscher.identity-v10 .gg-profile-links strong{font:400 2.25rem/1.1 var(--serif)}
+body.goldgezwitscher.identity-v10 .gg-page-heading{background:transparent;padding-block:45px 35px}
+body.goldgezwitscher.identity-v10 .gg-page-heading h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.5rem,6vw,6.5rem);letter-spacing:-.03em}
+body.goldgezwitscher.identity-v10 .gg-publication .gp-suit img{height:600px;object-position:50% 25%;background:#cfc4b3}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-host-copy p{font-size:1.0625rem;line-height:1.8}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-work img{height:500px;object-position:50% 55%}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-calendar{background:#d8bd78}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-calendar strong{font:400 8rem/.9 var(--serif)}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-partners{background:#eee8d6}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-offers article{padding-block:40px}
+body.goldgezwitscher.identity-v10 .gg-publication .gg-offers h3{font:400 2.4rem/1.1 var(--serif);letter-spacing:-.02em}
+body.goldgezwitscher.identity-v10 .journal-footer{background:#eeeddf;border-top:1px solid #d2ccb9}
+@media(max-width:1056px){body.goldgezwitscher.identity-v10 .gg-show-copy{padding:30px 8%}body.goldgezwitscher.identity-v10 .gg-show-stage>figure>img{height:650px}body.goldgezwitscher.identity-v10 .gg-duration strong{font-size:6.5rem}body.goldgezwitscher.identity-v10 .gg-duration{gap:20px}}
+@media(max-width:700px){
+ body.goldgezwitscher.identity-v10 .gg-show{padding-top:29px}
+ body.goldgezwitscher.identity-v10 .gg-show-heading{padding-bottom:22px}
+ body.goldgezwitscher.identity-v10 .gg-show-heading>.v10-eyebrow{display:block;font-size:.75rem;letter-spacing:.06em;line-height:1.6;margin-bottom:18px}
+ .gg-prelaunch{padding:0;border:0;margin-top:5px;display:block;font-size:.75rem;color:#816b3c}
+ body.goldgezwitscher.identity-v10 .gg-show h1{font-size:clamp(2.7rem,11.1vw,4.8rem);letter-spacing:-.04em;line-height:1}
+ body.goldgezwitscher.identity-v10 .gg-show-stage{grid-template-columns:1fr}
+ body.goldgezwitscher.identity-v10 .gg-show-stage>figure>img{height:410px;object-position:50% 41%}
+ body.goldgezwitscher.identity-v10 .gg-show-stage figcaption{padding:50px 22px 20px;font-size:.875rem}
+ body.goldgezwitscher.identity-v10 .gg-show-copy{padding:32px 24px 36px}
+ body.goldgezwitscher.identity-v10 .gg-duration{gap:20px;padding-bottom:24px;margin-bottom:26px}
+ body.goldgezwitscher.identity-v10 .gg-duration strong{font-size:6.1rem}
+ body.goldgezwitscher.identity-v10 .gg-duration span{font-size:.875rem}
+ body.goldgezwitscher.identity-v10 .gg-show-copy h2{font-size:2.6rem;letter-spacing:-.025em}
+ body.goldgezwitscher.identity-v10 .gg-show-copy>p{font-size:1rem;line-height:1.7}
+ body.goldgezwitscher.identity-v10 .gg-sponsors{padding-block:38px}
+ body.goldgezwitscher.identity-v10 .gg-sponsor-heading h2{font-size:2.45rem}
+ body.goldgezwitscher.identity-v10 .gg-sponsor-slots li{min-height:110px;padding-inline:5px}
+ body.goldgezwitscher.identity-v10 .gg-sponsor-slots span{font-size:1.45rem}
+ body.goldgezwitscher.identity-v10 .gg-sponsor-slots small{font-size:.75rem;line-height:1.4;max-width:8ch}
+ body.goldgezwitscher.identity-v10 .gg-topics-home{padding-block:50px}
+ body.goldgezwitscher.identity-v10 .gg-topics-home h2{font-size:2.65rem;line-height:1.08;letter-spacing:-.025em;margin-bottom:28px}
+ body.goldgezwitscher.identity-v10 .gg-topic-list>a{padding-block:25px}
+ body.goldgezwitscher.identity-v10 .gg-invite{padding-block:50px}
+ body.goldgezwitscher.identity-v10 .gg-invite h2{font-size:3.5rem;letter-spacing:-.04em;line-height:1.03}
+ body.goldgezwitscher.identity-v10 .gg-feed{padding-block:50px}
+ body.goldgezwitscher.identity-v10 .gg-feed h2{font-size:2.55rem}
+ body.goldgezwitscher.identity-v10 .gg-profile-links a{padding-block:22px}
+ body.goldgezwitscher.identity-v10 .gg-profile-links strong{font-size:2.1rem}
+ body.goldgezwitscher.identity-v10 .gg-page-heading{padding-block:32px 28px}
+ body.goldgezwitscher.identity-v10 .gg-page-heading h1{font-size:3.55rem}
+ body.goldgezwitscher.identity-v10 .gg-publication .gp-suit img{height:450px}
+ body.goldgezwitscher.identity-v10 .gg-publication .gg-host-copy p{font-size:1rem}
+ body.goldgezwitscher.identity-v10 .gg-publication .gg-work img{height:330px}
+}
+
+@media(max-width:360px){body.identity-v10 .dv-head .dv-menu{font-size:0;gap:0;min-width:44px;min-height:44px;padding:10px}body.feingold.identity-v10 .dv-head .dv-logo img{width:24px;height:30px}body.feingold.identity-v10 .dv-head .dv-logo{gap:7px}}
