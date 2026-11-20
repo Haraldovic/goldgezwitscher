@@ -23,4 +23,7 @@ Keine erfundenen Folgen, Gäste, Reichweiten, Play-Schaltflächen oder Spendenab
 Ausgewertet wurden die offiziellen Auftritte von Hemmerle (Raum für ein einzelnes Stück), Boucheron (Farbedelsteine als fotografische Kapitel) und Bucherer (klare Produktinformation). Keine Bilder dieser Marken wurden übernommen. Das vom Auftraggeber gewünschte Repository https://github.com/VoltAgent/awesome-design-md diente ergänzend zur Strukturierung der Gestaltungsregeln.
 
 ## Umsetzung
-Die aktuelle Gestaltung wird durch assets/family-v10.css und assets/identity-v10.css geladen. assets/experience-v10.js enthält kleine progressive Erweiterungen. Der Stand ist durch atelier-edition=atelier-v10 im HTML erkennbar. Rechtstexte und bestehende fachliche Tabellen wurden inhaltlich nicht neu verfasst.
+Die aktuelle Gestaltung wird durch assets/family-v10.css und assets/identity-v10.css geladen. assets/experience-v10.js enthält kleine progressive Erweiterungen. Der Stand ist durch atelier-edition=atelier-v11 im HTML erkennbar. Rechtstexte und bestehende fachliche Tabellen wurden inhaltlich nicht neu verfasst.
+
+## Ergänzung · November 2026
+Die Wortmarke verwendet dieselbe Cormorant-Serifenschrift wie Feingold Vogel und Nachlassgold, zusammen mit dem vorhandenen Vogelsignet. Der warme Podcast-Charakter bleibt erhalten. Die Startseite enthält drei ausdrücklich gekennzeichnete Sponsoren-Platzhalter, die zu den bestehenden Sponsoringinformationen führen. Es werden keine bestehenden Sponsoren behauptet.
