@@ -35,3 +35,7 @@ Die geprüften HIGAgentSkills (justinwetch/HIGAgentSkills, Commit 2206ff935b4aff
 Gemeinsam bleiben der Vogel, die mittige Wortmarke, die drei sichtbaren Markenlinks, lokal geladene Schriften und die helle Farbwelt. Die Unterzeilen behalten ihre eigenen Texte und dieselbe typografische Behandlung. Die Seiten haben dagegen eigene Bildkompositionen und Hierarchien: Schmuckinszenierung bei Feingold Vogel, nachvollziehbare Bewertung und vier fotografische Verkaufswege bei Nachlassgold, Gastgeber und Gesprächsformat bei Goldgezwitscher.
 
 `assets/refinement-v22.css` bündelt die Überarbeitung. Navigation zeigt die aktuelle Unterseite, wichtige Bedienelemente haben ausreichende Zielgrößen und sichtbare Fokuszustände. Fotos verwenden responsive Quellen; es gibt keine neue Animationsbibliothek und keine zusätzlichen externen Anfragen. Reduzierte Bewegung wird respektiert. Inhalte, Kursquellen, Rechner, Versand-PDF und rechtliche Seiten bleiben verfügbar.
+
+
+## Korrektur 23 · 20. November 2026
+Die Themenblöcke haben eigenen Innenabstand auf beiden Seiten der Trennlinien. Der mobile Aufbau bleibt einspaltig. Auch Sponsoring-Spalten erhalten ausreichend Abstand.

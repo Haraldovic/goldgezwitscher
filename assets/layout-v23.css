@@ -1,0 +1,13 @@
+/* Clear separation between content and the column dividers. */
+.goldgezwitscher.edition22 .gg-topic-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.goldgezwitscher.edition22 .gg-topic-list>a,
+.goldgezwitscher.edition22 .gg-topic-list>a+a{display:block;padding:32px clamp(24px,2.5vw,44px);min-width:0;border-left:1px solid #c7cdbe}
+.goldgezwitscher.edition22 .gg-topic-list>a:first-child{border-left:0}
+.goldgezwitscher.edition22 .gg-topic-list>a>p{margin:15px 0 0;max-width:32ch;line-height:1.75}
+.goldgezwitscher.identity-v10 .gg-publication .gg-offers article,
+.goldgezwitscher.identity-v10 .gg-publication .gg-offers article+article{padding:32px clamp(24px,2.5vw,42px)}
+@media(max-width:700px){
+ .goldgezwitscher.edition22 .gg-topic-list{grid-template-columns:1fr}
+ .goldgezwitscher.edition22 .gg-topic-list>a,.goldgezwitscher.edition22 .gg-topic-list>a+a{padding:25px 0;border-left:0}
+ .goldgezwitscher.identity-v10 .gg-publication .gg-offers article,.goldgezwitscher.identity-v10 .gg-publication .gg-offers article+article{padding:28px 0}
+}
