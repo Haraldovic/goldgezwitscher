@@ -1,4 +1,6 @@
-# Goldgezwitscher · Menschen am Mikrofon
+# Frühere Entwurfsstände von Goldgezwitscher
+
+Die Gestaltung der aktuellen Podcastseite ist in der [Projektübersicht](docs/goldgezwitscher-standalone.md) beschrieben.
 
 ## Eigenständige Gestaltung
 Warmer heller Grund, Senfgold als größere Farbfläche, kräftige Sans-Serif-Titel. Die Show erhält eine eigene große Wortzeile und Dietmars echtes Mikrofonporträt. Der Einstieg handelt von Gesprächen, Menschen und Themen.

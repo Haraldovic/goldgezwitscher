@@ -1,12 +1,5 @@
 # Goldgezwitscher
 
-Goldgezwitscher zeigt Dietmar im Originalporträt. Über die gemeinsame Markenleiste sind seine Projekte erreichbar. Auf der Startseite führen die Abschnitte zum Format, zu Dietmar, zum Crowdfunding, zu Sponsoring und zum Kontakt.
+Das Repository enthält die statische Website für goldgezwitscher.rateriser.tech. GitHub Pages veröffentlicht die HTML-Seiten und den Ordner `assets/` direkt aus `main`.
 
-
-**Upload prüfen:** Die neue `index.html` und der Ordner `assets/` gehören auf dieselbe Ebene. Im Gesamtpaket gehören alle drei Markenordner neben die oberste `index.html`. Bei bestehenden Repositories die gleichnamigen Dateien ersetzen und vorhandene Domain-Einstellungen beibehalten.
-
-Die Gestaltungsregeln stehen in [DESIGN.md](DESIGN.md). Beim Upload den Ordner `assets/fonts/` mitübernehmen.
-
-## Gestaltung und Bedienung
-
-Die Startseite führt von der Studioaufnahme zu Format, Gastgeber, Crowdfunding, Sponsoring und Kontakt.
+Unterseiten, Medienfreigabe, Kalender, Anfragen und Gestaltung sind in der [Projektübersicht](docs/goldgezwitscher-standalone.md) beschrieben.

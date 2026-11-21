@@ -1,35 +1,38 @@
-# Goldgezwitscher – eigenständiger Markenauftritt
+# Goldgezwitscher
 
-Stand: 21.11.2026. Der Auftrag konzentriert sich ausschließlich auf Goldgezwitscher. Nachlassgold und Feingold Vogel werden nicht weiter umgebaut; ein Shopify-Projekt ist erst für 2027 und nach gesonderter Zusage vorgesehen.
+Die eigenständige Vorschau läuft über GitHub Pages auf der im Repository hinterlegten Domain. Die Startseite stellt den Videopodcast vor. Dietmars beide Handelsmarken sind über die Gastgeberseite und den Footer erreichbar.
 
-## Aufbau und Pflege
+## Inhalte pflegen
 
-- `index.html`: eigenständiger Einstieg, Klangskulptur, künftige Partner, Themenauswahl, Gastgeber, Gastbewerbung, Partnerschaften und Crowdfunding.
-- `format.html`, `dietmar.html`, `mitmachen.html`: Format, Gastgeber und Startnext-Projekt.
-- `bewerben.html`: Vorstellung als Podcast-Gast.
-- `sponsoren.html`: Episodenpartner, Formatpartner und individuelle Partnerschaft; keine verbindlichen Preise oder versprochenen Reichweiten.
-- Rechtstexte: vorhandene Anbieterangaben und Texte übernommen. Die Datenschutzhinweise wurden um die tatsächlich implementierte lokale Formularvorbereitung und Grafik ergänzt. Keine Behauptung einer abschließenden rechtlichen Prüfung.
-- `assets/gg32/site.css`, `site.js`, `sculpture.js`: alleinige aktive Gestaltung und Interaktionen der neuen Seiten. Ältere Gestaltungsversionen bleiben im Repository als unbenutzter Bestand, werden aber nicht geladen.
+| Datei | Inhalt |
+| --- | --- |
+| `index.html` | Podcastcover, geplanter Start, Gesprächsthemen, Gastgeber und Einstieg für Gäste und Partner |
+| `format.html` | Format, Veröffentlichungsort und Fragen zur ersten Staffel |
+| `dietmar.html` | Gastgeber, Nachlassgold und Feingold-Vogel |
+| `bewerben.html` | Bewerbung mit Thema und persönlichem Bezug |
+| `sponsoren.html` | Drei Formen der Zusammenarbeit mit gemeinsamer Anfrage |
+| `mitmachen.html` | Finanzierung der ersten vier Folgen über Startnext |
+| `assets/podcast.css` und `assets/podcast.js` | Gestaltung und Interaktionen aller Seiten |
 
-## Markenverhältnis
+## Titelsong und erste Folge veröffentlichen
 
-Goldgezwitscher hat eine eigene Wortmarke, Navigation und visuelle Leitidee. Dietmar ist als Gastgeber sichtbar. Die bestehenden Handelsmarken werden auf der Gastgeberseite und in einer untergeordneten Footerzeile auf ihre echten Domains verlinkt. Es gibt keine gleichgewichtige Navigation mit drei Marken mehr.
+Am Anfang von `assets/podcast.js` stehen die beiden optionalen Medienfelder im Objekt `release`. Für den Titelsong die freigegebene Audiodatei in `assets/` ablegen und ihren relativen Pfad als `themeSong` eintragen. Der native Player erscheint im Einstieg und spielt auf Wunsch des Besuchers ab. Für die erste Folge den veröffentlichten YouTube-Link als `episodeUrl` eintragen. Der Hauptbutton und die Formatseite verlinken dann direkt auf diese Folge.
 
-## Die Formulare sind E-Mail-Vorbereitung
+Der 1. Dezember 2026 ist als geplanter Podcaststart eingetragen. Die Schaltfläche lädt einen ganztägigen, vorläufigen Termin in `podcaststart.ics`. Ab dem Folgetag (Ortszeit Karlsruhe) führt sie bei ausstehendem Folgenlink zur Projektseite. Bei einer Terminänderung die Datumsangaben in den beiden HTML-Seiten, den Kalendertermin und `endOfPremiereDay` gemeinsam aktualisieren. Die ältere Datei `goldgezwitscher.ics` enthält den separaten Crowdfunding-Termin.
 
-Die Formulare validieren Eingaben lokal und erzeugen einen lesbaren Nachrichtentext sowie einen korrekt kodierten `mailto`-Link an `info@nachlassgold.de`. Der Nutzer muss die E-Mail in seinem E-Mail-Programm selbst versenden. Als Alternative kann der komplette Nachrichtentext kopiert werden. Die Website zeigt ausdrücklich keine Versandbestätigung. Es gibt keinen Formularserver, keine Datenbank, keine Uploads und keine automatischen Nachrichten.
+## Gast- und Partneranfragen
 
-Für einen späteren direkten Formularversand sind Empfangsadresse und Hosting festzulegen. Anschließend einen serverseitigen Empfang mit Eingabevalidierung, Längenbegrenzung, Missbrauchsschutz und Zustellungsprüfung einrichten sowie die Datenschutzhinweise an die tatsächlichen Anbieter und Abläufe anpassen. Keine geheimen Schlüssel im Browser hinterlegen.
+Die statischen Formulare bereiten die Eingaben als E-Mail an `info@nachlassgold.de` auf. Interessierte prüfen den Entwurf und öffnen ihre E-Mail-App oder kopieren den Nachrichtentext. Die Angaben bleiben bis zum Wechsel in die E-Mail-App im Browser. Bei deaktiviertem JavaScript ist die E-Mail-Adresse direkt erreichbar.
 
-## Bewegung und Performance
+Die bisherigen Bezeichnungen Episodenpartner, Formatpartner und individuelle Partnerschaft beschreiben den gewünschten Umfang. Preise und Leistungen für direkte Vereinbarungen stimmt Dietmar mit Interessierten ab. Auf der eigenen Projektseite von Startnext gelten die dort veröffentlichten Angebote.
 
-Die goldene Klangskulptur wird als räumliches Modell perspektivisch auf Canvas gezeichnet und benötigt kein WebGL. Das Grafikmodul wird erst in Sichtnähe geladen. Eine kurze Eingangsbewegung endet nach 4,2 Sekunden; danach wird nur bei Mausbewegung oder Größenänderung neu gezeichnet. Außerhalb des sichtbaren Bereichs und in inaktiven Tabs stoppt die Berechnung. `prefers-reduced-motion` erhält eine ruhende Darstellung ohne Mausreaktion. Das SVG bleibt als Ersatz sichtbar, wenn Canvas oder JavaScript nicht verfügbar sind. Schriften und Grafiken werden lokal geladen, keine Analyse- oder Werbedienste.
+## Gestaltung und Quellen
 
-## Noch von Dietmar zu konkretisieren
+Das Plattencover verwendet Dietmars vorhandenes Originalfoto am Mikrofon. Die fotografische Hülle und die Platte liegen in zwei perspektivischen CSS-Ebenen. Die Hülle reagiert auf präzise Zeigerbewegungen. Touchgeräte und Besucher mit aktivierter Bewegungsreduktion sehen eine ruhende Komposition. Fotos, Schriften und Bedienelemente werden lokal ausgeliefert.
 
-- Kriterien und Ablauf für Gastbewerbungen; gewünschter Empfangsweg.
-- Finale Namen, Leistungsumfang und Preise der drei Sponsoring-Varianten.
-- Bestätigte Partnerlogos, freigegebene Folgen und Veröffentlichungstermine.
-- Endgültige Podcast-Domain, Hosting und abschließende Freigabe der Inhalte und Rechtstexte.
+- Der persönliche Einstieg von Hotel Matze diente als Vorbild für die frühe Vorstellung des Gastgebers. [Hotel Matze](https://www.hotelmatze.de/)
+- Acquired zeigt das Format mit eigener Covergestaltung und einem direkten Zugang zur Folge. Die Aktion bei Goldgezwitscher richtet sich nach dem Stand der Veröffentlichung. [Acquired](https://www.acquired.fm/)
+- Die Gestaltungsreferenz Oura aus dem vereinbarten Design-Repository prägte Papierfarbe und Serifen. [Awesome Design MD](https://github.com/VoltAgent/awesome-design-md)
+- Angaben zur ersten Staffel, zum Produktionsort und zur Veröffentlichung auf YouTube stammen aus Dietmars Kampagne. [Goldgezwitscher auf Startnext](https://www.startnext.com/goldgezwitscher)
 
-Der aktuelle Stand bleibt eine Vorschau mit `noindex,nofollow`. Es wurden keine Folgen, Sponsoren, Gäste oder Termine erfunden.
+Die Vorschau verwendet `noindex,nofollow`. Ansprechpartner, Fotolizenzen und vorhandene rechtliche Angaben sind von jeder Seite erreichbar.

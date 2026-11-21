@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Goldgezwitscher//Podcast//DE
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:podcaststart-20261201@goldgezwitscher.rateriser.tech
+DTSTAMP:20261121T000000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:Goldgezwitscher – geplanter Podcaststart
+DESCRIPTION:Geplanter Auftakt des Videopodcasts mit Dietmar Vogelmann.
+URL:https://goldgezwitscher.rateriser.tech/
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
