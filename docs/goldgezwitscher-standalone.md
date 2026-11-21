@@ -6,12 +6,12 @@ Die Vorschau läuft auf der im Repository hinterlegten GitHub-Pages-Domain. Auf 
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Cover, Gastgeber und Marken, Crowdfunding, Newsletter, Gasteinladung, drei Sponsoringpakete und häufige Fragen |
+| `index.html` | Cover mit Direktlinks zur Kampagne und Gastbewerbung, Crowdfunding, Gasteinladung, Gastgeber und Marken, Newsletter, drei Sponsoringpakete und häufige Fragen |
 | `bewerben.html` | Gastprofil mit Kurzvita, Branche, optionaler Firma und Gesprächsthema |
 | `sponsoren.html` | Partneranfrage. Die Links der Pakete wählen über `?paket=bronze`, `silber` oder `gold` den passenden Eintrag aus. |
 | `format.html`, `dietmar.html`, `mitmachen.html` | Weiterleitungen zu den zugehörigen Abschnitten der Startseite, einschließlich eines sichtbaren Ersatzlinks |
 | `startpost-datenschutz.html` | Einwilligung, Verwendung der E-Mail-Adresse und Abmeldung |
-| `assets/podcast.css`, `assets/gastgeber.css` und `assets/podcast.js` | Darstellung, Menü, Veröffentlichung und Formulare |
+| `assets/podcast.css`, `assets/gastgeber.css`, `assets/kurzprofil.css` und `assets/podcast.js` | Darstellung, Menü, Veröffentlichung und Formulare |
 | `assets/social/` | Lokal gespeicherte Instagram- und TikTok-Zeichen mit Lizenz |
 
 ## Titelsong und erste Folge veröffentlichen
@@ -29,6 +29,8 @@ Die eingegangene Nachricht mit Zeitpunkt und Einwilligung aufbewahren. Die Absen
 ## Gast- und Partneranfragen
 
 Die statischen Formulare bereiten die Eingaben als E-Mail an `info@nachlassgold.de` auf. Interessierte prüfen den Entwurf und öffnen ihre E-Mail-App oder kopieren den Nachrichtentext. Die Angaben bleiben bis zum Wechsel in die E-Mail-App im Browser. Bei deaktiviertem JavaScript ist die E-Mail-Adresse direkt erreichbar.
+
+Im Crowdfunding-Abschnitt stehen die Produktionskosten von 750 Euro pro Folge. Startnext führt die Kampagne für die ersten vier Folgen.
 
 Für direkte Sponsoringanfragen kostet Bronze zum Podcaststart 150 Euro und Silber 750 Euro je Folge. Für Gold macht Dietmar dem Unternehmen ein individuelles Angebot für die ganze Staffel. Die Konditionen der Startnext-Dankeschöns stehen auf der Kampagnenseite.
 

@@ -129,10 +129,9 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
 .release-date { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: .65rem; margin-top: .6rem; color: #c7c7cd; font-size: .91rem; }
 .release-date time { color: white; font-weight: 600; }
 .date-action { display: inline-flex; align-items: center; min-height: 2.75rem; text-underline-offset: .25em; }
-.hero-actions { margin-top: 1.5rem; }
-.hero-actions .button { background: var(--light); color: var(--ink); padding-inline: 1.35rem; }
-.hero-actions .button:hover { background: var(--gold); }
-.cover-hero .text-link { text-decoration-color: #9c9da2; }
+.hero-actions { margin-top: 1.5rem; gap: .65rem .8rem; }
+.hero-actions .button-outline { border-color: #9d9b96; color: white; background: transparent; }
+.hero-actions .button-outline:hover { background: #292a2d; border-color: var(--gold); }
 .theme-player { display: grid; gap: .45rem; margin-top: 1.1rem; max-width: 24rem; }
 .theme-player p { color: var(--gold); font-weight: 600; }
 .theme-player audio { width: 100%; }
@@ -141,11 +140,29 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
 .cover-portrait::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #07080adc, transparent 25%), linear-gradient(90deg, #121315, #12131544 11%, transparent 28%); }
 .cover-portrait figcaption { position: absolute; z-index: 1; left: 14%; bottom: 5%; display: flex; align-items: center; gap: .7rem; color: white; font: italic 500 clamp(1.65rem,2.65vw,2.75rem)/1 var(--serif); }
 .cover-portrait figcaption::before { content: ''; width: 2.25rem; height: 1px; background: var(--gold); }
-.hero-facts { border-top: 1px solid var(--dark-line); display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; padding-block: 1.4rem; }
-.hero-facts > div { display: flex; align-items: baseline; justify-content: center; gap: .8rem; border-left: 1px solid var(--dark-line); }
-.hero-facts > div:first-child { justify-content: flex-start; border-left: 0; }
-.hero-facts span { color: #bcbcc1; font-size: .85rem; }
-.hero-facts strong { font-weight: 550; font-size: .99rem; }
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--dark-line);
+  padding-block: clamp(1.15rem, 2.1vw, 1.85rem);
+}
+.hero-facts > div {
+  position: relative;
+  display: grid;
+  place-content: center;
+  gap: .3rem;
+  text-align: center;
+}
+.hero-facts > div + div::before {
+  content: '';
+  position: absolute;
+  inset-block: 8%;
+  inset-inline-start: 0;
+  width: 1px;
+  background: var(--dark-line);
+}
+.hero-facts dt { color: var(--gold); font-size: clamp(.75rem, 1.1vw, .875rem); line-height: 1.3; }
+.hero-facts dd { font-size: clamp(.875rem, 1.65vw, 1.4rem); font-weight: 550; line-height: 1.25; }
 .page-heading > .actions { margin-top: 1.45rem; }
 
 /* Icons are local and inherit the link colour, including keyboard and forced-colour states. */
@@ -178,14 +195,37 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 .profile-links { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.4rem; margin-top: 1rem; }
 .profile-links a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .96rem; font-weight: 600; }
 
-/* Newsletter and campaign */
-.campaign-band { background: #191b20; color: #fafafa; }
-.campaign-grid { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,.82fr); align-items: center; gap: clamp(2rem,7vw,7rem); padding-block: var(--section-space); }
-.campaign-grid .eyebrow { color: var(--gold); }
-.campaign-grid :is(h2,h3) em { display: block; }
-.campaign-signup { min-width: 0; }
-.campaign-signup h2 { font-size: clamp(3.25rem,6.1vw,6.2rem); }
-.campaign-signup h2 + p { max-width: 30rem; margin: 1.1rem 0 1.5rem; font-size: 1.075rem; color: #e2e2e5; }
+/* Launch campaign and production costs */
+.funding-section { background: #faf9f6; }
+.funding-layout, .newsletter-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
+  align-items: center;
+  gap: clamp(2.5rem, 8vw, 8rem);
+}
+.funding-story h2 em, .newsletter-layout h2 em { display: block; }
+.funding-story h2 em { color: var(--brass); }
+.section-lead { max-width: 43ch; margin-top: 1.2rem; font-size: clamp(1.02rem, 1.35vw, 1.18rem); line-height: 1.6; }
+.funding-story .section-lead { color: var(--muted); }
+.funding-story .button { margin-top: 1.4rem; }
+.funding-story .button span { margin-left: .2rem; }
+.episode-cost {
+  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(1.5rem, 3vw, 3rem) clamp(2rem, 5vw, 5rem);
+  border-inline-start: 1px solid #c6b9a3;
+}
+.episode-cost p { display: grid; gap: .9rem; }
+.episode-cost strong {
+  font: 500 clamp(5rem, 8.8vw, 8.5rem)/.98 var(--serif);
+  font-variant-numeric: lining-nums;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+.episode-cost strong span { color: var(--brass); font-size: .63em; }
+.episode-cost p > span { font-size: clamp(1rem, 1.55vw, 1.3rem); line-height: 1.35; max-width: 20ch; }
+
+.newsletter-section { background: #191b20; color: white; }
+.newsletter-layout .eyebrow { color: var(--gold); }
+.newsletter-layout .section-lead { color: #e2e2e5; }
 .newsletter-enrollment { max-width: 32rem; }
 .newsletter-enrollment > .button { color: #1b1916; }
 .newsletter-enrollment .fine-print { margin-top: 1rem; font-size: .9rem; color: #c5c6cc; }
@@ -196,22 +236,19 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 .newsletter-webmail .button:hover { background: #303238; }
 .newsletter-webmail .copy-status { margin-top: .6rem; }
 .copy-status:empty { display: none; }
-.campaign-story { border-left: 1px solid #57585d; padding: 1rem 0 1.15rem clamp(1.6rem,4.2vw,4.25rem); }
-.campaign-story h2 { font-size: clamp(2.65rem,4.15vw,4.25rem); }
-.campaign-story > p:not(.eyebrow) { color: #d7d8dd; margin: 1.1rem 0 .65rem; max-width: 28rem; }
-.campaign-story .text-link { color: var(--gold); }
-.campaign-band :focus-visible { outline-color: var(--gold); }
+.newsletter-section :focus-visible, .guest-invite :focus-visible { outline-color: var(--gold); }
 
-/* A microphone opposite the invitation. The photograph is credited as a studio detail. */
-.guest-invite { color: var(--ink); background: white; }
-.invite-spread { align-items: center; padding-block: clamp(3.1rem,6.75vw,6.4rem); }
+/* Invitation to take the second microphone. */
+.guest-invite { color: white; background: #1a1b1e; }
+.invite-spread { align-items: center; padding-block: var(--section-space); }
 .invite-image { overflow: hidden; }
-.invite-image img { width: 100%; height: auto; aspect-ratio: 1.46; object-fit: cover; object-position: 58% 47%; }
-.invite-copy .eyebrow { color: var(--brass); }
+.invite-image img { width: 100%; height: auto; aspect-ratio: 1.23; object-fit: cover; object-position: 58% 47%; }
+.invite-copy .eyebrow { color: var(--gold); }
 .invite-copy h2 em { display: block; }
-.invite-copy .button { background: var(--charcoal); color: white; }
-.invite-copy .button:hover { background: #38393e; }
-.invite-copy > p:not(.eyebrow) { margin: 1.2rem 0 1.5rem; color: var(--muted); max-width: 31rem; }
+.invite-copy > p:not(.eyebrow) { margin-top: 1.2rem; color: #e1e1e4; max-width: 44ch; }
+.guest-steps { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; margin: 1.3rem 0 1.55rem; padding: 0; list-style: none; }
+.guest-steps li { display: flex; align-items: center; gap: .6rem; color: #e8d5b3; font-size: .94rem; }
+.guest-steps li + li::before { content: ''; width: .34rem; height: .34rem; border: solid #b8a47d; border-width: 1px 1px 0 0; transform: rotate(45deg); }
 
 /* The impressions repeat the bird on Dietmar's cover in three metal finishes. */
 .partnerships { background: #eeeef0; border-top: 1px solid #dbdcdf; }
@@ -361,9 +398,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 @media (max-width: 980px) {
   :root { --gutter: clamp(1.3rem, 4.5vw, 3rem); }
   .hero-copy .show-title { font-size: clamp(5.25rem,9.1vw,6rem); }
-  .hero-actions { gap: .5rem 1rem; }
-  .hero-facts > div { flex-direction: column; gap: .12rem; padding-left: 1.15rem; }
-  .hero-facts > div:first-child { padding-left: 0; }
+  .hero-actions .button { padding-inline: 1rem; }
   .main-nav { gap: 1rem; }
   .partner-grid { gap: .8rem; }
   .footer-main { grid-template-columns: 1fr .65fr 1fr; }
@@ -395,21 +430,26 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
   .cover-portrait img { object-position: 50% 38%; }
   .cover-portrait::after { background: linear-gradient(0deg,#08090bc9,transparent 30%); }
   .cover-portrait figcaption { bottom: 7%; left: var(--gutter); font-size: 1.6rem; }
-  .hero-intro { grid-row: 4; max-width: 35rem; }
+  .hero-intro { grid-row: 5; max-width: 35rem; }
   .release-date { grid-row: 6; margin-top: .7rem; }
-  .hero-actions { grid-row: 5; margin-top: 1.05rem; }
+  .hero-actions { grid-row: 4; margin: 0 0 1rem; }
   .theme-player { grid-row: 7; }
-  .hero-facts { gap: .55rem; padding-block: 1.05rem; }
-  .hero-facts > div { padding-left: .65rem; }
-  .hero-facts strong { font-size: .94rem; }
-  .hero-facts span { font-size: .82rem; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .footer-main > div { grid-column: 1/-1; }
   .footer-main nav a, .footer-family a, .footer-fine nav a { min-height: 2.75rem; }
   .partner-intro, .invite-spread, .form-grid, .legal-layout { grid-template-columns: minmax(0,1fr); gap: 1.65rem; }
   .partner-intro h2 { max-width: 12em; }
-  .campaign-grid { grid-template-columns: minmax(0,1fr); gap: 2.25rem; }
-  .campaign-story { border-left: 0; border-top: 1px solid #57585d; padding: 2.25rem 0 0; }
+  .funding-layout, .newsletter-layout { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+  .funding-story, .episode-cost { grid-column: 1; }
+  .funding-story { display: contents; }
+  .funding-story .eyebrow { grid-row: 1; }
+  .funding-story h2 { grid-row: 2; margin: -.7rem 0 0; }
+  .funding-story h2 em, .newsletter-layout h2 em { display: inline; }
+  .funding-story .section-lead { grid-row: 3; margin-top: -.45rem; }
+  .episode-cost { grid-row: 4; border-inline-start: 0; border-block: 1px solid #c6b9a3; padding: 1.05rem 0; }
+  .episode-cost p { display: flex; align-items: center; gap: 1rem; }
+  .episode-cost strong { font-size: clamp(3.6rem, 12vw, 5rem); }
+  .funding-story .button { grid-row: 5; margin: 0; justify-self: start; }
   .invite-spread { gap: 2rem; }
   .invite-image img { aspect-ratio: 2.15; }
   .invite-copy h2 em { display: inline; }
@@ -435,13 +475,10 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
   :root { --gutter: 1.25rem; }
   .hero-layout { padding-top: 1.8rem; }
   .hero-intro { font-size: 1.04rem; line-height: 1.5; }
-  .hero-actions { gap: .4rem 1.1rem; }
-  .hero-actions .text-link { font-size: .94rem; }
+  .hero-actions { gap: .45rem; }
+  .hero-actions .button { font-size: .95rem; padding-inline: .78rem; }
   .release-date { align-items: center; }
   .button { min-height: 3.05rem; }
-  .hero-facts { grid-template-columns: 1fr 1.06fr 1.24fr; gap: .3rem; }
-  .hero-facts > div { justify-content: flex-start; padding-left: .5rem; }
-  .hero-facts strong { font-size: .85rem; line-height: 1.3; }
   .form-row { grid-template-columns: 1fr; gap: 1.2rem; }
   .footer-main { gap: 1.15rem; grid-template-columns: 1fr; padding-block: 2.6rem 1.35rem; }
   .footer-main > div { grid-column: auto; }
@@ -453,9 +490,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
   .header-inner .brand > span { font-size: 1.42rem; }
   .header-inner .brand img { width: 1.55rem; }
   .menu-toggle { padding-inline: .45rem; gap: .3rem; }
-  .hero-actions { gap: .3rem .75rem; }
-  .hero-actions .button { font-size: .94rem; padding-inline: .74rem; }
-  .hero-actions .text-link { font-size: .9rem; }
+  .hero-actions .button { font-size: .875rem; padding-inline: .58rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }

@@ -9,13 +9,14 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
     <meta name="theme-color" content="#121315">
     <title>Als Gast vorstellen · Goldgezwitscher</title>
-    <meta name="description" content="Stell dich mir als Gast vor. In einem kurzen Steckbrief erfahre ich etwas über deine Arbeit, dein Unternehmen und dein Thema für unser Gespräch.">
+    <meta name="description" content="Ich suche Gäste für Goldgezwitscher. Erzähl mir in einem Kurzprofil von deinem Weg und dem Thema, das du mit ins Studio bringen möchtest.">
     <meta property="og:title" content="Als Gast vorstellen · Goldgezwitscher">
-    <meta property="og:description" content="Stell dich mir als Gast vor. In einem kurzen Steckbrief erfahre ich etwas über deine Arbeit, dein Unternehmen und dein Thema für unser Gespräch.">
+    <meta property="og:description" content="Ich suche Gäste für Goldgezwitscher. Erzähl mir in einem Kurzprofil von deinem Weg und dem Thema, das du mit ins Studio bringen möchtest.">
     <meta property="og:image" content="https://goldgezwitscher.rateriser.tech/assets/v7-dietmar-am-mikrofon-1110.webp">
     <link rel="icon" href="assets/haus-vogel.webp" type="image/webp">
     <link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/podcast.css?v=studio-faq1">
+    <link rel="stylesheet" href="assets/kurzprofil.css">
     <script src="assets/podcast.js?v=atelier1" defer></script>
   </head>
   <body class="page-bewerben">
@@ -39,61 +40,90 @@
         <div class="container form-grid">
           <div class="form-intro">
             <a class="back-link" href="index.html#gast-werden">Zurück zum Podcast</a>
-            <p class="eyebrow">Gast werden</p>
+            <p class="eyebrow">Als Gast bewerben</p>
             <h1>Stell dich <em>mir vor.</em></h1>
-            <p>Erzähl mir kurz, was du machst und worüber du sprechen möchtest. Wenn dein Thema passt, verabreden wir uns zu einem Vorgespräch.</p>
-            <p class="mail-note">Hier bereitest du deine Nachricht an mich vor. Du kannst sie in deiner E-Mail-App versenden oder für Webmail kopieren.</p>
-            <a class="text-link" href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>
+            <p>Ich möchte die Menschen kennenlernen, die mit Gold zu tun haben. Erzähl mir, wie du dazugekommen bist und was du mit mir besprechen möchtest.</p>
+            <h2 class="interview-heading">Bevor wir ins Studio gehen</h2>
+            <p>Wenn ich mir eine Folge mit dir vorstellen kann, melde ich mich per E-Mail. In einem kurzen Vorgespräch lernen wir uns kennen und finden gemeinsam heraus, worüber wir vor der Kamera reden wollen.</p>
           </div>
           <div>
-            <noscript><p>Schreib deine Bewerbung direkt an <a href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>.</p></noscript>
-            <form class="inquiry-form" method="post" data-inquiry="guest" data-email="info@nachlassgold.de" hidden="">
-              <div class="form-row">
-                <div class="field">
-                  <label for="name">Dein Name</label>
-                  <input id="name" name="Name" autocomplete="name" maxlength="100" required>
+            <noscript>
+              <div class="application-fallback">
+                <h2>Dein Kurzprofil per E-Mail</h2>
+                <p>Schreib mir deinen Namen, deine Tätigkeit und Branche, ein paar Zeilen zu deinem Werdegang und dein Gesprächsthema. Wenn du magst, nenne auch deine Firma oder schick mir einen Link zu deiner Arbeit.</p>
+                <a class="text-link" href="mailto:info@nachlassgold.de?subject=Gastbewerbung%20f%C3%BCr%20Goldgezwitscher">info@nachlassgold.de</a>
+                <p><a href="datenschutz.html#kontaktaufnahme">Datenschutzhinweise zur Kontaktaufnahme</a></p>
+              </div>
+            </noscript>
+            <form class="inquiry-form" method="post" data-inquiry="guest" data-email="info@nachlassgold.de" hidden>
+              <fieldset class="profile-group">
+                <legend>Dein Kurzprofil</legend>
+                <div class="profile-fields">
+                  <div class="field">
+                    <label for="name">Dein Name</label>
+                    <input id="name" name="Name" autocomplete="name" maxlength="100" required>
+                  </div>
+                  <div class="form-row">
+                    <div class="field">
+                      <label for="role">Heutige Tätigkeit</label>
+                      <input id="role" name="Tätigkeit" autocomplete="organization-title" maxlength="140" required>
+                    </div>
+                    <div class="field">
+                      <label for="company">Firma <span>(optional)</span></label>
+                      <input id="company" name="Unternehmen" autocomplete="organization" maxlength="160">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="interest">Deine Branche</label>
+                    <select id="interest" name="Branche" required>
+                      <option value="">Bitte auswählen</option>
+                      <option>Gold- und Edelmetallhandel</option>
+                      <option>Goldschmiedehandwerk</option>
+                      <option>Schmuckherstellung oder Industrie</option>
+                      <option>Edelsteine und Schmuckhandel</option>
+                      <option>Medien und Social Media</option>
+                      <option>Andere Branche</option>
+                      <option>Ich komme als Privatperson</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="vita">Dein Werdegang</label>
+                    <p class="field-hint" id="vita-hint">Welche Stationen haben dich geprägt? Ein paar Stichpunkte reichen.</p>
+                    <textarea id="vita" name="Kurzvita" rows="3" maxlength="650" aria-describedby="vita-hint" required></textarea>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="email">Deine E-Mail-Adresse</label>
-                  <input id="email" name="E-Mail" type="email" autocomplete="email" maxlength="180" required>
+              </fieldset>
+              <fieldset class="profile-group">
+                <legend>Unser Gespräch</legend>
+                <div class="profile-fields">
+                  <div class="field">
+                    <label for="message">Dein Themenvorschlag</label>
+                    <p class="field-hint" id="message-hint">Erzähl mir, was du aus eigener Erfahrung zu dem Thema sagen kannst. Schreib bitte mindestens 20 Zeichen.</p>
+                    <textarea id="message" name="Gesprächsthema" rows="4" minlength="20" maxlength="1600" aria-describedby="message-hint" required></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="profile">Website oder Social-Media-Profil <span>(optional)</span></label>
+                    <input id="profile" name="Profil" type="url" placeholder="https://" maxlength="240" autocomplete="url">
+                  </div>
                 </div>
+              </fieldset>
+              <fieldset class="profile-group">
+                <legend>So erreiche ich dich</legend>
+                <div class="profile-fields">
+                  <div class="field">
+                    <label for="email">Deine E-Mail-Adresse</label>
+                    <input id="email" name="E-Mail" type="email" autocomplete="email" maxlength="180" required>
+                  </div>
+                  <label class="check-row"><input name="privacy" type="checkbox" required><span>Ich habe die <a href="datenschutz.html#kontaktaufnahme">Datenschutzhinweise zur Kontaktaufnahme</a> gelesen.</span></label>
+                </div>
+              </fieldset>
+              <div class="profile-submit">
+                <p>Aus deinen Angaben entsteht eine E-Mail an mich. Du kannst sie vor dem Versand lesen und aus deinem Postfach an <a href="mailto:info@nachlassgold.de">info@nachlassgold.de</a> schicken.</p>
+                <button type="submit" class="button button-green">E-Mail-Entwurf erstellen</button>
               </div>
-              <div class="field">
-                <label for="company">Firma oder Organisation (optional)</label>
-                <input id="company" name="Unternehmen" autocomplete="organization" maxlength="160">
-              </div>
-              <div class="field">
-                <label for="interest">Deine Branche</label>
-                <select id="interest" name="Branche" required>
-                  <option value="">Bitte auswählen</option>
-                  <option>Gold- und Edelmetallhandel</option>
-                  <option>Goldschmiedehandwerk</option>
-                  <option>Schmuckherstellung oder Industrie</option>
-                  <option>Edelsteine und Schmuckhandel</option>
-                  <option>Medien und Social Media</option>
-                  <option>Andere Branche</option>
-                  <option>Ich komme als Privatperson</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="vita">Dein Weg in die Branche</label>
-                <p class="field-hint" id="vita-hint">Zwei oder drei Sätze zu deiner Tätigkeit und deinem bisherigen Weg genügen.</p>
-                <textarea id="vita" name="Kurzvita" rows="3" maxlength="650" aria-describedby="vita-hint" required></textarea>
-              </div>
-              <div class="field">
-                <label for="message">Dein Thema für unser Gespräch</label>
-                <p class="field-hint" id="message-hint">Erzähl mir in ein paar Sätzen von einer Begebenheit, die du selbst erlebt hast (mindestens 20 Zeichen).</p>
-                <textarea id="message" name="Gesprächsthema" rows="5" minlength="20" maxlength="1600" aria-describedby="message-hint" required></textarea>
-              </div>
-              <div class="field">
-                <label for="profile">Website oder Social-Media-Profil (optional)</label>
-                <input id="profile" name="Profil" type="url" placeholder="https://" maxlength="240" autocomplete="url">
-              </div>
-              <label class="check-row"><input name="privacy" type="checkbox" required><span>Ich habe die <a href="datenschutz.html#kontaktaufnahme">Datenschutzhinweise zur Kontaktaufnahme</a> gelesen.</span></label>
-              <button type="submit" class="button button-green">E-Mail-Entwurf erstellen</button>
               <section class="form-result" hidden tabindex="-1" aria-labelledby="result-title">
                 <h3 id="result-title">Dein Entwurf ist fertig.</h3>
-                <p>Öffne den Entwurf in deiner E-Mail-App und schick ihn mir. Du kannst den Text auch kopieren und an info@nachlassgold.de schicken.</p>
+                <p>Öffne den Entwurf in deiner E-Mail-App und sende ihn ab. Wenn du Webmail nutzt, kopiere den Text in eine neue Nachricht an info@nachlassgold.de.</p>
                 <label for="prepared-message">Deine Nachricht</label>
                 <textarea id="prepared-message" rows="8" readonly></textarea>
                 <div class="actions">
