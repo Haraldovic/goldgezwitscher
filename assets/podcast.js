@@ -12,6 +12,17 @@ function activateMenu() {
   const menu = document.querySelector('.menu-toggle');
   const nav = document.getElementById('hauptmenue');
 
+  // The original legal pages share this navigation with the podcast.
+  if (!nav.querySelector('a[href="mitmachen.html"]')) {
+    nav.querySelector('a[href="format.html"]').insertAdjacentHTML('afterend', '<a href="mitmachen.html">Crowdfunding</a>');
+    nav.querySelector('a[href="sponsoren.html"]').textContent = 'Sponsoring';
+    document.querySelector('.site-footer nav[aria-label="Mitmachen"]').insertAdjacentHTML('beforeend', '<a href="index.html#startpost">E-Mail-Updates</a>');
+  }
+  const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');
+  if (privacyOverview) {
+    privacyOverview.insertAdjacentHTML('beforeend', '<p><a href="startpost-datenschutz.html">Datenschutz zur Startpost</a></p>');
+  }
+
   function setOpen(open) {
     nav.classList.toggle('is-open', open);
     menu.setAttribute('aria-expanded', String(open));
@@ -49,6 +60,10 @@ function showRelease() {
   const actionUrl = release.episodeUrl || 'mitmachen.html';
   const actionText = published ? 'Erste Folge ansehen' : 'Zum Startnext-Projekt';
   document.querySelectorAll('[data-premiere-action]').forEach(link => {
+    if (!published && link.hasAttribute('data-home-date')) {
+      link.hidden = true;
+      return;
+    }
     link.removeAttribute('download');
     link.href = actionUrl;
     link.textContent = actionText;
@@ -109,6 +124,62 @@ function activateTopics() {
   sections.forEach(section => section.addEventListener('toggle', updatePhoto));
 }
 
+// The static site hands the draft to the visitor's mail application.
+function mailDraftLink(recipient, subject, body) {
+  return 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+
+function enableDraftCopy(button, output, status) {
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(output.value);
+      status.textContent = 'Nachricht kopiert.';
+    } catch {
+      const details = output.closest('details');
+      if (details) details.open = true;
+      output.focus();
+      output.select();
+      status.textContent = 'Der Text ist markiert. Kopiere ihn und füge ihn in eine E-Mail ein.';
+    }
+  });
+}
+
+function activateUpdates() {
+  const form = document.querySelector('[data-updates]');
+  if (!form) return;
+  const email = form.elements.namedItem('E-Mail');
+  const result = form.querySelector('.form-result');
+  const draft = form.querySelector('textarea');
+  const link = form.querySelector('[data-email-link]');
+  const status = form.querySelector('.copy-status');
+  const recipient = form.dataset.email;
+
+  function clearDraft() {
+    result.hidden = true;
+    draft.value = '';
+    link.setAttribute('href', 'mailto:' + recipient);
+    status.textContent = '';
+  }
+  form.addEventListener('input', clearDraft);
+  form.addEventListener('change', clearDraft);
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const body = [
+      'Hallo Dietmar,', '',
+      form.querySelector('[data-consent-text]').textContent.trim(),
+      'Meine E-Mail-Adresse: ' + email.value.trim(),
+      'Ich kann mich jederzeit per Antwort abmelden.', '', 'Viele Grüße'
+    ].join('\r\n');
+    draft.value = body;
+    link.href = mailDraftLink(recipient, 'Goldgezwitscher – Anmeldung zur Startpost', body);
+    result.hidden = false;
+    result.focus();
+  });
+  enableDraftCopy(form.querySelector('[data-copy]'), draft, status);
+  form.hidden = false;
+}
+
 function activateInquiry() {
   const form = document.querySelector('[data-inquiry]');
   if (!form) return;
@@ -120,6 +191,8 @@ function activateInquiry() {
   const interest = form.querySelector('#interest');
   function clearDraft() {
     result.hidden = true;
+    output.value = '';
+    emailLink.setAttribute('href', 'mailto:' + form.dataset.email);
     copyStatus.textContent = '';
   }
   document.querySelectorAll('[data-package]').forEach(link => {
@@ -159,20 +232,11 @@ function activateInquiry() {
     lines.push('', 'Viele Grüße', name);
     const body = lines.join('\r\n');
     output.value = body;
-    emailLink.href = 'mailto:' + form.dataset.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    emailLink.href = mailDraftLink(form.dataset.email, subject, body);
     result.hidden = false;
     result.focus();
   });
-  form.querySelector('[data-copy]').addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(output.value);
-      copyStatus.textContent = 'Nachricht kopiert.';
-    } catch {
-      output.focus();
-      output.select();
-      copyStatus.textContent = 'Der Text ist markiert. Kopiere ihn und füge ihn in eine E-Mail ein.';
-    }
-  });
+  enableDraftCopy(form.querySelector('[data-copy]'), output, copyStatus);
   form.hidden = false;
 }
 
@@ -181,3 +245,4 @@ showRelease();
 activateRecord();
 activateTopics();
 activateInquiry();
+activateUpdates();
