@@ -22,12 +22,13 @@ function connectOriginalNotices() {
   const partners = nav.querySelector('a[href="sponsoren.html"]');
   partners.href = 'index.html#sponsoring';
   partners.textContent = 'Sponsoring';
+  partners.insertAdjacentHTML('afterend', '<a href="index.html#faq">FAQ</a>');
   nav.querySelector('.nav-guest').href = 'index.html#gast-werden';
   const footer = document.querySelector('.site-footer');
   const footerNav = footer.querySelector('nav[aria-label="Mitmachen"]');
   footerNav.querySelector('a[href="mitmachen.html"]').href = 'index.html#crowdfunding';
   footerNav.querySelector('a[href="sponsoren.html"]').href = 'index.html#sponsoring';
-  footerNav.insertAdjacentHTML('beforeend', '<a href="index.html#startpost">Newsletter</a>');
+  footerNav.insertAdjacentHTML('beforeend', '<a href="index.html#startpost">Newsletter</a><a href="index.html#faq">Häufige Fragen</a>');
   footer.querySelector('.brand + p').textContent = 'Mein Videopodcast aus Karlsruhe. Dietmar Vogelmann.';
   footer.querySelector('.footer-family span').textContent = 'Meine Arbeit mit Gold und Schmuck';
   const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');

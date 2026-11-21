@@ -6,7 +6,7 @@ Die Vorschau läuft auf der im Repository hinterlegten GitHub-Pages-Domain. Auf 
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Cover, Gastgeber und Marken, Crowdfunding, Newsletter, Gasteinladung und drei Sponsoringpakete |
+| `index.html` | Cover, Gastgeber und Marken, Crowdfunding, Newsletter, Gasteinladung, drei Sponsoringpakete und häufige Fragen |
 | `bewerben.html` | Gastprofil mit Kurzvita, Branche, optionaler Firma und Gesprächsthema |
 | `sponsoren.html` | Partneranfrage. Die Links der Pakete wählen über `?paket=bronze`, `silber` oder `gold` den passenden Eintrag aus. |
 | `format.html`, `dietmar.html`, `mitmachen.html` | Weiterleitungen zu den zugehörigen Abschnitten der Startseite, einschließlich eines sichtbaren Ersatzlinks |
@@ -34,7 +34,7 @@ Direkte Sponsoringanfragen verwenden die Richtwerte aus Dietmars Briefing. Bronz
 
 ## Gestaltung und Quellen
 
-Das Titelbild zeigt Dietmar am Mikrofon in Schwarzweiß. Das zweite Porträt und die bebilderten Links zu seinen Unternehmen stehen im Gastgeberbereich. Die drei Metallprägungen auf den Sponsoringpaketen verwenden das Vogelzeichen als Maske. Fotos, Schriften und Plattformzeichen werden lokal ausgeliefert.
+Das Titelbild zeigt Dietmar am Mikrofon in den Farben des Originalfotos. Das zweite Porträt und die bebilderten Links zu seinen Unternehmen stehen im Gastgeberbereich. Die drei Metallprägungen auf den Sponsoringpaketen verwenden das Vogelzeichen als Maske. Fotos, Schriften und Plattformzeichen werden lokal ausgeliefert.
 
 - Dietmars Referenz verbindet eine klare Leitfrage mit dem Ablauf für Bewerber. Die kompakte Navigation und der direkte Weg zum Gastprofil greifen diese Struktur auf. [Marcel Kallas Podcast](https://www.marcelkalla.de/podcast)
 - Der persönliche Einstieg von Hotel Matze diente als Vorbild für die frühe Vorstellung des Gastgebers. [Hotel Matze](https://www.hotelmatze.de/)
