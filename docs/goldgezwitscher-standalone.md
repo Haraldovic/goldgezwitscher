@@ -1,25 +1,24 @@
 # Goldgezwitscher
 
-Die eigenständige Vorschau läuft über GitHub Pages auf der im Repository hinterlegten Domain. Die Startseite führt vom Gesprächsformat zu E-Mail-Updates und Crowdfunding. Dietmars beide Handelsmarken sind über die Gastgeberseite und den Footer erreichbar.
+Die Vorschau läuft auf der im Repository hinterlegten GitHub-Pages-Domain. Auf der Startseite stellt Dietmar seinen Podcast in der Ich-Form vor. Die Hauptnavigation springt direkt zu den Abschnitten. Gastprofil und Partneranfrage haben eigene Adressen.
 
 ## Inhalte pflegen
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Podcastcover, Gastgeber, Gesprächsfragen, geplanter Start, E-Mail-Updates und Kampagne |
-| `format.html` | Format, Veröffentlichungsort und Fragen zur ersten Staffel |
-| `dietmar.html` | Gastgeber, Nachlassgold und Feingold-Vogel |
+| `index.html` | Cover, Gastgeber und Marken, Crowdfunding, E-Mail-Updates, Gasteinladung und drei Sponsoringpakete |
 | `bewerben.html` | Gastprofil mit Kurzvita, Branche, optionaler Firma und Gesprächsthema |
-| `sponsoren.html` | Bronze, Silber und Gold mit Richtwerten und unverbindlicher Anfrage |
-| `startpost-datenschutz.html` | Informationen zu Einwilligung, Verwendung der E-Mail-Adresse und Abmeldung |
-| `mitmachen.html` | Finanzierung der ersten vier Folgen über Startnext |
-| `assets/podcast.css` und `assets/podcast.js` | Gestaltung und Interaktionen aller Seiten |
+| `sponsoren.html` | Partneranfrage. Die Links der Pakete wählen über `?paket=bronze`, `silber` oder `gold` den passenden Eintrag aus. |
+| `format.html`, `dietmar.html`, `mitmachen.html` | Weiterleitungen zu den zugehörigen Abschnitten der Startseite, einschließlich eines sichtbaren Ersatzlinks |
+| `startpost-datenschutz.html` | Einwilligung, Verwendung der E-Mail-Adresse und Abmeldung |
+| `assets/podcast.css` und `assets/podcast.js` | Darstellung, Menü, Veröffentlichung und Formulare |
+| `assets/social/` | Lokal gespeicherte Instagram- und TikTok-Zeichen mit Lizenz |
 
 ## Titelsong und erste Folge veröffentlichen
 
-Am Anfang von `assets/podcast.js` stehen die beiden optionalen Medienfelder im Objekt `release`. Für den Titelsong die freigegebene Audiodatei in `assets/` ablegen und ihren relativen Pfad als `themeSong` eintragen. Der native Player erscheint im Einstieg und spielt auf Wunsch des Besuchers ab. Für die erste Folge den veröffentlichten YouTube-Link als `episodeUrl` eintragen. Der Link neben dem Startdatum und die Formatseite führen dann direkt auf die Folge. E-Mail-Updates und Crowdfunding bleiben von der Startseite erreichbar.
+Im Objekt `release` am Anfang von `assets/podcast.js` den relativen Pfad zur freigegebenen Musikdatei als `themeSong` eintragen. Der Player erscheint auf der Startseite und startet auf Klick. Mit einer veröffentlichten YouTube-Adresse in `episodeUrl` führt der Link neben dem Premierentermin zur ersten Folge.
 
-Der 1. Dezember 2026 ist als geplanter Podcaststart eingetragen. Die Schaltfläche lädt einen ganztägigen, vorläufigen Termin in `podcaststart.ics`. Ab dem Folgetag (Ortszeit Karlsruhe) entfällt der Kalenderlink auf der Startseite. Auf der Formatseite führt die Schaltfläche bei ausstehendem Folgenlink zur Projektseite. Bei einer Terminänderung die Datumsangaben in den beiden HTML-Seiten, den Kalendertermin und `endOfPremiereDay` gemeinsam aktualisieren. Die ältere Datei `goldgezwitscher.ics` enthält den separaten Crowdfunding-Termin.
+Die Premiere ist für den 1. Dezember 2026 geplant. Ohne Folgenlink verschwindet der Kalenderlink ab dem Folgetag (Ortszeit Karlsruhe). Bei einer Terminänderung den Termin auf der Startseite, `podcaststart.ics` und `endOfPremiereDay` gemeinsam aktualisieren. Die ältere Datei `goldgezwitscher.ics` enthält den separaten Crowdfunding-Termin.
 
 ## Post von Dietmar
 
@@ -35,9 +34,9 @@ Direkte Sponsoringanfragen verwenden die Richtwerte aus Dietmars Briefing. Bronz
 
 ## Gestaltung und Quellen
 
-Das Plattencover verwendet Dietmars vorhandenes Originalfoto am Mikrofon. Die fotografische Hülle und die Platte liegen in zwei perspektivischen CSS-Ebenen. Die Hülle reagiert auf präzise Zeigerbewegungen. Touchgeräte und Besucher mit aktivierter Bewegungsreduktion sehen eine ruhende Komposition. Fotos, Schriften und Bedienelemente werden lokal ausgeliefert.
+Das Plattencover verwendet Dietmars vorhandenes Originalfoto am Mikrofon. Die fotografische Hülle und die Platte liegen in zwei perspektivischen CSS-Ebenen. Die Hülle reagiert auf präzise Zeigerbewegungen. Touchgeräte und Besucher mit aktivierter Bewegungsreduktion sehen eine ruhende Komposition. Die drei Metallprägungen verwenden das vorhandene Vogelzeichen als Maske. Fotos, Schriften und Plattformzeichen werden lokal ausgeliefert.
 
-- Dietmars Referenz verbindet eine klare Leitfrage mit dem Ablauf für Bewerber. Die Fragen zum Goldhandel und das kurze Gastprofil greifen diesen Aufbau auf. [Marcel Kallas Podcast](https://www.marcelkalla.de/podcast)
+- Dietmars Referenz verbindet eine klare Leitfrage mit dem Ablauf für Bewerber. Die kompakte Navigation und der direkte Weg zum Gastprofil greifen diese Struktur auf. [Marcel Kallas Podcast](https://www.marcelkalla.de/podcast)
 - Der persönliche Einstieg von Hotel Matze diente als Vorbild für die frühe Vorstellung des Gastgebers. [Hotel Matze](https://www.hotelmatze.de/)
 - Acquired zeigt das Format mit eigener Covergestaltung und einem direkten Zugang zur Folge. Die Aktion bei Goldgezwitscher richtet sich nach dem Stand der Veröffentlichung. [Acquired](https://www.acquired.fm/)
 - Die Gestaltungsreferenz Oura aus dem vereinbarten Design-Repository prägte Papierfarbe und Serifen. [Awesome Design MD](https://github.com/VoltAgent/awesome-design-md)

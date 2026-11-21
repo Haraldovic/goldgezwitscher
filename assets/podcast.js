@@ -8,20 +8,59 @@ const release = {
   endOfPremiereDay: '2026-12-02T00:00:00+01:00'
 };
 
-function activateMenu() {
-  const menu = document.querySelector('.menu-toggle');
+function connectOriginalNotices() {
+  if (!document.body.matches('.page-agb, .page-impressum, .page-datenschutz')) return;
   const nav = document.getElementById('hauptmenue');
-
-  // The original legal pages share this navigation with the podcast.
-  if (!nav.querySelector('a[href="mitmachen.html"]')) {
-    nav.querySelector('a[href="format.html"]').insertAdjacentHTML('afterend', '<a href="mitmachen.html">Crowdfunding</a>');
-    nav.querySelector('a[href="sponsoren.html"]').textContent = 'Sponsoring';
-    document.querySelector('.site-footer nav[aria-label="Mitmachen"]').insertAdjacentHTML('beforeend', '<a href="index.html#startpost">E-Mail-Updates</a>');
-  }
+  const podcast = nav.querySelector('a[href="format.html"]');
+  podcast.href = 'index.html#format';
+  podcast.textContent = 'Mein Podcast';
+  const campaign = nav.querySelector('a[href="dietmar.html"]');
+  campaign.href = 'index.html#crowdfunding';
+  campaign.textContent = 'Crowdfunding';
+  const partners = nav.querySelector('a[href="sponsoren.html"]');
+  partners.href = 'index.html#sponsoring';
+  partners.textContent = 'Sponsoring';
+  nav.querySelector('.nav-guest').href = 'index.html#gast-werden';
+  const footer = document.querySelector('.site-footer');
+  const footerNav = footer.querySelector('nav[aria-label="Mitmachen"]');
+  footerNav.querySelector('a[href="mitmachen.html"]').href = 'index.html#crowdfunding';
+  footerNav.querySelector('a[href="sponsoren.html"]').href = 'index.html#sponsoring';
+  footerNav.insertAdjacentHTML('beforeend', '<a href="index.html#startpost">E-Mail-Updates</a>');
+  footer.querySelector('.brand + p').textContent = 'Mein Videopodcast aus Karlsruhe. Dietmar Vogelmann.';
+  footer.querySelector('.footer-family span').textContent = 'Meine Arbeit mit Gold und Schmuck';
   const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');
   if (privacyOverview) {
     privacyOverview.insertAdjacentHTML('beforeend', '<p><a href="startpost-datenschutz.html">Datenschutz zur Startpost</a></p>');
   }
+
+  // Use the host's voice in the original notices. Keep their names, links and statutory wording intact.
+  const voice = [
+    ['Goldgezwitscher ist der Videocast von Dietmar Vogelmann.', 'Goldgezwitscher ist mein Videopodcast.'],
+    ['Goldgezwitscher ist ein Projekt von Dietmar Vogelmann,', 'Ich betreibe Goldgezwitscher. Meine Geschäftsanschrift lautet Dietmar Vogelmann,'],
+    ['Sie erreichen Dietmar unter', 'Sie erreichen mich unter'],
+    ['direkt an Dietmar wenden', 'direkt an mich wenden'],
+    ['Dietmar erstellt auf dieser Website', 'Ich erstelle auf dieser Website'],
+    ['zum geschäftlich angegebenen Anschluss von Dietmar', 'zu meinem geschäftlichen Anschluss'],
+    ['wird sie an Dietmar übermittelt', 'erhalte ich sie'],
+    ['Wenn du Dietmar kontaktierst, verarbeitet er', 'Wenn du mich kontaktierst, verarbeite ich'],
+    ['Entsprechend erhält Dietmar', 'Entsprechend erhalte ich'],
+    ['Kontaktierst du Dietmar', 'Kontaktierst du mich'],
+    ['Für eine Antwort benötigt Dietmar', 'Für eine Antwort benötige ich'],
+    ['Dietmar beendet die betroffene Verarbeitung, es sei denn, er weist', 'Ich beende die betroffene Verarbeitung, es sei denn, ich weise']
+  ];
+  const words = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT);
+  while (words.nextNode()) {
+    const node = words.currentNode;
+    if (!node.data.includes('Dietmar')) continue;
+    for (const [from, to] of voice) {
+      if (node.data.includes(from)) node.data = node.data.replace(from, to);
+    }
+  }
+}
+
+function activateMenu() {
+  const menu = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('hauptmenue');
 
   function setOpen(open) {
     nav.classList.toggle('is-open', open);
@@ -47,6 +86,31 @@ function activateMenu() {
   document.documentElement.classList.add('menu-ready');
 }
 
+function markLandingSection() {
+  if (!document.body.classList.contains('page-index')) return;
+  const links = Array.from(document.querySelectorAll('#hauptmenue a[href^="#"]'));
+  const sections = links.map(link => ({ link, section: document.querySelector(link.hash) }));
+  let scheduled = false;
+  function update() {
+    scheduled = false;
+    const top = document.querySelector('.masthead').getBoundingClientRect().bottom + 48;
+    for (const { link, section } of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= top && rect.bottom > top) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }
+  function schedule() {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(update);
+  }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  window.addEventListener('pageshow', schedule);
+  schedule();
+}
+
 function showRelease() {
   const player = document.querySelector('[data-theme-player]');
   if (player && release.themeSong) {
@@ -57,29 +121,19 @@ function showRelease() {
   if (!release.episodeUrl && !pastPremiere) return;
 
   const published = Boolean(release.episodeUrl);
-  const actionUrl = release.episodeUrl || 'mitmachen.html';
-  const actionText = published ? 'Erste Folge ansehen' : 'Zum Startnext-Projekt';
   document.querySelectorAll('[data-premiere-action]').forEach(link => {
-    if (!published && link.hasAttribute('data-home-date')) {
+    if (!published) {
       link.hidden = true;
       return;
     }
     link.removeAttribute('download');
-    link.href = actionUrl;
-    link.textContent = actionText;
-    if (published) link.rel = 'external noreferrer';
+    link.href = release.episodeUrl;
+    link.textContent = 'Meine erste Folge ansehen';
+    link.rel = 'external noreferrer';
   });
   document.querySelectorAll('[data-premiere-status]').forEach(status => {
-    status.textContent = published ? 'Die erste Folge ist erschienen.' : 'Die erste Folge ist in Vorbereitung.';
+    status.textContent = published ? 'Meine erste Folge ist online.' : 'Ich bereite meine erste Folge vor.';
   });
-  const episodeInfo = document.querySelector('[data-episode-info]');
-  if (episodeInfo && published) {
-    const link = document.createElement('a');
-    link.href = release.episodeUrl;
-    link.rel = 'external noreferrer';
-    link.textContent = 'Erste Folge auf YouTube ansehen';
-    episodeInfo.replaceChildren(link);
-  }
 }
 
 function activateRecord() {
@@ -104,24 +158,6 @@ function activateRecord() {
   scene.addEventListener('pointerleave', reset);
   scene.addEventListener('pointercancel', reset);
   motion.addEventListener('change', reset);
-}
-
-function activateTopics() {
-  const topics = document.querySelector('[data-topics]');
-  if (!topics) return;
-  const sections = Array.from(topics.querySelectorAll('[data-topic]'));
-  const photo = topics.querySelector('.topic-photo img');
-  const caption = topics.querySelector('.topic-photo [data-caption]');
-  const credit = topics.querySelector('.topic-photo [data-credit]');
-
-  function updatePhoto() {
-    const selected = sections.find(item => item.open) || sections[0];
-    photo.src = selected.dataset.image;
-    photo.alt = selected.dataset.alt;
-    caption.textContent = selected.dataset.caption;
-    credit.textContent = selected.dataset.credit;
-  }
-  sections.forEach(section => section.addEventListener('toggle', updatePhoto));
 }
 
 // The static site hands the draft to the visitor's mail application.
@@ -195,12 +231,11 @@ function activateInquiry() {
     emailLink.setAttribute('href', 'mailto:' + form.dataset.email);
     copyStatus.textContent = '';
   }
-  document.querySelectorAll('[data-package]').forEach(link => {
-    link.addEventListener('click', () => {
-      interest.value = link.dataset.package;
-      clearDraft();
-    });
-  });
+  if (!guest) {
+    const tier = new URLSearchParams(window.location.search).get('paket');
+    const match = Array.from(interest.options).find(option => tier && option.dataset.tier === tier);
+    if (match) interest.value = match.value;
+  }
   const requiredText = form.querySelectorAll('input[required]:not([type="checkbox"]), textarea[required]');
   requiredText.forEach(field => {
     field.addEventListener('input', () => {
@@ -240,9 +275,10 @@ function activateInquiry() {
   form.hidden = false;
 }
 
+connectOriginalNotices();
 activateMenu();
+markLandingSection();
 showRelease();
 activateRecord();
-activateTopics();
 activateInquiry();
 activateUpdates();
