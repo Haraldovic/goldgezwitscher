@@ -6,7 +6,7 @@ Die Vorschau läuft auf der im Repository hinterlegten GitHub-Pages-Domain. Auf 
 
 | Datei | Inhalt |
 | --- | --- |
-| `index.html` | Cover mit Direktlinks zur Kampagne und Gastbewerbung, Crowdfunding, Gasteinladung, Gastgeber und Marken, Newsletter, drei Sponsoringpakete und häufige Fragen |
+| `index.html` | Podcast und Gastgeber, Gastbewerbung, Sponsoringangebote, häufige Fragen, Unternehmen, Startnext-Hinweis und Newsletter |
 | `bewerben.html` | Gastprofil mit Kurzvita, Branche, optionaler Firma und Gesprächsthema |
 | `sponsoren.html` | Partneranfrage. Die Links der Pakete wählen über `?paket=bronze`, `silber` oder `gold` den passenden Eintrag aus. |
 | `format.html`, `dietmar.html`, `mitmachen.html` | Weiterleitungen zu den zugehörigen Abschnitten der Startseite, einschließlich eines sichtbaren Ersatzlinks |
@@ -30,13 +30,13 @@ Die eingegangene Nachricht mit Zeitpunkt und Einwilligung aufbewahren. Die Absen
 
 Die statischen Formulare bereiten die Eingaben als E-Mail an `info@nachlassgold.de` auf. Interessierte prüfen den Entwurf und öffnen ihre E-Mail-App oder kopieren den Nachrichtentext. Die Angaben bleiben bis zum Wechsel in die E-Mail-App im Browser. Bei deaktiviertem JavaScript ist die E-Mail-Adresse direkt erreichbar.
 
-Im Crowdfunding-Abschnitt stehen die Produktionskosten von 750 Euro pro Folge. Startnext führt die Kampagne für die ersten vier Folgen.
+Der Startnext-Hinweis nach den Unternehmensporträts führt zur Kampagne für die ersten vier Folgen.
 
 Für direkte Sponsoringanfragen kostet Bronze zum Podcaststart 150 Euro und Silber 750 Euro je Folge. Für Gold macht Dietmar dem Unternehmen ein individuelles Angebot für die ganze Staffel. Die Konditionen der Startnext-Dankeschöns stehen auf der Kampagnenseite.
 
 ## Gestaltung und Quellen
 
-Das Titelbild zeigt Dietmar am Mikrofon in den Farben des Originalfotos. Das zweite Porträt und die bebilderten Links zu seinen Unternehmen stehen im Gastgeberbereich. Die drei Metallprägungen auf den Sponsoringpaketen verwenden das Vogelzeichen als Maske. Fotos, Schriften und Plattformzeichen werden lokal ausgeliefert.
+Das Titelbild zeigt Dietmar am Mikrofon in den Farben des Originalfotos. Das zweite Porträt zeigt den Gastgeber. Seine Unternehmen haben nach den häufigen Fragen einen eigenen Abschnitt. Die drei Metallprägungen auf den Sponsoringpaketen verwenden das Vogelzeichen als Maske. Fotos, Schriften und Plattformzeichen werden lokal ausgeliefert.
 
 - Dietmars Referenz verbindet eine klare Leitfrage mit dem Ablauf für Bewerber. Die kompakte Navigation und der direkte Weg zum Gastprofil greifen diese Struktur auf. [Marcel Kallas Podcast](https://www.marcelkalla.de/podcast)
 - Der persönliche Einstieg von Hotel Matze diente als Vorbild für die frühe Vorstellung des Gastgebers. [Hotel Matze](https://www.hotelmatze.de/)

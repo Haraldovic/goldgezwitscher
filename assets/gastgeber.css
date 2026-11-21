@@ -48,15 +48,9 @@
   column-gap: 1.6rem;
 }
 
-.presenter-companies {
-  margin-top: clamp(4rem, 7.4vw, 7.35rem);
-  padding-top: clamp(1.65rem, 3.3vw, 3.25rem);
-  border-top: 1px solid #c9c6be;
-}
-
-.presenter-companies h3 {
-  font-size: clamp(2.4rem, 4.7vw, 4.3rem);
-}
+.presenter-companies { background: #f7f7f5; }
+.presenter-companies h2 { font-size: clamp(2.7rem, 4.7vw, 4.5rem); }
+.presenter-companies h2 em { color: var(--brass); }
 
 .presenter-companies-grid {
   display: grid;
@@ -88,7 +82,7 @@
   object-position: 50% 51%;
 }
 
-.company-feature h4 {
+.company-feature h3 {
   margin: 1.2rem 0 .4rem;
   font: 500 clamp(2.05rem, 3.2vw, 3.1rem)/1.04 var(--serif);
   letter-spacing: -.04em;

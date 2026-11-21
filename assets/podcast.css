@@ -195,34 +195,27 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 .profile-links { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.4rem; margin-top: 1rem; }
 .profile-links a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .96rem; font-weight: 600; }
 
-/* Launch campaign and production costs */
-.funding-section { background: #faf9f6; }
-.funding-layout, .newsletter-layout {
+/* A quiet project note before the newsletter. */
+.campaign-note { background: #f7f7f5; }
+.campaign-note-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2.5rem;
+  border-top: 1px solid var(--line);
+  padding-block: clamp(1.7rem, 3.7vw, 3.5rem);
+}
+.campaign-note h2 { font-size: clamp(1.95rem, 2.6vw, 2.7rem); }
+.campaign-note p { max-width: 57ch; margin-top: .55rem; color: var(--muted); }
+.campaign-note .text-link { flex-shrink: 0; color: var(--brass); }
+.newsletter-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
   align-items: center;
   gap: clamp(2.5rem, 8vw, 8rem);
 }
-.funding-story h2 em, .newsletter-layout h2 em { display: block; }
-.funding-story h2 em { color: var(--brass); }
+.newsletter-layout h2 em { display: block; }
 .section-lead { max-width: 43ch; margin-top: 1.2rem; font-size: clamp(1.02rem, 1.35vw, 1.18rem); line-height: 1.6; }
-.funding-story .section-lead { color: var(--muted); }
-.funding-story .button { margin-top: 1.4rem; }
-.funding-story .button span { margin-left: .2rem; }
-.episode-cost {
-  padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(1.5rem, 3vw, 3rem) clamp(2rem, 5vw, 5rem);
-  border-inline-start: 1px solid #c6b9a3;
-}
-.episode-cost p { display: grid; gap: .9rem; }
-.episode-cost strong {
-  font: 500 clamp(5rem, 8.8vw, 8.5rem)/.98 var(--serif);
-  font-variant-numeric: lining-nums;
-  letter-spacing: -.055em;
-  white-space: nowrap;
-}
-.episode-cost strong span { color: var(--brass); font-size: .63em; }
-.episode-cost p > span { font-size: clamp(1rem, 1.55vw, 1.3rem); line-height: 1.35; max-width: 20ch; }
-
 .newsletter-section { background: #191b20; color: white; }
 .newsletter-layout .eyebrow { color: var(--gold); }
 .newsletter-layout .section-lead { color: #e2e2e5; }
@@ -304,9 +297,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 }
 .partner-action:hover { color: #715123; }
 .partner-card:focus-within { border-color: var(--edge); }
-.sponsor-faq-link { margin-top: 1.15rem; }
-.sponsor-faq-link + .partner-footnote { margin-top: .15rem; }
-.partner-footnote { max-width: 54rem; margin-top: 1.3rem; color: var(--muted); font-size: .94rem; }
+.sponsor-inquiry-link { margin-top: 1.15rem; }
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
   .foil-stamp { transition: transform 240ms ease; }
   .partner-card:hover .foil-stamp { transform: translateY(-2px) rotate(-5deg); }
@@ -430,26 +421,18 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
   .cover-portrait img { object-position: 50% 38%; }
   .cover-portrait::after { background: linear-gradient(0deg,#08090bc9,transparent 30%); }
   .cover-portrait figcaption { bottom: 7%; left: var(--gutter); font-size: 1.6rem; }
-  .hero-intro { grid-row: 5; max-width: 35rem; }
+  .hero-intro { grid-row: 4; max-width: 35rem; }
   .release-date { grid-row: 6; margin-top: .7rem; }
-  .hero-actions { grid-row: 4; margin: 0 0 1rem; }
+  .hero-actions { grid-row: 5; margin: 1.05rem 0 0; }
   .theme-player { grid-row: 7; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .footer-main > div { grid-column: 1/-1; }
   .footer-main nav a, .footer-family a, .footer-fine nav a { min-height: 2.75rem; }
   .partner-intro, .invite-spread, .form-grid, .legal-layout { grid-template-columns: minmax(0,1fr); gap: 1.65rem; }
   .partner-intro h2 { max-width: 12em; }
-  .funding-layout, .newsletter-layout { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
-  .funding-story, .episode-cost { grid-column: 1; }
-  .funding-story { display: contents; }
-  .funding-story .eyebrow { grid-row: 1; }
-  .funding-story h2 { grid-row: 2; margin: -.7rem 0 0; }
-  .funding-story h2 em, .newsletter-layout h2 em { display: inline; }
-  .funding-story .section-lead { grid-row: 3; margin-top: -.45rem; }
-  .episode-cost { grid-row: 4; border-inline-start: 0; border-block: 1px solid #c6b9a3; padding: 1.05rem 0; }
-  .episode-cost p { display: flex; align-items: center; gap: 1rem; }
-  .episode-cost strong { font-size: clamp(3.6rem, 12vw, 5rem); }
-  .funding-story .button { grid-row: 5; margin: 0; justify-self: start; }
+  .campaign-note-inner { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .newsletter-layout { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+  .newsletter-layout h2 em { display: inline; }
   .invite-spread { gap: 2rem; }
   .invite-image img { aspect-ratio: 2.15; }
   .invite-copy h2 em { display: inline; }

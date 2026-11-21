@@ -11,25 +11,29 @@ const release = {
 function connectOriginalNotices() {
   if (!document.body.matches('.page-agb, .page-impressum, .page-datenschutz')) return;
   const nav = document.getElementById('hauptmenue');
-  const podcast = nav.querySelector('a[href="format.html"]');
-  podcast.href = 'index.html#format';
-  podcast.textContent = 'Über mich';
-  podcast.insertAdjacentHTML('afterend', '<a href="index.html#startpost">Newsletter</a>');
+  const guestLink = nav.querySelector('.nav-guest');
+  guestLink.href = 'index.html#gast-werden';
+  nav.replaceChildren(guestLink);
+  guestLink.insertAdjacentHTML('beforebegin', '<a href="index.html#format">Der Podcast</a>');
+  guestLink.insertAdjacentHTML('afterend', `
+    <a href="index.html#sponsoring">Sponsoring</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#startpost">Newsletter</a>
+  `);
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#121315');
-  const campaign = nav.querySelector('a[href="dietmar.html"]');
-  campaign.href = 'index.html#crowdfunding';
-  campaign.textContent = 'Crowdfunding';
-  const partners = nav.querySelector('a[href="sponsoren.html"]');
-  partners.href = 'index.html#sponsoring';
-  partners.textContent = 'Sponsoring';
-  partners.insertAdjacentHTML('afterend', '<a href="index.html#faq">FAQ</a>');
-  nav.querySelector('.nav-guest').href = 'index.html#gast-werden';
   const footer = document.querySelector('.site-footer');
   const footerNav = footer.querySelector('nav[aria-label="Mitmachen"]');
-  footerNav.querySelector('a[href="mitmachen.html"]').href = 'index.html#crowdfunding';
-  footerNav.querySelector('a[href="sponsoren.html"]').href = 'index.html#sponsoring';
-  footerNav.insertAdjacentHTML('beforeend', '<a href="index.html#startpost">Newsletter</a><a href="index.html#faq">Häufige Fragen</a>');
-  footer.querySelector('.brand + p').textContent = 'Mein Videopodcast aus Karlsruhe. Dietmar Vogelmann.';
+  footerNav.innerHTML = `
+    <h2>Mitmachen</h2>
+    <a href="bewerben.html#anfrage">Als Gast bewerben</a>
+    <a href="index.html#sponsoring">Sponsoring</a>
+    <a href="index.html#faq">Häufige Fragen</a>
+    <a href="index.html#startpost">Newsletter</a>
+    <a href="index.html#crowdfunding">Die ersten Folgen</a>
+  `;
+  footer.querySelector('.brand + p').replaceChildren(
+    'Gespräche über Gold, Schmuck und die Menschen dahinter.', document.createElement('br'), 'Dietmar Vogelmann'
+  );
   footer.querySelector('.footer-family span').textContent = 'Meine Arbeit mit Gold und Schmuck';
   const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');
   if (privacyOverview) {
@@ -212,11 +216,11 @@ function activateInquiry() {
     if (!form.reportValidity()) return;
     const fields = new FormData(form);
     const name = fields.get('Name').trim();
-    const request = guest ? 'Gastbewerbung' : 'Partneranfrage';
+    const request = guest ? 'Gastbewerbung' : 'Sponsoringanfrage';
     const subject = request + ' für Goldgezwitscher – ' + interest.value;
     const lines = ['Hallo Dietmar,', '', guest
       ? 'ich möchte mich als Gast für Goldgezwitscher vorstellen.'
-      : 'ich interessiere mich für eine Partnerschaft mit Goldgezwitscher.', ''];
+      : 'ich interessiere mich für ein Sponsoring bei Goldgezwitscher.', ''];
     for (const [key, value] of fields) {
       if (key !== 'privacy' && value.trim()) lines.push(key + ': ' + value.trim());
     }
