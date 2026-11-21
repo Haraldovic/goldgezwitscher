@@ -88,8 +88,6 @@
   object-position: 50% 51%;
 }
 
-.company-sapphire img { object-position: 50% 75%; }
-
 .company-feature h4 {
   margin: 1.2rem 0 .4rem;
   font: 500 clamp(2.05rem, 3.2vw, 3.1rem)/1.04 var(--serif);
