@@ -339,7 +339,12 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 .faq { background: #fff; }
 .faq-layout { display: grid; grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr); gap: clamp(2rem,6vw,6rem); }
 .faq h2 em { display: block; }
-.faq-contact { margin-top: 1.1rem; }
+.faq-topics { display: flex; flex-wrap: wrap; gap: 0 1.1rem; margin-top: 1rem; }
+.faq-topics a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--brass); font-weight: 600; }
+.faq-contact { margin-top: .5rem; }
+@media (min-width: 761px) and (min-height: 35rem) {
+  .menu-ready .faq-intro { position: sticky; top: 6.3rem; align-self: start; }
+}
 .faq-category { border-bottom: 1px solid var(--slate); padding-bottom: .7rem; font: 650 .83rem/1.4 var(--sans); letter-spacing: .075em; text-transform: uppercase; color: var(--brass); }
 .faq-questions details + .faq-category { margin-top: 2.2rem; }
 .faq-questions details { border-bottom: 1px solid var(--line); }

@@ -16,7 +16,7 @@
     <link rel="icon" href="assets/haus-vogel.webp" type="image/webp">
     <link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/cormorant-italic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/podcast.css?v=redaktion1">
+    <link rel="stylesheet" href="assets/podcast.css?v=fragen2">
     <link rel="stylesheet" href="assets/gastgeber.css?v=redaktion1">
     <script src="assets/podcast.js?v=redaktion1" defer></script>
   </head>
@@ -157,37 +157,70 @@
       </section>
       <section class="faq section" id="faq" aria-labelledby="faq-title">
         <div class="container faq-layout">
-          <div>
+          <div class="faq-intro">
             <h2 id="faq-title">Häufige <em>Fragen.</em></h2>
+            <nav class="faq-topics" aria-label="Fragen nach Thema">
+              <a href="#gastfragen">Als Gast</a>
+              <a href="#sponsorfragen">Als Sponsor</a>
+              <a href="#hoererfragen">Zum Zuhören</a>
+            </nav>
             <a class="text-link faq-contact" href="mailto:info@nachlassgold.de?subject=Frage%20zu%20Goldgezwitscher">Eine andere Frage stellen</a>
           </div>
           <div class="faq-questions">
-            <h3 class="faq-category">Als Gast</h3>
+            <h3 class="faq-category" id="gastfragen">Als Gast</h3>
             <details>
-              <summary>Kann ich auch ohne eigenes Unternehmen zu Gast sein?</summary>
-              <p>Ja. Ich freue mich zum Beispiel über jemanden, der das Goldschmiedehandwerk lernt, oder über eine Familiengeschichte, in der ein Schmuckstück eine besondere Rolle spielt. Im <a href="bewerben.html#anfrage">Kurzprofil</a> kannst du das Firmenfeld frei lassen.</p>
+              <summary>Kann ich auch als Privatperson zu Gast sein?</summary>
+              <p>Ja. Vielleicht besitzt du einen Ring, der in deiner Familie von Hand zu Hand gegangen ist, oder sammelst Münzen und kannst von einem besonderen Fund erzählen. Mich interessiert, was du selbst erlebt hast. Im <a href="bewerben.html#anfrage">Kurzprofil</a> kannst du „Ich komme als Privatperson“ auswählen.</p>
             </details>
             <details>
-              <summary>Was erwartet mich vor der Aufnahme?</summary>
-              <p>Wenn dein Thema zum Podcast passt, verabreden wir uns zu einem kurzen Telefonat. Ich frage dich, was dir an deiner Geschichte wichtig ist. Danach entscheiden wir gemeinsam, ob wir sie in Karlsruhe aufnehmen.</p>
+              <summary>Brauche ich einen fertigen Lebenslauf?</summary>
+              <p>Ein paar Stichpunkte im Formular reichen mir. Schreib mir, wie du zu deinem Thema gekommen bist und über welches Erlebnis du gern sprechen würdest. Wenn du mir deine Arbeit zeigen möchtest, kannst du eine Website oder ein Social-Media-Profil verlinken.</p>
+            </details>
+            <details>
+              <summary>Wie schicke ich dir mein Kurzprofil?</summary>
+              <p>Am Ende des <a href="bewerben.html#anfrage">Gastformulars</a> kannst du deine Angaben als E-Mail vorbereiten und in Ruhe durchlesen. Deine Bewerbung erreicht mich, sobald du die Nachricht in deinem Postfach abgeschickt hast. Für Webmail kannst du den fertigen Text auch kopieren.</p>
+            </details>
+            <details>
+              <summary>Wie läuft das Vorgespräch ab?</summary>
+              <p>Wenn dein Thema zu einer Folge passt, melde ich mich per E-Mail, und wir verabreden uns zum Telefonieren. Du erzählst mir, was dir an deiner Geschichte wichtig ist. Danach entscheiden wir gemeinsam, ob wir das Gespräch im Studio in Karlsruhe aufnehmen.</p>
             </details>
             <h3 class="faq-category" id="sponsorfragen">Als Sponsor</h3>
             <details>
-              <summary>Was klären wir vor meiner Zusage?</summary>
-              <p>Schreib mir, welchen Betrieb du vertrittst und welche Folge oder welcher Zeitraum für dich interessant ist. Ich bespreche mit dir, wie und wo dein Unternehmen genannt wird. Wenn du ein Logo einsetzen möchtest, stimmen wir auch dessen Platzierung und Nutzung ab. <a href="sponsoren.html#anfrage">Sponsoring anfragen</a></p>
+              <summary>Wie kann mein Unternehmen schon beim Podcaststart dabei sein?</summary>
+              <p>Mit <a href="sponsoren.html?paket=bronze#anfrage">Bronze</a> nenne ich deinen Betrieb zum Start als Unterstützer. Wo diese Nennung erscheint, besprechen wir vor deiner Zusage.</p>
             </details>
             <details>
-              <summary>Kann ich eine Folge passend zu meinem Unternehmen wählen?</summary>
-              <p>Ja. Beim <a href="sponsoren.html?paket=silber#anfrage">Episodensponsoring</a> besprechen wir, welche geplanten Gespräche zu deinem Betrieb passen. Wenn du die ganze Staffel begleiten möchtest, mache ich dir dafür ein eigenes Angebot.</p>
+              <summary>Kann ich eine Folge passend zu meinem Betrieb auswählen?</summary>
+              <p>Ja. Beim <a href="sponsoren.html?paket=silber#anfrage">Episodensponsoring mit Silber</a> besprechen wir, welche Gespräche ich plane und welches Thema zu deinem Betrieb passt. In der vereinbarten Folge stelle ich deinen Betrieb als Sponsor vor.</p>
             </details>
-            <h3 class="faq-category">Zum Zuhören</h3>
+            <details>
+              <summary>Was vereinbaren wir bei einer Partnerschaft für die ganze Staffel?</summary>
+              <p>Mit <a href="sponsoren.html?paket=gold#anfrage">Gold</a> begleitest du den Podcast über mehrere Folgen. Wir legen fest, über welchen Zeitraum und in welchen Folgen ich dein Unternehmen vorstelle. Auf dieser Grundlage mache ich dir ein individuelles Angebot.</p>
+            </details>
+            <details>
+              <summary>Kann mein Firmenlogo eingebunden werden?</summary>
+              <p>Schreib mir, wo du dein Logo gern sehen würdest. Vor der Zusammenarbeit vereinbaren wir, ob und an welcher Stelle es erscheint und wofür ich es verwenden darf.</p>
+            </details>
+            <details>
+              <summary>Wie läuft eine Sponsoringanfrage ab?</summary>
+              <p>Erzähl mir in der <a href="sponsoren.html#anfrage">Sponsoringanfrage</a> kurz von deinem Betrieb und deiner Idee. Wenn du noch kein Paket im Sinn hast, wähle „Ich bin noch unsicher“. Ich melde mich per E-Mail, und wir besprechen die Einzelheiten, bevor du dich entscheidest.</p>
+            </details>
+            <h3 class="faq-category" id="hoererfragen">Zum Zuhören</h3>
             <details>
               <summary>Wann und wo sehe ich die erste Folge?</summary>
               <p><span data-premiere-status>Ich plane die Premiere für den <time datetime="2026-12-01">1. Dezember 2026</time>.</span> Die ganzen Gespräche veröffentliche ich kostenlos auf YouTube. <a href="podcaststart.ics" data-premiere-action download>Im Kalender vormerken</a></p>
             </details>
             <details>
+              <summary>Kann ich den Gesprächen auch ohne Vorwissen folgen?</summary>
+              <p>Ja. Wenn ein Gast zum Beispiel erzählt, wie er einen Edelstein beurteilt, frage ich, worauf er dabei achtet. Mich interessieren die kleinen Unterschiede, die du beim ersten Hinsehen vielleicht übersiehst.</p>
+            </details>
+            <details>
+              <summary>Wird es kurze Ausschnitte zum Reinschauen geben?</summary>
+              <p>Ja, ich plane Ausschnitte für <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a>, <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> und YouTube Shorts. So kannst du dir erst einmal einen Eindruck vom Gast und vom Gespräch machen.</p>
+            </details>
+            <details>
               <summary>Wie erfahre ich von neuen Folgen?</summary>
-              <p>In <a href="#startpost">meinem Newsletter</a> schicke ich dir den Link zur neuen Folge. Ich kündige die Gespräche auch auf meinen Feingold-Vogel-Kanälen bei <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a> und <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> an.</p>
+              <p>Über <a href="#startpost">meinen Newsletter</a> bekommst du den Link zur ganzen Folge und ein paar Zeilen zu meinem Gast. Ich kündige die Gespräche auch auf meinen Feingold-Vogel-Kanälen bei <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a> und <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> an.</p>
             </details>
           </div>
         </div>
