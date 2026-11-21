@@ -13,7 +13,9 @@ function connectOriginalNotices() {
   const nav = document.getElementById('hauptmenue');
   const podcast = nav.querySelector('a[href="format.html"]');
   podcast.href = 'index.html#format';
-  podcast.textContent = 'Mein Podcast';
+  podcast.textContent = 'Über mich';
+  podcast.insertAdjacentHTML('afterend', '<a href="index.html#startpost">Newsletter</a>');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#121315');
   const campaign = nav.querySelector('a[href="dietmar.html"]');
   campaign.href = 'index.html#crowdfunding';
   campaign.textContent = 'Crowdfunding';
@@ -25,12 +27,12 @@ function connectOriginalNotices() {
   const footerNav = footer.querySelector('nav[aria-label="Mitmachen"]');
   footerNav.querySelector('a[href="mitmachen.html"]').href = 'index.html#crowdfunding';
   footerNav.querySelector('a[href="sponsoren.html"]').href = 'index.html#sponsoring';
-  footerNav.insertAdjacentHTML('beforeend', '<a href="index.html#startpost">E-Mail-Updates</a>');
+  footerNav.insertAdjacentHTML('beforeend', '<a href="index.html#startpost">Newsletter</a>');
   footer.querySelector('.brand + p').textContent = 'Mein Videopodcast aus Karlsruhe. Dietmar Vogelmann.';
   footer.querySelector('.footer-family span').textContent = 'Meine Arbeit mit Gold und Schmuck';
   const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');
   if (privacyOverview) {
-    privacyOverview.insertAdjacentHTML('beforeend', '<p><a href="startpost-datenschutz.html">Datenschutz zur Startpost</a></p>');
+    privacyOverview.insertAdjacentHTML('beforeend', '<p><a href="startpost-datenschutz.html">Datenschutz zum Newsletter</a></p>');
   }
 
   // Use the host's voice in the original notices. Keep their names, links and statutory wording intact.
@@ -94,10 +96,14 @@ function markLandingSection() {
   function update() {
     scheduled = false;
     const top = document.querySelector('.masthead').getBoundingClientRect().bottom + 48;
-    for (const { link, section } of sections) {
+    const visible = sections.filter(({ section }) => {
       const rect = section.getBoundingClientRect();
-      if (rect.top <= top && rect.bottom > top) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
+      return rect.top <= top && rect.bottom > top;
+    });
+    const active = visible.find(({ link }) => link.hash === window.location.hash) || visible[0];
+    for (const entry of sections) {
+      if (entry === active) entry.link.setAttribute('aria-current', 'location');
+      else entry.link.removeAttribute('aria-current');
     }
   }
   function schedule() {
@@ -108,6 +114,7 @@ function markLandingSection() {
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule);
   window.addEventListener('pageshow', schedule);
+  window.addEventListener('hashchange', schedule);
   schedule();
 }
 
@@ -136,30 +143,6 @@ function showRelease() {
   });
 }
 
-function activateRecord() {
-  const scene = document.querySelector('[data-record]');
-  if (!scene) return;
-  const record = scene.querySelector('.record-object');
-  const motion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-
-  function reset() {
-    record.style.removeProperty('--yaw');
-    record.style.removeProperty('--pitch');
-  }
-  function tilt(event) {
-    if (!motion.matches || event.pointerType === 'touch') return;
-    const bounds = scene.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - .5;
-    const y = (event.clientY - bounds.top) / bounds.height - .5;
-    record.style.setProperty('--yaw', (x * 6).toFixed(2) + 'deg');
-    record.style.setProperty('--pitch', (-y * 4).toFixed(2) + 'deg');
-  }
-  scene.addEventListener('pointermove', tilt, { passive: true });
-  scene.addEventListener('pointerleave', reset);
-  scene.addEventListener('pointercancel', reset);
-  motion.addEventListener('change', reset);
-}
-
 // The static site hands the draft to the visitor's mail application.
 function mailDraftLink(recipient, subject, body) {
   return 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
@@ -180,40 +163,12 @@ function enableDraftCopy(button, output, status) {
   });
 }
 
-function activateUpdates() {
-  const form = document.querySelector('[data-updates]');
-  if (!form) return;
-  const email = form.elements.namedItem('E-Mail');
-  const result = form.querySelector('.form-result');
-  const draft = form.querySelector('textarea');
-  const link = form.querySelector('[data-email-link]');
-  const status = form.querySelector('.copy-status');
-  const recipient = form.dataset.email;
-
-  function clearDraft() {
-    result.hidden = true;
-    draft.value = '';
-    link.setAttribute('href', 'mailto:' + recipient);
-    status.textContent = '';
-  }
-  form.addEventListener('input', clearDraft);
-  form.addEventListener('change', clearDraft);
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const body = [
-      'Hallo Dietmar,', '',
-      form.querySelector('[data-consent-text]').textContent.trim(),
-      'Meine E-Mail-Adresse: ' + email.value.trim(),
-      'Ich kann mich jederzeit per Antwort abmelden.', '', 'Viele Grüße'
-    ].join('\r\n');
-    draft.value = body;
-    link.href = mailDraftLink(recipient, 'Goldgezwitscher – Anmeldung zur Startpost', body);
-    result.hidden = false;
-    result.focus();
-  });
-  enableDraftCopy(form.querySelector('[data-copy]'), draft, status);
-  form.hidden = false;
+function activateNewsletter() {
+  const webmail = document.querySelector('.newsletter-webmail');
+  if (!webmail) return;
+  const button = webmail.querySelector('[data-copy]');
+  enableDraftCopy(button, webmail.querySelector('textarea'), webmail.querySelector('.copy-status'));
+  button.hidden = false;
 }
 
 function activateInquiry() {
@@ -279,6 +234,5 @@ connectOriginalNotices();
 activateMenu();
 markLandingSection();
 showRelease();
-activateRecord();
 activateInquiry();
-activateUpdates();
+activateNewsletter();
