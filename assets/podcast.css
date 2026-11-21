@@ -475,8 +475,8 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
   :root { --gutter: 1.25rem; }
   .hero-layout { padding-top: 1.8rem; }
   .hero-intro { font-size: 1.04rem; line-height: 1.5; }
-  .hero-actions { gap: .45rem; }
-  .hero-actions .button { font-size: .95rem; padding-inline: .78rem; }
+  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+  .hero-actions .button { font-size: clamp(.84rem, 3.8vw, 1rem); padding-inline: .35rem; text-align: center; }
   .release-date { align-items: center; }
   .button { min-height: 3.05rem; }
   .form-row { grid-template-columns: 1fr; gap: 1.2rem; }
@@ -490,7 +490,6 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
   .header-inner .brand > span { font-size: 1.42rem; }
   .header-inner .brand img { width: 1.55rem; }
   .menu-toggle { padding-inline: .45rem; gap: .3rem; }
-  .hero-actions .button { font-size: .875rem; padding-inline: .58rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
