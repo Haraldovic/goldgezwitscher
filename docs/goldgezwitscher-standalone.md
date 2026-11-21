@@ -30,7 +30,7 @@ Die eingegangene Nachricht mit Zeitpunkt und Einwilligung aufbewahren. Die Absen
 
 Die statischen Formulare bereiten die Eingaben als E-Mail an `info@nachlassgold.de` auf. Interessierte prüfen den Entwurf und öffnen ihre E-Mail-App oder kopieren den Nachrichtentext. Die Angaben bleiben bis zum Wechsel in die E-Mail-App im Browser. Bei deaktiviertem JavaScript ist die E-Mail-Adresse direkt erreichbar.
 
-Direkte Sponsoringanfragen verwenden die Richtwerte aus Dietmars Briefing. Bronze ist ein Produktionsbeitrag von etwa 150 Euro, Silber die Begleitung einer Episode für etwa 700 Euro. Gold begleitet eine Staffel, deren Preis Dietmar mit dem Unternehmen vereinbart. Die Konditionen der Startnext-Dankeschöns stehen auf der Kampagnenseite.
+Für direkte Sponsoringanfragen kostet Bronze zum Podcaststart 150 Euro und Silber 750 Euro je Folge. Für Gold macht Dietmar dem Unternehmen ein individuelles Angebot für die ganze Staffel. Die Konditionen der Startnext-Dankeschöns stehen auf der Kampagnenseite.
 
 ## Gestaltung und Quellen
 

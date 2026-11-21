@@ -86,8 +86,9 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 51%;
-  filter: saturate(.73);
 }
+
+.company-sapphire img { object-position: 50% 75%; }
 
 .company-feature h4 {
   margin: 1.2rem 0 .4rem;
