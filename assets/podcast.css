@@ -168,7 +168,8 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
 /* Icons are local and inherit the link colour, including keyboard and forced-colour states. */
 a[href*="instagram.com/" i] { --platform-icon: url("social/instagram.svg"); }
 a[href*="tiktok.com/" i] { --platform-icon: url("social/tiktok.svg"); }
-a:is([href*="instagram.com/" i], [href*="tiktok.com/" i])::before {
+a[href*="youtube.com/" i] { --platform-icon: url("social/youtube.svg"); }
+a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" i])::before {
   content: "";
   display: inline-block;
   width: 1.08em;
@@ -180,9 +181,9 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i])::before {
   -webkit-mask: var(--platform-icon) center / contain no-repeat;
   mask: var(--platform-icon) center / contain no-repeat;
 }
-a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { display: none; }
+a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" i]) > .v16-social-icon { display: none; }
 @media (forced-colors: active) {
-  a:is([href*="instagram.com/" i], [href*="tiktok.com/" i])::before { forced-color-adjust: none; background: LinkText; }
+  a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" i])::before { forced-color-adjust: none; background: LinkText; }
 }
 
 .partner-intro, .invite-spread {
@@ -361,7 +362,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i]) > .v16-social-icon { d
 .faq-questions summary:hover { color: var(--brass); }
 .faq-questions details p { max-width: 58ch; margin: -.3rem 2rem 1.4rem 0; color: var(--muted); line-height: 1.65; }
 .faq-questions details p a { color: var(--ink); }
-.faq-questions a:is([href*="instagram.com/"],[href*="tiktok.com/"]) { display: inline-block; white-space: nowrap; }
+.faq-questions a:is([href*="instagram.com/"],[href*="tiktok.com/"],[href*="youtube.com/"]) { display: inline-block; white-space: nowrap; }
 
 /* Colophon and legal text */
 .site-footer { background: var(--deep); color: var(--light); }

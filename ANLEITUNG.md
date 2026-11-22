@@ -1,5 +1,7 @@
 # Goldgezwitscher
 
-Das Repository enthält die statische Website für goldgezwitscher.rateriser.tech. GitHub Pages veröffentlicht die HTML-Seiten und den Ordner `assets/` direkt aus `main`.
+GitHub Pages veröffentlicht die Kundenvorschau auf **goldgezwitscher.rateriser.tech** aus dem Branch `main`.
 
-Unterseiten, Medienfreigabe, Kalender, Anfragen und Gestaltung sind in der [Projektübersicht](docs/goldgezwitscher-standalone.md) beschrieben.
+Die Kundenwebsite läuft nach dem Upload eigenständig auf **goldgezwitscher.de**. Das Übergabepaket für den Hostinger-Dateimanager entsteht mit `python3 tools/hostinger_export.py Goldgezwitscher-Hostinger.zip`.
+
+Die [Projektübersicht](docs/goldgezwitscher-standalone.md) beschreibt den Upload, die Pflege der Gründungsmitglieder, Anfragen, Kalender und die Freigabe neuer Folgen.

@@ -1,0 +1,49 @@
+.founder-cover { background: var(--charcoal); color: white; }
+.founder-cover-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(0, .85fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5.8rem);
+  padding-block: clamp(2.75rem, 5.5vw, 5.5rem);
+}
+.founder-cover h1 {
+  font-size: clamp(3rem, 5.8vw, 6rem);
+  line-height: 1;
+  hyphens: manual;
+}
+.founder-cover .eyebrow, .founder-cover h1 span, .founder-cover .text-link { color: var(--gold); }
+.founder-cover-copy > p:not(.eyebrow) {
+  max-width: 38ch;
+  margin-top: 1.25rem;
+  color: #e1e0de;
+  font-size: clamp(1.07rem, 1.4vw, 1.3rem);
+}
+.founder-cover .text-link { margin-top: .9rem; text-decoration-color: #93815e; }
+.founder-cover-photo { width: 100%; height: auto; aspect-ratio: 1.6; object-fit: cover; }
+.founder-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(0, .85fr);
+  align-items: start;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+.founder-register h2 { font-size: clamp(2.6rem, 4vw, 4rem); }
+.founder-empty { max-width: 46ch; margin-top: 1.1rem; color: var(--muted); }
+.founder-group { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 1.1rem; }
+.founder-group h3 { font-size: clamp(1.75rem, 2.4vw, 2.45rem); }
+.founder-group ul { list-style: none; padding: 0; margin: .65rem 0 0; }
+.founder-group li { padding: .7rem 0; font-weight: 600; overflow-wrap: anywhere; }
+.founder-group li + li { border-top: 1px solid var(--line); }
+.founder-group li p { color: var(--muted); font-weight: 400; margin-top: .2rem; }
+.founder-group:not(:has(li)), .founder-register:has(li) > .founder-empty { display: none; }
+.founder-contact { padding-left: clamp(1.5rem, 3vw, 3rem); border-left: 1px solid #c3b493; }
+.founder-contact h2 { font-size: clamp(2rem, 3vw, 2.9rem); }
+.founder-contact p { margin-top: .8rem; }
+.founder-contact .text-link { margin-top: .5rem; color: var(--brass); }
+
+@media (max-width: 47.99rem) {
+  .founder-cover-layout, .founder-content { grid-template-columns: minmax(0, 1fr); }
+  .founder-cover-layout { gap: 1.5rem; }
+  .founder-cover-photo { max-height: 15rem; object-position: 50% 45%; }
+  .founder-cover h1 { font-size: clamp(2.65rem, 9vw, 4.5rem); }
+  .founder-contact { border-left: 0; border-top: 1px solid #c3b493; padding: 1.25rem 0 0; }
+}

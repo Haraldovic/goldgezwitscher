@@ -5,7 +5,7 @@
 const release = {
   themeSong: null,
   episodeUrl: null,
-  endOfPremiereDay: '2026-12-02T00:00:00+01:00'
+  endOfPremiereMonth: '2027-03-01T00:00:00+01:00'
 };
 
 function connectOriginalNotices() {
@@ -30,6 +30,7 @@ function connectOriginalNotices() {
     <a href="index.html#faq">Häufige Fragen</a>
     <a href="index.html#startpost">Newsletter</a>
     <a href="index.html#crowdfunding">Die ersten Folgen</a>
+    <a href="gruendungsmitglieder.html">Gründungsmitglieder</a>
   `;
   footer.querySelector('.brand + p').replaceChildren(
     'Gespräche über Gold, Schmuck und die Menschen dahinter.', document.createElement('br'), 'Dietmar Vogelmann'
@@ -126,26 +127,91 @@ function markLandingSection() {
 function showRelease() {
   const player = document.querySelector('[data-theme-player]');
   if (player && release.themeSong) {
-    player.querySelector('audio').src = release.themeSong;
+    const audio = player.querySelector('audio');
+    if (audio.getAttribute('src') !== release.themeSong) audio.src = release.themeSong;
     player.hidden = false;
   }
-  const pastPremiere = Date.now() >= Date.parse(release.endOfPremiereDay);
-  if (!release.episodeUrl && !pastPremiere) return;
-
+  if (release.episodeUrl) {
+    document.querySelectorAll('[data-premiere-action]').forEach(link => {
+      link.href = release.episodeUrl;
+      link.textContent = 'Meine erste Folge ansehen';
+    });
+  }
   const published = Boolean(release.episodeUrl);
-  document.querySelectorAll('[data-premiere-action]').forEach(link => {
-    if (!published) {
-      link.hidden = true;
-      return;
+  if (published || Date.now() >= Date.parse(release.endOfPremiereMonth)) {
+    document.querySelectorAll('[data-premiere-status]').forEach(status => {
+      status.hidden = !published;
+      if (published) status.textContent = 'Meine erste Folge ist online.';
+    });
+  }
+}
+
+function activateCampaignNotice() {
+  const dialog = document.getElementById('campaign-dialog');
+  if (!dialog) return;
+
+  const begins = Date.parse('2026-12-01T00:00:00+01:00');
+  const ends = Date.parse('2027-01-01T00:00:00+01:00');
+  const sessionKey = 'goldgezwitscher.startnext-2026.dismissed';
+  let presented = false;
+  let timer;
+
+  function rememberVisit() {
+    try {
+      sessionStorage.setItem(sessionKey, '1');
+    } catch {
+      // The current page still remembers that the notice was shown.
     }
-    link.removeAttribute('download');
-    link.href = release.episodeUrl;
-    link.textContent = 'Meine erste Folge ansehen';
-    link.rel = 'external noreferrer';
+  }
+
+  function update() {
+    const now = Date.now();
+    const active = now >= begins && now < ends;
+    document.querySelectorAll('[data-campaign-link]').forEach(link => {
+      link.textContent = active ? 'Auf Startnext unterstützen' : 'Projekt auf Startnext ansehen';
+    });
+    document.querySelector('[data-campaign-calendar]').hidden = now >= ends;
+
+    if (now >= ends && dialog.open) dialog.close();
+    if (now < ends && !presented && !location.hash && !document.hidden && typeof dialog.showModal === 'function') {
+      try {
+        if (!sessionStorage.getItem(sessionKey)) {
+          dialog.showModal();
+          presented = true;
+        }
+      } catch {
+        // The same campaign and link are accessible in the page without session storage.
+      }
+    }
+
+    showRelease();
+    clearTimeout(timer);
+    const next = [begins, ends, Date.parse(release.endOfPremiereMonth)].find(date => date > now);
+    if (next) timer = setTimeout(update, Math.min(next - now, 2147483647));
+  }
+
+  dialog.querySelectorAll('[data-dialog-close]').forEach(button => {
+    button.addEventListener('click', () => dialog.close());
   });
-  document.querySelectorAll('[data-premiere-status]').forEach(status => {
-    status.textContent = published ? 'Meine erste Folge ist online.' : 'Ich bereite meine erste Folge vor.';
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right ||
+        event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
+  dialog.querySelector('[data-campaign-link]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', rememberVisit);
+  window.addEventListener('pagehide', () => {
+    if (dialog.open) {
+      rememberVisit();
+      dialog.close();
+    }
+  });
+  window.addEventListener('pageshow', update);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) update();
+  });
+  update();
 }
 
 // The static site hands the draft to the visitor's mail application.
@@ -238,6 +304,6 @@ function activateInquiry() {
 connectOriginalNotices();
 activateMenu();
 markLandingSection();
-showRelease();
+activateCampaignNotice();
 activateInquiry();
 activateNewsletter();

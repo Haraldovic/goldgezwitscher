@@ -4,13 +4,15 @@ PRODID:-//Goldgezwitscher//Podcast//DE
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:podcaststart-20261201@goldgezwitscher.rateriser.tech
-DTSTAMP:20261121T000000Z
+DTSTAMP:20261122T000000Z
+SEQUENCE:1
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
-SUMMARY:Goldgezwitscher – geplanter Podcaststart
-DESCRIPTION:Geplanter Auftakt des Videopodcasts mit Dietmar Vogelmann.
-URL:https://goldgezwitscher.rateriser.tech/
-STATUS:TENTATIVE
+SUMMARY:Aufgehoben – früherer Premierentermin von Goldgezwitscher
+DESCRIPTION:Die Premiere war für Dezember angekündigt. Der alte Termin en
+ tfällt.
+URL:https://www.youtube.com/@feingoldvogel
+STATUS:CANCELLED
 TRANSP:TRANSPARENT
 END:VEVENT
 END:VCALENDAR

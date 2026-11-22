@@ -9,14 +9,15 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
     <meta name="theme-color" content="#121315">
     <title>Sponsoring anfragen · Goldgezwitscher</title>
-    <meta name="description" content="Als Partner von Goldgezwitscher kannst du den Podcaststart, eine einzelne Folge oder eine ganze Staffel begleiten. Hier findest du die Angebote und kannst mir schreiben.">
+    <meta name="description" content="Ich biete gesprochene Werbung, exklusives Episodensponsoring und individuelle Kooperationen an. Hier kannst du mir deinen Betrieb und deine Idee vorstellen.">
     <meta property="og:title" content="Sponsoring anfragen · Goldgezwitscher">
-    <meta property="og:description" content="Als Partner von Goldgezwitscher kannst du den Podcaststart, eine einzelne Folge oder eine ganze Staffel begleiten. Hier findest du die Angebote und kannst mir schreiben.">
+    <meta property="og:description" content="Ich biete gesprochene Werbung, exklusives Episodensponsoring und individuelle Kooperationen an. Hier kannst du mir deinen Betrieb und deine Idee vorstellen.">
     <meta property="og:image" content="https://goldgezwitscher.rateriser.tech/assets/v7-dietmar-am-mikrofon-1110.webp">
     <link rel="icon" href="assets/haus-vogel.webp" type="image/webp">
     <link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/podcast.css?v=redaktion1">
-    <script src="assets/podcast.js?v=redaktion1" defer></script>
+    <link rel="stylesheet" href="assets/podcast.css?v=startnext26">
+    <link rel="stylesheet" href="assets/sponsoring.css?v=angebote1">
+    <script src="assets/podcast.js?v=startnext26" defer></script>
   </head>
   <body class="page-sponsoren">
     <a class="skip" href="#inhalt">Zum Inhalt</a>
@@ -41,17 +42,27 @@
             <p class="eyebrow">Für Unternehmen</p>
             <h1>Sponsoring <em>anfragen.</em></h1>
             <p>Ich mache Goldgezwitscher für Menschen, die mit Gold arbeiten, Schmuck lieben oder den Edelmetallhandel kennenlernen möchten. Diesem Publikum stelle ich die Partner meines Podcasts vor.</p>
-            <p>Schreib mir, wen du mit deinem Unternehmen ansprechen möchtest. Ich melde mich per E-Mail bei dir. Bevor du dich entscheidest, besprechen wir, zu welchem Anlass und in welcher Form ich deinen Betrieb nenne.</p>
+            <p>Schreib mir, wen du mit deinem Unternehmen ansprechen möchtest. Ich melde mich per E-Mail bei dir. Wir besprechen, welche Folge oder welche Art von Zusammenarbeit zu deiner Idee passt.</p>
             <a class="text-link" href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>
           </div>
           <div>
-            <details class="draft-text">
-              <summary>Was ist in den drei Paketen enthalten?</summary>
-              <ul>
-                <li><strong>Bronze · 150 €</strong><br>Zum Podcaststart nenne ich deinen Betrieb als Unterstützer. Wo die Nennung erscheint, vereinbaren wir vorab.</li>
-                <li><strong>Silber · 750 € je Folge</strong><br>Wir wählen eine passende Folge aus. Darin stelle ich dein Unternehmen als Sponsor vor.</li>
-                <li><strong>Gold · auf Anfrage</strong><br>Du begleitest die ganze Staffel. Ich mache dir ein persönliches Angebot, wie und wann ich deinen Betrieb in den Folgen vorstelle.</li>
-              </ul>
+            <details class="draft-text sponsor-summary">
+              <summary>Was ist in den Sponsoringangeboten enthalten?</summary>
+              <div class="sponsor-summary-offer">
+                <h2>Silber · Werbepartner</h2>
+                <p class="offer-price">199 € je Episode</p>
+                <p>Ich nenne dein Unternehmen und seine Leistungen in einer etwa 15–20 Sekunden langen Werbesequenz. Ich spreche sie selbst ein, binde sie passend in die Folge ein und kennzeichne sie als Werbung. Dein Unternehmenslink steht in der Videobeschreibung.</p>
+              </div>
+              <div class="sponsor-summary-offer">
+                <h2>Gold · Episodensponsor</h2>
+                <p class="offer-price">750 € je Episode</p>
+                <p>Dein Unternehmen ist exklusiver, offizieller Präsentationspartner der kompletten Folge. Dein Logo ist während der gesamten Folge im Studiohintergrund sichtbar. Ich nenne deinen Betrieb zu Beginn und am Ende und verlinke ihn in der Videobeschreibung.</p>
+              </div>
+              <div class="sponsor-summary-offer">
+                <h2>Individuelles Sponsoring</h2>
+                <p class="offer-price">Preis auf Anfrage</p>
+                <p>Gemeinsam können wir mehrere Folgen oder eine langfristige Partnerschaft planen. Auch eine Unternehmensvorstellung mit jemandem aus deinem Team oder der Geschäftsführung, individuelle Markenauftritte und zusätzliche Werbeeinblendungen sind möglich. Wenn du eine Produkteinführung, eine besondere Aktion oder eine begleitende Kampagne auf TikTok, Instagram oder YouTube planst, erzähl mir davon. Wir vereinbaren Umfang, Laufzeit und Preis persönlich.</p>
+              </div>
             </details>
             <noscript><p>Schick mir den Namen deines Unternehmens und deinen Paketwunsch direkt an <a href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>.</p></noscript>
             <form class="inquiry-form" method="post" data-inquiry="sponsor" data-email="info@nachlassgold.de" hidden="">
@@ -73,9 +84,9 @@
                 <label for="interest">Welches Paket interessiert dich?</label>
                 <select id="interest" name="Partnerschaft" required>
                   <option value="">Bitte auswählen</option>
-                  <option data-tier="bronze">Bronze – Podcaststart, 150 €</option>
-                  <option data-tier="silber">Silber – Episodensponsoring, 750 €</option>
-                  <option data-tier="gold">Gold – ganze Staffel, Preis auf Anfrage</option>
+                  <option data-tier="silber">Silber – Werbepartner, 199 € je Episode</option>
+                  <option data-tier="gold">Gold – Episodensponsor, 750 € je Episode</option>
+                  <option data-tier="individuell">Individuelles Sponsoring – Preis auf Anfrage</option>
                   <option>Ich bin noch unsicher</option>
                 </select>
               </div>
@@ -121,11 +132,13 @@
             <a href="index.html#faq">Häufige Fragen</a>
             <a href="index.html#startpost">Newsletter</a>
             <a href="index.html#crowdfunding">Die ersten Folgen</a>
+            <a href="gruendungsmitglieder.html">Gründungsmitglieder</a>
           </nav>
           <nav aria-label="Kontakt und Social Media">
             <h2>Kontakt</h2>
             <a href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>
             <div class="footer-social">
+              <a href="https://www.youtube.com/@feingoldvogel" rel="external noreferrer">YouTube</a>
               <a href="https://www.instagram.com/feingold_vogel/" class="" rel="external noreferrer">Instagram</a>
               <a href="https://www.tiktok.com/@feingold.vogel" class="" rel="external noreferrer">TikTok</a>
               <a href="impressum.html#kontakt">Weitere Kontaktwege</a>

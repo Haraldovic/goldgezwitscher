@@ -1,0 +1,66 @@
+.campaign-links {
+  display: grid;
+  flex: 0 0 auto;
+  justify-items: start;
+}
+
+.campaign-calendar { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .94rem; }
+.campaign-founders { margin-top: .3rem; }
+
+.campaign-dialog {
+  width: min(33rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: clamp(1.15rem, 4.5vw, 2.5rem);
+  margin: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--light);
+  background: var(--charcoal);
+  border: 1px solid #696055;
+  border-top: 3px solid var(--gold);
+  border-radius: 3px;
+  box-shadow: 0 1.3rem 4rem #0006;
+}
+.campaign-dialog:not([open]) { display: none; }
+.campaign-dialog::backdrop { background: rgb(10 10 12 / 63%); }
+.campaign-dialog :focus-visible { outline-color: var(--gold); }
+.campaign-dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+.campaign-dialog .eyebrow { color: var(--gold); }
+.campaign-close {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 1px solid #77716a;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--light);
+  font: 400 1.6rem/1 var(--sans);
+}
+.campaign-close:hover, .campaign-continue:hover { color: var(--gold); }
+.campaign-dialog h2 { margin-top: .8rem; font-size: clamp(2.55rem, 6vw, 4rem); }
+.campaign-dialog h2 em { display: block; color: var(--gold); }
+.campaign-dialog > p { margin-top: 1rem; color: #e0dfe1; }
+.campaign-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 2rem;
+  margin-block: 1.3rem;
+  padding-block: .8rem;
+  border-block: 1px solid var(--dark-line);
+}
+.campaign-dates dt { color: #c8c4c1; font-size: .9rem; }
+.campaign-dates dd { font-weight: 600; }
+.campaign-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .9rem; }
+.campaign-continue {
+  min-height: 2.75rem;
+  padding: .4rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--light);
+  text-decoration: underline;
+  text-underline-offset: .3em;
+}
+html:has(.campaign-dialog[open]) { overflow: hidden; }

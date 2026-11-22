@@ -1,15 +1,17 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Goldgezwitscher//Videocast//DE
+PRODID:-//Goldgezwitscher//Crowdfunding//DE
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:goldgezwitscher-crowdfunding-20261201@feingold-vogel.com
-DTSTAMP:20261119T000000Z
+DTSTAMP:20261122T000000Z
+SEQUENCE:1
 DTSTART;VALUE=DATE:20261201
-DTEND;VALUE=DATE:20261202
-SUMMARY:Goldgezwitscher – geplanter Crowdfunding-Start
-DESCRIPTION:Geplanter Start der Startnext-Kampagne von Dietmar Vogelmann.
-STATUS:TENTATIVE
+DTEND;VALUE=DATE:20270101
+SUMMARY:Goldgezwitscher – Crowdfunding auf Startnext
+DESCRIPTION:Kampagnenzeitraum vom 1. bis 31. Dezember 2026.
+URL:https://www.startnext.com/goldgezwitscher
+STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
 END:VCALENDAR

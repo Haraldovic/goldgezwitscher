@@ -1,0 +1,26 @@
+.partner-benefits {
+  display: grid;
+  gap: .55rem;
+  margin: 0 0 1.3rem;
+  padding-inline-start: 1.05rem;
+  line-height: 1.45;
+}
+.partner-benefits li { padding-inline-start: .12rem; }
+.partner-benefits li::marker { color: var(--brass); font-size: .77em; }
+.partner-details .partner-description { margin-bottom: .85rem; }
+.tier-individuell {
+  --case-dark: #22252c;
+  --case-light: #40424a;
+  --metal: #c5c1b7;
+  --edge: #8c8a83;
+}
+.tier-individuell .partner-face h3 { font-size: clamp(2.05rem, 3.25vw, 3.15rem); line-height: .98; }
+.tier-individuell .partner-face h3 em { display: block; font-weight: inherit; }
+.tier-individuell .partner-price { font-size: clamp(1.6rem, 2.25vw, 2.18rem); }
+.sponsor-summary { margin-bottom: 1.65rem; }
+.sponsor-summary-offer { padding: .85rem 0; border-top: 1px solid var(--line); }
+.sponsor-summary-offer h2 { margin: 0; font-size: 1.7rem; }
+.sponsor-summary-offer .offer-price { margin: .3rem 0 .55rem; font-weight: 650; }
+@media (min-width: 561px) and (max-width: 760px) {
+  .tier-individuell .partner-face h3 { font-size: clamp(1.65rem, 4.6vw, 2.2rem); }
+}
