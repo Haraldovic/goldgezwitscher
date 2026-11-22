@@ -39,7 +39,7 @@
     grid-template-columns: auto minmax(0, 1fr);
     align-items: baseline;
     gap: 0 .65rem;
-    padding: .75rem 1rem .35rem;
+    padding: .75rem 1rem;
   }
   .partner-scope { font-size: .875rem; }
   .partner-price, .tier-individuell .partner-price {
@@ -80,11 +80,10 @@
   .partner-terms .partner-benefits { margin-bottom: .6rem; }
   .partner-action {
     grid-area: 2 / 2;
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-    border: 0;
+    justify-self: end;
+    align-self: center;
+    margin: .45rem 0 0;
+    padding: .46rem .7rem;
     font-size: .9rem;
-    text-align: right;
   }
 }
