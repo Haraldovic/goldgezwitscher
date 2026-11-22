@@ -147,6 +147,17 @@ html:has(.campaign-dialog[open]) { overflow: hidden; }
 .campaign-launcher:focus-visible { outline-color: var(--brass); }
 .campaign-dialog[open] + .campaign-launcher { visibility: hidden; }
 .campaign-launcher:not([hidden]) ~ .site-footer { padding-bottom: calc(3.5rem + env(safe-area-inset-bottom)); }
+@media (max-width: 760px) {
+  .campaign-launcher {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border-radius: 50%;
+    background: #faf7ef;
+  }
+  .campaign-launcher svg { width: 1.25rem; height: 1.25rem; }
+  .campaign-launcher span { display: none; }
+}
 @media (max-width: 48rem), (max-height: 32rem) {
   body:has(.inquiry-form :is(input, select, textarea):focus) .campaign-launcher { visibility: hidden; }
 }

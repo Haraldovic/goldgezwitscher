@@ -77,14 +77,14 @@
   .footer-identity { grid-template-columns: minmax(0, 1fr) auto; gap: .3rem .5rem; padding-bottom: .6rem; }
   .footer-identity .regional { grid-column: 2; }
   .footer-identity .regional img { width: clamp(6.75rem, 24vw, 8rem); }
-  .footer-contact { grid-column: 1/-1; justify-content: space-between; }
+  .footer-contact { grid-column: 1/-1; min-width: 0; flex-wrap: wrap; justify-content: space-between; }
   .footer-channels { gap: 0; }
   .footer-bottom { flex-direction: column; align-items: stretch; gap: 0; }
-  .footer-directory nav { max-width: 29rem; }
+  .footer-directory nav { max-width: 29rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); }
   .footer-legal { justify-content: flex-start; column-gap: 1.1rem; }
 }
 @media (max-width: 23rem) {
-  .footer-contact { min-width: 0; flex-wrap: wrap; gap: 0 .4rem; }
+  .footer-contact { gap: 0 .4rem; }
   .footer-identity .brand { gap: .4rem; }
   .footer-identity .brand img { width: 1.52rem; height: 1.8rem; }
   .footer-identity .brand > span { font-size: 1.38rem; }

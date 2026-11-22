@@ -153,3 +153,8 @@
   .company-feature h3 { font-size: clamp(1.7rem, 5.8vw, 2.2rem); }
   .company-destination { justify-self: start; overflow-wrap: anywhere; }
 }
+
+@media (max-width: 23rem) {
+  .presenter-profile { grid-template-columns: 20vw minmax(0, 1fr); column-gap: .75rem; }
+  .presenter-story h2 { font-size: min(2.5rem, 10vw); }
+}

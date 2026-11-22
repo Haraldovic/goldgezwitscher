@@ -270,9 +270,9 @@ function activateCampaignNotice() {
       </div>
       <a class="campaign-members" href="gruendungsmitglieder.html">Gründungsmitglieder ansehen</a>
     </dialog>
-    <button type="button" class="campaign-launcher" id="campaign-launcher" title="Crowdfunding-Fenster öffnen" aria-haspopup="dialog" aria-controls="campaign-dialog" hidden>
+    <button type="button" class="campaign-launcher" id="campaign-launcher" title="Crowdfunding-Fenster öffnen" aria-label="Crowdfunding-Fenster öffnen" aria-haspopup="dialog" aria-controls="campaign-dialog" hidden>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9h-3a3 3 0 0 0 0 6h3l11 4V5L9 9Zm0 0v6m-3 0 1.2 5h3l-1.1-5"></path></svg>
-      Crowdfunding
+      <span>Crowdfunding</span>
     </button>
   `);
   const dialog = document.getElementById('campaign-dialog');

@@ -114,6 +114,7 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
   min-height: 5.2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem;
   position: relative; border-bottom: 1px solid var(--dark-line);
 }
+.header-tools { display: none; }
 .brand { display: inline-flex; align-items: center; gap: .67rem; text-decoration: none; width: max-content; max-width: 100%; }
 .brand img { width: 2.12rem; height: 2.35rem; object-fit: contain; }
 .brand > span { font: 600 clamp(1.65rem, 2vw, 2.05rem)/1 var(--serif); letter-spacing: -.055em; }
@@ -251,7 +252,11 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 .newsletter-enrollment .fine-print { margin-top: 1rem; font-size: .9rem; color: #c5c6cc; }
 .newsletter-webmail { margin-top: .3rem; color: #d7d8dd; font-size: .94rem; }
 .draft-text summary { width: fit-content; cursor: pointer; padding-block: .72rem; text-decoration: underline; text-underline-offset: .25em; }
-.newsletter-webmail textarea { display: block; width: 100%; padding: .75rem; margin-block: .75rem; color: var(--ink); background: #fbfbfb; border: 1px solid #9b9da3; border-radius: 2px; resize: vertical; line-height: 1.5; }
+.draft-envelope { display: grid; gap: .4rem; margin-block: .85rem; }
+.draft-envelope > div { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: .65rem; }
+.draft-envelope dt, .newsletter-webmail label { color: var(--gold); font-weight: 600; }
+.draft-envelope dd { overflow-wrap: anywhere; user-select: all; }
+.newsletter-webmail textarea { display: block; width: 100%; padding: .75rem; margin-block: .3rem .75rem; color: var(--ink); background: #fbfbfb; border: 1px solid #9b9da3; border-radius: 2px; resize: vertical; line-height: 1.5; }
 .newsletter-webmail .button { color: white; border-color: #98999f; }
 .newsletter-webmail .button:hover { background: #303238; }
 .newsletter-webmail .copy-status { margin-top: .6rem; }
@@ -420,13 +425,16 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 @media (max-width: 66rem) {
   .menu-ready { scroll-padding-top: 5.1rem; }
   .menu-ready .main-nav { max-height: calc(100dvh - 4.2rem); overflow-y: auto; }
-  .header-inner { min-height: 4.15rem; display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: 0 .55rem; }
+  .header-inner { min-height: 4.15rem; flex-wrap: wrap; align-content: center; gap: 0 .55rem; }
+  .header-tools { display: inline-flex; align-items: center; gap: .55rem; margin-inline-start: auto; }
+  .header-inner .brand, .header-tools { flex: none; }
   .brand { min-height: 2.8rem; }
   .brand img { width: 1.82rem; height: 2.05rem; }
   .menu-toggle:not([hidden]) { display: inline-flex; }
   .masthead .header-guest { display: inline-flex; }
   .main-nav .nav-guest { display: none; }
-  .main-nav { grid-column: 1/-1; width: 100%; justify-content: flex-start; flex-wrap: wrap; padding: .35rem 0 .85rem; gap: .25rem 1rem; }
+  .hero-actions .button-gold { display: none; }
+  .main-nav { width: 100%; justify-content: flex-start; flex-wrap: wrap; padding: .35rem 0 .85rem; gap: .25rem 1rem; }
   .menu-ready .main-nav { display: none; }
   .menu-ready .main-nav.is-open { display: flex; flex-direction: column; align-items: stretch; gap: .15rem; border-top: 1px solid var(--dark-line); padding-top: .5rem; }
   .menu-ready .main-nav a { min-height: 3rem; padding-inline: .55rem; }
@@ -439,16 +447,16 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   .hero-copy { display: contents; }
   .hero-copy > * { grid-column: 1; }
   .hero-copy .eyebrow { grid-row: 1; font-size: .72rem; letter-spacing: .11em; }
-  .hero-copy .show-title { grid-row: 2; font-size: clamp(2.8rem,14vw,5.8rem); line-height: 1; margin: .4rem 0 1rem; }
+  .hero-copy .show-title { grid-row: 2; font-size: clamp(2.1rem,14vw,5.8rem); line-height: 1; margin: .4rem 0 1rem; }
   .show-title em { display: inline; line-height: inherit; }
   .cover-portrait { position: relative; grid-row: 3; grid-column: 1; width: calc(100% + 2 * var(--gutter)); height: clamp(15rem,64vw,24rem); margin: 0 calc(-1 * var(--gutter)) 1.3rem; }
   .cover-portrait img { object-position: 50% 38%; }
   .cover-portrait::after { background: linear-gradient(0deg,#08090bc9,transparent 30%); }
   .cover-portrait figcaption { bottom: 7%; left: var(--gutter); font-size: 1.6rem; }
   .hero-intro { grid-row: 4; max-width: 35rem; }
-  .release-date { grid-row: 6; margin-top: .7rem; }
-  .hero-actions { grid-row: 5; margin: 1.05rem 0 0; }
-  .theme-player { grid-row: 7; }
+  .release-date { grid-row: 5; margin-top: .7rem; padding-inline-end: 3rem; }
+  .hero-actions { display: none; }
+  .theme-player { grid-row: 6; }
   .partner-intro, .invite-spread, .form-grid, .legal-layout { grid-template-columns: minmax(0,1fr); gap: 1.65rem; }
   .partner-intro h2 { max-width: 12em; }
   .campaign-note-inner { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
@@ -479,15 +487,17 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   :root { --gutter: 1.25rem; }
   .hero-layout { padding-top: 1.8rem; }
   .hero-intro { font-size: 1.04rem; line-height: 1.5; }
-  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
-  .hero-actions .button { font-size: clamp(.84rem, 3.8vw, 1rem); padding-inline: .35rem; text-align: center; }
   .release-date { align-items: center; }
   .button { min-height: 3.05rem; }
   .form-row { grid-template-columns: 1fr; gap: 1.2rem; }
 }
-@media (max-width: 30rem) {
-  .header-inner { column-gap: .38rem; }
-  .masthead .header-guest { padding-inline: .7rem; font-size: .9rem; }
+@media (max-width: 36rem) {
+  .header-inner { width: calc(100% - 2 * min(var(--gutter), 4vw)); column-gap: .5rem; }
+  .header-inner .brand { gap: clamp(.25rem, 1.3vw, .45rem); }
+  .header-inner .brand img { flex: none; width: clamp(1.25rem, 6.25vw, 1.85rem); height: auto; }
+  .header-inner .brand > span { font-size: clamp(1.05rem, 5.7vw, 1.65rem); white-space: nowrap; }
+  .header-tools { gap: .375rem; }
+  .masthead .header-guest { padding-inline: clamp(.45rem, 2.4vw, .75rem); font-size: clamp(.82rem, 3.7vw, .91rem); }
   .header-guest .icon { display: none; }
   .menu-toggle { width: 2.75rem; justify-content: center; padding: 0; }
   .menu-toggle span {
@@ -498,10 +508,8 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 }
 @media (max-width: 355px) {
   :root { --gutter: 1rem; }
-  .header-inner .brand { gap: .4rem; }
-  .header-inner .brand > span { font-size: 1.42rem; }
-  .header-inner .brand img { width: 1.55rem; }
-  .masthead .header-guest { padding-inline: .55rem; }
+  .header-inner { width: calc(100% - 1rem); column-gap: .25rem; }
+  .masthead .header-guest { padding-inline: .35rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
