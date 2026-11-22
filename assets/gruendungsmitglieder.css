@@ -12,14 +12,14 @@
   hyphens: manual;
 }
 .founder-cover .eyebrow { color: var(--gold); }
-.founder-cover h1 span, .founder-cover .text-link { color: var(--gold); }
+.founder-cover h1 span { color: var(--gold); }
 .founder-cover-copy > p:not(.eyebrow) {
   max-width: 38ch;
   margin-top: 1.25rem;
   color: #e1e0de;
   font-size: clamp(1.07rem, 1.4vw, 1.3rem);
 }
-.founder-cover .text-link { margin-top: .9rem; text-decoration-color: currentColor; }
+.founder-cover .button { margin-top: 1.4rem; }
 .founder-cover-photo { width: 100%; height: auto; aspect-ratio: 1.6; object-fit: cover; }
 .founder-content {
   display: grid;
@@ -38,8 +38,10 @@
 .founder-group:not(:has(li)), .founder-register:has(li) > .founder-empty { display: none; }
 .founder-contact { padding-left: clamp(1.5rem, 3vw, 3rem); border-left: 1px solid #c3b493; }
 .founder-contact h2 { font-size: clamp(2rem, 3vw, 2.9rem); }
-.founder-contact p { margin-top: .8rem; }
-.founder-contact .text-link { margin-top: .5rem; color: var(--brass); text-decoration-color: currentColor; }
+.founder-perks { margin-top: 1.15rem; }
+.founder-perks dt { margin-top: 1rem; font-weight: 650; }
+.founder-perks dd { margin-top: .2rem; }
+.founder-contact .text-link { margin-top: .85rem; color: var(--brass); text-decoration-color: currentColor; }
 
 @media (max-width: 47.99rem) {
   .founder-cover-layout, .founder-content { grid-template-columns: minmax(0, 1fr); }

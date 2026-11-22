@@ -10,16 +10,6 @@ const release = {
 
 function connectOriginalNotices() {
   if (!document.body.matches('.page-agb, .page-impressum, .page-datenschutz')) return;
-  const nav = document.getElementById('hauptmenue');
-  const guestLink = nav.querySelector('.nav-guest');
-  guestLink.href = 'index.html#gast-werden';
-  nav.replaceChildren(guestLink);
-  guestLink.insertAdjacentHTML('beforebegin', '<a href="index.html#format">Der Podcast</a>');
-  guestLink.insertAdjacentHTML('afterend', `
-    <a href="index.html#sponsoring">Sponsoring</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="index.html#startpost">Newsletter</a>
-  `);
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#121315');
   const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');
   if (privacyOverview) {
@@ -74,7 +64,7 @@ function activateMenu() {
   document.addEventListener('click', event => {
     if (!event.target.closest('.masthead')) setOpen(false);
   });
-  window.matchMedia('(max-width: 900px)').addEventListener('change', () => setOpen(false));
+  window.matchMedia('(max-width: 66rem)').addEventListener('change', () => setOpen(false));
   menu.hidden = false;
   document.documentElement.classList.add('menu-ready');
 }
@@ -136,9 +126,9 @@ function activateFundingProgress(dialog) {
   if (!endpoint) return;
   const source = new URL(endpoint.content, document.baseURI);
   const preview = source.origin !== location.origin;
-  const live = dialog.querySelector('[data-funding-live]');
-  const progress = live.querySelector('progress');
-  const status = dialog.querySelector('[data-funding-unavailable]');
+  const meters = document.querySelectorAll('[data-funding-live]');
+  const pageMeter = document.querySelector('main [data-funding-live]');
+  let pageMeterVisible = false;
   const formatMoney = new Intl.NumberFormat('de-DE', {
     style: 'currency', currency: 'EUR', trailingZeroDisplay: 'stripIfInteger'
   });
@@ -159,28 +149,48 @@ function activateFundingProgress(dialog) {
         age > maxAge || age < -5 * 60 * 1000) throw new Error('Unvollständiger Finanzierungsstand');
     const amount = formatMoney.format(data.amount);
     const goal = formatMoney.format(data.goal);
-    progress.max = data.goal;
-    progress.value = Math.min(data.amount, data.goal);
-    progress.setAttribute('aria-valuetext', amount + ' von ' + goal);
-    live.querySelector('[data-funding-value]').textContent = amount;
-    dialog.querySelector('[data-funding-goal]').textContent = goal;
-    const updated = live.querySelector('[data-funding-updated]');
-    updated.textContent = 'Stand ' + formatTime.format(time) + ' Uhr';
-    updated.hidden = false;
-    live.hidden = false;
-    status.hidden = true;
+    if (time < lastGoodAt) throw new Error('Veralteter Finanzierungsstand');
+    for (const meter of meters) {
+      const progress = meter.querySelector('progress');
+      progress.max = data.goal;
+      progress.value = Math.min(data.amount, data.goal);
+      progress.setAttribute('aria-valuetext', amount + ' von ' + goal);
+      meter.querySelector('[data-funding-value]').textContent = amount;
+      meter.querySelector('[data-funding-goal]').textContent = goal;
+      meter.querySelector('[data-funding-updated]').textContent = 'Stand ' + formatTime.format(time) + ' Uhr';
+      meter.querySelector('[data-funding-placeholder]').hidden = true;
+      progress.hidden = false;
+    }
     lastGoodAt = time;
+  }
+
+  function showStatus(message) {
+    for (const meter of meters) {
+      meter.querySelector('[data-funding-value]').textContent = '–';
+      meter.querySelector('[data-funding-updated]').textContent = message;
+      meter.querySelector('progress').hidden = true;
+      meter.querySelector('[data-funding-placeholder]').hidden = false;
+    }
+  }
+
+  function visible() {
+    return !document.hidden && (dialog.open || pageMeterVisible);
   }
 
   async function refresh() {
     clearTimeout(timer);
-    if (!dialog.open || document.hidden || inFlight) return;
+    if (!visible() || inFlight) return;
+    if (lastGoodAt && Date.now() - lastGoodAt >= maxAge) {
+      lastGoodAt = 0;
+      showStatus('Aktueller Stand auf Startnext.');
+    }
     const delay = nextAttempt - Date.now();
     if (delay > 0) {
       timer = setTimeout(refresh, delay);
       return;
     }
     inFlight = true;
+    if (!lastGoodAt) showStatus('Stand wird abgerufen …');
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 12000);
     try {
@@ -204,19 +214,32 @@ function activateFundingProgress(dialog) {
       nextAttempt = Date.now() + 10 * 60 * 1000;
     } catch {
       if (!lastGoodAt || Date.now() - lastGoodAt >= maxAge) {
-        live.hidden = true;
-        status.hidden = false;
+        lastGoodAt = 0;
+        showStatus('Aktueller Stand zurzeit nur auf Startnext.');
       }
       nextAttempt = Date.now() + 60 * 1000;
     } finally {
       clearTimeout(timeout);
       inFlight = false;
-      if (dialog.open && !document.hidden) timer = setTimeout(refresh, Math.max(0, nextAttempt - Date.now()));
+      if (visible()) timer = setTimeout(refresh, Math.max(0, nextAttempt - Date.now()));
     }
   }
 
   new MutationObserver(refresh).observe(dialog, { attributes: true, attributeFilter: ['open'] });
+  if (pageMeter) {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        pageMeterVisible = entry.isIntersecting;
+        refresh();
+      });
+      observer.observe(pageMeter);
+    } else {
+      pageMeterVisible = true;
+    }
+  }
   document.addEventListener('visibilitychange', refresh);
+  window.addEventListener('pageshow', refresh);
+  refresh();
 }
 
 function activateCampaignNotice() {
@@ -231,25 +254,23 @@ function activateCampaignNotice() {
       </div>
       <h2 id="campaign-dialog-title">Goldgezwitscher <em>auf Startnext.</em></h2>
       <p id="campaign-dialog-copy">Ich möchte meine ersten Gespräche in Karlsruhe aufnehmen. Wenn du den Podcast von Anfang an begleiten möchtest, findest du meine Kampagne auf Startnext.</p>
-      <dl class="campaign-dates">
-        <div><dt>Zeitraum</dt><dd>1.–31. Dezember 2026</dd></div>
-        <div><dt>Mein Kampagnenziel</dt><dd data-funding-goal>3.500&nbsp;€</dd></div>
-        <div class="campaign-funding" data-funding-live hidden>
-          <dt id="campaign-funded-label">Bereits unterstützt</dt>
-          <dd>
-            <strong data-funding-value></strong>
-            <progress data-funding-progress aria-labelledby="campaign-funded-label"></progress>
-            <small data-funding-updated hidden></small>
-          </dd>
+      <p class="campaign-period">1.–31. Dezember 2026</p>
+      <div class="campaign-funding" data-funding-live>
+        <div class="funding-heading">
+          <span>Finanzierungsstand</span>
+          <span class="funding-amounts"><strong data-funding-value>–</strong> von <strong data-funding-goal>3.500&nbsp;€</strong></span>
         </div>
-      </dl>
-      <p class="campaign-unavailable" data-funding-unavailable hidden>Den aktuellen Stand findest du auf Startnext.</p>
+        <progress data-funding-progress aria-label="Finanzierungsstand auf Startnext" hidden></progress>
+        <div class="funding-track-placeholder" data-funding-placeholder aria-hidden="true"></div>
+        <small data-funding-updated>Aktueller Stand auf Startnext.</small>
+      </div>
       <div class="campaign-actions">
         <a class="button button-gold" data-campaign-link href="https://www.startnext.com/goldgezwitscher" rel="external noreferrer">Projekt auf Startnext ansehen</a>
         <button type="button" class="campaign-continue" data-dialog-close>${onHomepage ? 'Weiter zum Podcast' : 'Zurück zur Seite'}</button>
       </div>
+      <a class="campaign-members" href="gruendungsmitglieder.html">Gründungsmitglieder ansehen</a>
     </dialog>
-    <button type="button" class="campaign-launcher" id="campaign-launcher" aria-haspopup="dialog" aria-controls="campaign-dialog" hidden>
+    <button type="button" class="campaign-launcher" id="campaign-launcher" title="Crowdfunding-Fenster öffnen" aria-haspopup="dialog" aria-controls="campaign-dialog" hidden>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9h-3a3 3 0 0 0 0 6h3l11 4V5L9 9Zm0 0v6m-3 0 1.2 5h3l-1.1-5"></path></svg>
       Crowdfunding
     </button>

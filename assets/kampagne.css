@@ -43,43 +43,42 @@
 .campaign-dialog h2 { margin-top: .8rem; font-size: clamp(2.55rem, 6vw, 4rem); }
 .campaign-dialog h2 em { display: block; color: var(--gold); }
 .campaign-dialog > p { margin-top: 1rem; color: #e0dfe1; }
-.campaign-dates {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .75rem 2rem;
-  margin-block: 1.3rem;
-  padding-block: .8rem;
-  border-block: 1px solid var(--dark-line);
-}
-.campaign-dates dt { color: #c8c4c1; font-size: .9rem; }
-.campaign-dates dd { font-weight: 600; }
+.campaign-dialog .campaign-period { font-size: .95rem; color: var(--gold); }
+.campaign-dialog .campaign-funding { margin-block: .9rem 1.3rem; }
 .campaign-funding {
-  flex: 0 0 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  row-gap: .35rem;
-}
-.campaign-funding dd { display: contents; }
-.campaign-funding strong {
-  color: var(--button-gold);
-  font-variant-numeric: tabular-nums;
-}
-.campaign-funding progress {
-  grid-column: 1 / -1;
+  --track-color: #e6dfd2;
+  --track-outline: #837b6b;
+  --funding-number: var(--brass);
+  --funding-muted: var(--muted);
   width: 100%;
-  height: .4rem;
-  appearance: none;
-  border: 0;
+  min-width: 0;
+}
+.campaign-dialog .campaign-funding {
+  --track-color: #393630;
+  --track-outline: #8b8171;
+  --funding-number: var(--button-gold);
+  --funding-muted: #c8c4c1;
+}
+.funding-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .2rem .75rem; }
+.funding-heading > span:first-child { font-size: .94rem; font-weight: 600; }
+.funding-amounts { font-size: .95rem; font-variant-numeric: tabular-nums; }
+.funding-amounts [data-funding-value] { font-size: 1.15rem; color: var(--funding-number); }
+.campaign-funding progress, .funding-track-placeholder {
+  display: block;
+  width: 100%;
+  height: .75rem;
+  margin-block: .4rem;
+  border: 1px solid var(--track-outline);
   border-radius: 1rem;
   overflow: hidden;
-  accent-color: var(--button-gold);
-  background: #69645b;
+  background: var(--track-color);
 }
-.campaign-funding progress::-webkit-progress-bar { background: #69645b; }
+.campaign-funding progress { appearance: none; accent-color: var(--button-gold); }
+.campaign-funding progress::-webkit-progress-bar { background: var(--track-color); }
 .campaign-funding progress::-webkit-progress-value { background: var(--button-gold); }
 .campaign-funding progress::-moz-progress-bar { background: var(--button-gold); }
-.campaign-funding small { grid-column: 1 / -1; color: #c8c4c1; font-size: .875rem; font-weight: 400; }
+.campaign-funding small { display: block; color: var(--funding-muted); font-size: .875rem; }
+.campaign-members { display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: .2rem; color: var(--gold); font-size: .95rem; }
 @media (forced-colors: active) {
   .campaign-funding progress { appearance: auto; }
 }
@@ -122,5 +121,3 @@ html:has(.campaign-dialog[open]) { overflow: hidden; }
   body:has(.inquiry-form :is(input, select, textarea):focus) .campaign-launcher { visibility: hidden; }
 }
 @media print { .campaign-launcher { display: none; } }
-
-.campaign-dialog .campaign-unavailable { margin: 0 0 .9rem; font-size: .9rem; }

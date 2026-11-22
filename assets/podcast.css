@@ -198,19 +198,27 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 .profile-links { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.4rem; margin-top: 1rem; }
 .profile-links a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .96rem; font-weight: 600; }
 
-/* A quiet project note before the newsletter. */
+/* Crowdfunding and the public register share one stop on the landing page. */
 .campaign-note { background: #f7f7f5; }
 .campaign-note-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2.5rem;
-  border-top: 1px solid var(--line);
-  padding-block: clamp(1.7rem, 3.7vw, 3.5rem);
+  gap: clamp(2rem, 7vw, 7rem);
+  padding-block: clamp(2.65rem, 5.5vw, 5rem);
 }
-.campaign-note h2 { font-size: clamp(1.95rem, 2.6vw, 2.7rem); }
-.campaign-note p { max-width: 57ch; margin-top: .55rem; color: var(--muted); }
-.campaign-note .text-link { flex-shrink: 0; color: var(--brass); text-decoration-color: currentColor; }
+.campaign-story .eyebrow { color: var(--brass); }
+.campaign-story h2 {
+  margin-top: .6rem;
+  font-size: clamp(2.55rem, 4.7vw, 4.6rem);
+  line-height: 1.04;
+  hyphens: manual;
+}
+.campaign-story p:not(.eyebrow) { max-width: 47ch; margin-top: 1rem; color: var(--muted); }
+.campaign-story .text-link { color: var(--brass); text-decoration-color: currentColor; }
+.campaign-summary { min-width: 0; padding-inline-start: clamp(1.6rem, 3.7vw, 3.75rem); border-inline-start: 1px solid var(--line); }
+.campaign-period { margin-bottom: .85rem; color: var(--muted); font-size: .95rem; }
+.campaign-summary .campaign-links { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem 1.1rem; margin-top: 1rem; }
 .newsletter-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
@@ -390,7 +398,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   .main-nav { gap: 1rem; }
   .partner-grid { gap: .8rem; }
 }
-@media (max-width: 900px) {
+@media (max-width: 66rem) {
   .menu-ready { scroll-padding-top: 5.1rem; }
   .menu-ready .main-nav { max-height: calc(100dvh - 4.2rem); overflow-y: auto; }
   .header-inner { min-height: 4.15rem; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 0 .6rem; }
@@ -423,7 +431,8 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   .theme-player { grid-row: 7; }
   .partner-intro, .invite-spread, .form-grid, .legal-layout { grid-template-columns: minmax(0,1fr); gap: 1.65rem; }
   .partner-intro h2 { max-width: 12em; }
-  .campaign-note-inner { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .campaign-note-inner { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .campaign-summary { padding: 1.25rem 0 0; border-inline-start: 0; border-top: 1px solid var(--line); }
   .newsletter-layout { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
   .newsletter-layout h2 em { display: inline; }
   .guest-invite .invite-image { display: none; }
