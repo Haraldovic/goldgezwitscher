@@ -1,0 +1,110 @@
+<?php
+declare(strict_types=1);
+
+// Exported only with the Hostinger website. Startnext's public project feed requires no key.
+const PROJECT_FEED = 'https://www.startnext.com/myty/api/crowdfunding/project/goldgezwitscher';
+const REFRESH_INTERVAL = 900;
+const ERROR_RETRY = 120;
+const MAX_STALE = 86400;
+
+function fetchFunding(): ?array
+{
+    if (function_exists('curl_init')) {
+        $request = curl_init(PROJECT_FEED);
+        curl_setopt_array($request, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 6,
+            CURLOPT_TIMEOUT => 8,
+            CURLOPT_FAILONERROR => true,
+            CURLOPT_HTTPHEADER => ['Accept: application/json'],
+            CURLOPT_USERAGENT => 'Goldgezwitscher/1.0 (goldgezwitscher.de)',
+        ]);
+        $body = curl_exec($request);
+        if (curl_getinfo($request, CURLINFO_HTTP_CODE) !== 200) {
+            return null;
+        }
+    } else {
+        $context = stream_context_create(['http' => [
+            'timeout' => 8,
+            'follow_location' => 0,
+            'header' => "Accept: application/json\r\nUser-Agent: Goldgezwitscher/1.0 (goldgezwitscher.de)\r\n",
+        ]]);
+        $body = @file_get_contents(PROJECT_FEED, false, $context, 0, 1048576);
+        $headers = function_exists('http_get_last_response_headers') ? http_get_last_response_headers() : ($http_response_header ?? []);
+        if (!preg_match('~^HTTP/\S+ 200\b~', $headers[0] ?? '')) {
+            return null;
+        }
+    }
+    if (!is_string($body)) {
+        return null;
+    }
+    $project = json_decode($body, true)['project'] ?? null;
+    if (!is_array($project) || ($project['link_caption'] ?? null) !== 'goldgezwitscher'
+        || ($project['currency'] ?? null) !== 'EUR') {
+        return null;
+    }
+    $amount = $project['total_funding'] ?? null;
+    if (($project['is_impact_mode'] ?? false) === true && isset($project['impact_amount'])) {
+        $amount = $project['impact_amount'];
+    }
+    $goal = $project['funding_threshold'] ?? null;
+    if (!is_numeric($amount) || !is_finite((float)$amount) || (float)$amount < 0
+        || !is_numeric($goal) || !is_finite((float)$goal) || (float)$goal <= 0) {
+        return null;
+    }
+    return [
+        'amount' => (float)$amount,
+        'goal' => (float)$goal,
+        'currency' => 'EUR',
+        'updatedAt' => gmdate('Y-m-d\TH:i:s\Z'),
+    ];
+}
+
+function cachedFunding(): ?array
+{
+    $directory = sys_get_temp_dir() . '/goldgezwitscher-' . substr(hash('sha256', __DIR__), 0, 20);
+    if (!is_dir($directory) && !@mkdir($directory, 0700) && !is_dir($directory)) {
+        return null;
+    }
+    if (is_link($directory)) {
+        return null;
+    }
+
+    $path = $directory . '/funding.json';
+    $lock = @fopen($directory . '/refresh.lock', 'c');
+    if (!$lock || !flock($lock, LOCK_EX)) {
+        return null;
+    }
+    try {
+        $cache = json_decode((string)@file_get_contents($path), true);
+        $snapshot = $cache['snapshot'] ?? null;
+        $now = time();
+        if (($cache['retryAt'] ?? 0) <= $now) {
+            $fresh = fetchFunding();
+            $snapshot = $fresh ?? $snapshot;
+            $state = json_encode(['snapshot' => $snapshot, 'retryAt' => $now + ($fresh ? REFRESH_INTERVAL : ERROR_RETRY)]);
+            // A failed write leaves the previous complete snapshot available to other workers.
+            $temporary = $directory . '/funding.next';
+            if ($state !== false && @file_put_contents($temporary, $state) === strlen($state)) {
+                @rename($temporary, $path);
+            }
+        }
+        $seenAt = strtotime($snapshot['updatedAt'] ?? '');
+        return $seenAt !== false && $now - $seenAt < MAX_STALE ? $snapshot : null;
+    } finally {
+        flock($lock, LOCK_UN);
+        fclose($lock);
+    }
+}
+
+header('Content-Type: application/json; charset=utf-8');
+header('X-Content-Type-Options: nosniff');
+header('Cache-Control: no-store');
+$funding = cachedFunding();
+if ($funding === null) {
+    http_response_code(503);
+    header('Retry-After: ' . ERROR_RETRY);
+    echo '{"unavailable":true}';
+} else {
+    echo json_encode($funding);
+}

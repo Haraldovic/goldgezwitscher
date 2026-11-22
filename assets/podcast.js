@@ -131,6 +131,94 @@ function showRelease() {
   }
 }
 
+function activateFundingProgress(dialog) {
+  const endpoint = document.querySelector('meta[name="funding-endpoint"]');
+  if (!endpoint) return;
+  const source = new URL(endpoint.content, document.baseURI);
+  const preview = source.origin !== location.origin;
+  const live = dialog.querySelector('[data-funding-live]');
+  const progress = live.querySelector('progress');
+  const status = dialog.querySelector('[data-funding-unavailable]');
+  const formatMoney = new Intl.NumberFormat('de-DE', {
+    style: 'currency', currency: 'EUR', trailingZeroDisplay: 'stripIfInteger'
+  });
+  const formatTime = new Intl.DateTimeFormat('de-DE', {
+    day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin'
+  });
+  const maxAge = 24 * 60 * 60 * 1000;
+  let lastGoodAt = 0;
+  let nextAttempt = 0;
+  let timer;
+  let inFlight = false;
+
+  function display(data) {
+    const time = Date.parse(data.updatedAt);
+    const age = Date.now() - time;
+    if (data.currency !== 'EUR' || !Number.isFinite(data.amount) || data.amount < 0 ||
+        !Number.isFinite(data.goal) || data.goal <= 0 || !Number.isFinite(time) ||
+        age > maxAge || age < -5 * 60 * 1000) throw new Error('Unvollständiger Finanzierungsstand');
+    const amount = formatMoney.format(data.amount);
+    const goal = formatMoney.format(data.goal);
+    progress.max = data.goal;
+    progress.value = Math.min(data.amount, data.goal);
+    progress.setAttribute('aria-valuetext', amount + ' von ' + goal);
+    live.querySelector('[data-funding-value]').textContent = amount;
+    dialog.querySelector('[data-funding-goal]').textContent = goal;
+    const updated = live.querySelector('[data-funding-updated]');
+    updated.textContent = 'Stand ' + formatTime.format(time) + ' Uhr';
+    updated.hidden = false;
+    live.hidden = false;
+    status.hidden = true;
+    lastGoodAt = time;
+  }
+
+  async function refresh() {
+    clearTimeout(timer);
+    if (!dialog.open || document.hidden || inFlight) return;
+    const delay = nextAttempt - Date.now();
+    if (delay > 0) {
+      timer = setTimeout(refresh, delay);
+      return;
+    }
+    inFlight = true;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(source, {
+        headers: { Accept: 'application/json' }, credentials: 'omit', referrerPolicy: 'no-referrer',
+        cache: 'no-store', signal: controller.signal
+      });
+      if (!response.ok) throw new Error('Finanzierungsstand nicht verfügbar');
+      const body = await response.json();
+      if (preview) {
+        const project = body.project;
+        if (project?.link_caption !== 'goldgezwitscher') throw new Error('Unbekanntes Projekt');
+        display({
+          amount: project.is_impact_mode === true && project.impact_amount != null
+            ? project.impact_amount : project.total_funding,
+          goal: project.funding_threshold, currency: project.currency, updatedAt: new Date().toISOString()
+        });
+      } else {
+        display(body);
+      }
+      nextAttempt = Date.now() + 10 * 60 * 1000;
+    } catch {
+      if (!lastGoodAt || Date.now() - lastGoodAt >= maxAge) {
+        live.hidden = true;
+        status.hidden = false;
+      }
+      nextAttempt = Date.now() + 60 * 1000;
+    } finally {
+      clearTimeout(timeout);
+      inFlight = false;
+      if (dialog.open && !document.hidden) timer = setTimeout(refresh, Math.max(0, nextAttempt - Date.now()));
+    }
+  }
+
+  new MutationObserver(refresh).observe(dialog, { attributes: true, attributeFilter: ['open'] });
+  document.addEventListener('visibilitychange', refresh);
+}
+
 function activateCampaignNotice() {
   const footer = document.querySelector('.site-footer');
   if (!footer) return;
@@ -145,8 +233,17 @@ function activateCampaignNotice() {
       <p id="campaign-dialog-copy">Ich möchte meine ersten Gespräche in Karlsruhe aufnehmen. Wenn du den Podcast von Anfang an begleiten möchtest, findest du meine Kampagne auf Startnext.</p>
       <dl class="campaign-dates">
         <div><dt>Zeitraum</dt><dd>1.–31. Dezember 2026</dd></div>
-        <div><dt>Mein Kampagnenziel</dt><dd>3.500&nbsp;€</dd></div>
+        <div><dt>Mein Kampagnenziel</dt><dd data-funding-goal>3.500&nbsp;€</dd></div>
+        <div class="campaign-funding" data-funding-live hidden>
+          <dt id="campaign-funded-label">Bereits unterstützt</dt>
+          <dd>
+            <strong data-funding-value></strong>
+            <progress data-funding-progress aria-labelledby="campaign-funded-label"></progress>
+            <small data-funding-updated hidden></small>
+          </dd>
+        </div>
       </dl>
+      <p class="campaign-unavailable" data-funding-unavailable hidden>Den aktuellen Stand findest du auf Startnext.</p>
       <div class="campaign-actions">
         <a class="button button-gold" data-campaign-link href="https://www.startnext.com/goldgezwitscher" rel="external noreferrer">Projekt auf Startnext ansehen</a>
         <button type="button" class="campaign-continue" data-dialog-close>${onHomepage ? 'Weiter zum Podcast' : 'Zurück zur Seite'}</button>
@@ -159,6 +256,7 @@ function activateCampaignNotice() {
   `);
   const dialog = document.getElementById('campaign-dialog');
   const launcher = document.getElementById('campaign-launcher');
+  activateFundingProgress(dialog);
 
   const begins = Date.parse('2026-12-01T00:00:00+01:00');
   const ends = Date.parse('2027-01-01T00:00:00+01:00');

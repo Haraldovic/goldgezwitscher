@@ -1,4 +1,4 @@
-"""Create the static production ZIP for goldgezwitscher.de using Python 3."""
+"""Create the Hostinger production ZIP for goldgezwitscher.de using Python 3."""
 
 import argparse
 import re
@@ -11,6 +11,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 DOMAIN = "https://goldgezwitscher.de"
 PREVIEW = "https://goldgezwitscher.rateriser.tech"
+PROGRESS_ENDPOINT = "kampagnenstand.php"
 PAGES = (
     "index.html", "bewerben.html", "sponsoren.html", "gruendungsmitglieder.html",
     "impressum.html", "datenschutz.html", "startpost-datenschutz.html",
@@ -35,12 +36,25 @@ def production_html(path):
         source, count = re.subn(r'<section id="hosting">.*?</section>', HOSTING_NOTICE, source, flags=re.S)
         if count != 1:
             raise ValueError("Hostingabschnitt in datenschutz.html prüfen.")
+        source, count = re.subn(
+            r'<p id="vorschau-kampagnenabruf">.*?</p>',
+            '<p>Den öffentlichen Finanzierungsstand frage ich über meinen Webserver bei Startnext ab. '
+            'Dein Browser lädt den Stand von dieser Website.</p>',
+            source, flags=re.S,
+        )
+        if count != 1:
+            raise ValueError("Datenschutzhinweis zum Kampagnenabruf prüfen.")
     is_redirect = '<meta http-equiv="refresh"' in source
     canonical = DOMAIN + "/" + ("" if path.name == "index.html" or is_redirect else path.name)
     source = re.sub(r'^[ \t]*<link rel="canonical"[^>]*>\n', "", source, flags=re.M)
     source = source.replace("noindex,nofollow", "noindex,follow" if is_redirect else "index,follow")
     tags = f'    <link rel="canonical" href="{canonical}">\n'
     if not is_redirect:
+        source, count = re.subn(r'(<meta name="funding-endpoint" content=")[^"]*(">)',
+                                rf'\g<1>{PROGRESS_ENDPOINT}\2', source)
+        if count != 1:
+            raise ValueError(f"Kampagnen-Endpunkt in {path.name} prüfen.")
+        source = re.sub(r"connect-src [^;\"]+", "connect-src 'self'", source, count=1)
         tags += f'    <meta property="og:url" content="{canonical}">\n'
     return re.sub(r'^[ \t]*</head>', tags + "  </head>", source, count=1, flags=re.M)
 
@@ -100,6 +114,7 @@ def export(destination):
     with TemporaryDirectory(dir=destination.parent) as temporary:
         prepared = Path(temporary) / "site.zip"
         with ZipFile(prepared, "w", compression=ZIP_DEFLATED) as archive:
+            archive.write(ROOT / "tools" / (PROGRESS_ENDPOINT + ".in"), PROGRESS_ENDPOINT)
             for page, html in sorted(pages.items()):
                 archive.writestr(page.name, html.encode("utf-8"))
             for file in sorted(assets):
@@ -111,7 +126,7 @@ def export(destination):
             if archive.testzip():
                 raise ValueError("Die ZIP-Prüfung ist fehlgeschlagen.")
         prepared.replace(destination)
-    print(f"{destination} ({len(pages)} HTML-Seiten und {len(assets)} zugehörige Dateien)")
+    print(f"{destination} ({len(pages)} HTML-Seiten, {len(assets)} zugehörige Dateien, 1 PHP-Endpunkt)")
 
 
 if __name__ == "__main__":
