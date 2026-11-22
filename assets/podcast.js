@@ -147,13 +147,38 @@ function showRelease() {
 }
 
 function activateCampaignNotice() {
+  const footer = document.querySelector('.site-footer');
+  if (!footer) return;
+  const onHomepage = document.body.matches('.page-index');
+  footer.insertAdjacentHTML('beforebegin', `
+    <dialog class="campaign-dialog" aria-labelledby="campaign-dialog-title" aria-describedby="campaign-dialog-copy" id="campaign-dialog">
+      <div class="campaign-dialog-bar">
+        <p class="eyebrow">Mein Crowdfunding</p>
+        <button type="button" class="campaign-close" data-dialog-close aria-label="Hinweis schließen" autofocus>×</button>
+      </div>
+      <h2 id="campaign-dialog-title">Goldgezwitscher <em>auf Startnext.</em></h2>
+      <p id="campaign-dialog-copy">Ich möchte meine ersten Gespräche in Karlsruhe aufnehmen. Wenn du den Podcast von Anfang an begleiten möchtest, findest du meine Kampagne auf Startnext.</p>
+      <dl class="campaign-dates">
+        <div><dt>Zeitraum</dt><dd>1.–31. Dezember 2026</dd></div>
+        <div><dt>Mein Kampagnenziel</dt><dd>3.500&nbsp;€</dd></div>
+      </dl>
+      <div class="campaign-actions">
+        <a class="button button-gold" data-campaign-link href="https://www.startnext.com/goldgezwitscher" rel="external noreferrer">Projekt auf Startnext ansehen</a>
+        <button type="button" class="campaign-continue" data-dialog-close>${onHomepage ? 'Weiter zum Podcast' : 'Zurück zur Seite'}</button>
+      </div>
+    </dialog>
+    <button type="button" class="campaign-launcher" id="campaign-launcher" aria-haspopup="dialog" aria-controls="campaign-dialog" hidden>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9h-3a3 3 0 0 0 0 6h3l11 4V5L9 9Zm0 0v6m-3 0 1.2 5h3l-1.1-5"></path></svg>
+      Crowdfunding
+    </button>
+  `);
   const dialog = document.getElementById('campaign-dialog');
-  if (!dialog) return;
+  const launcher = document.getElementById('campaign-launcher');
 
   const begins = Date.parse('2026-12-01T00:00:00+01:00');
   const ends = Date.parse('2027-01-01T00:00:00+01:00');
   const sessionKey = 'goldgezwitscher.startnext-2026.dismissed';
-  let presented = false;
+  let autoNoticePending = onHomepage;
   let timer;
 
   function rememberVisit() {
@@ -170,14 +195,16 @@ function activateCampaignNotice() {
     document.querySelectorAll('[data-campaign-link]').forEach(link => {
       link.textContent = active ? 'Auf Startnext unterstützen' : 'Projekt auf Startnext ansehen';
     });
-    document.querySelector('[data-campaign-calendar]').hidden = now >= ends;
+    const calendar = document.querySelector('[data-campaign-calendar]');
+    if (calendar) calendar.hidden = now >= ends;
+    launcher.hidden = now >= ends || typeof dialog.showModal !== 'function';
 
     if (now >= ends && dialog.open) dialog.close();
-    if (now < ends && !presented && !location.hash && !document.hidden && typeof dialog.showModal === 'function') {
+    if (!launcher.hidden && autoNoticePending && !location.hash && !document.hidden) {
       try {
         if (!sessionStorage.getItem(sessionKey)) {
           dialog.showModal();
-          presented = true;
+          autoNoticePending = false;
         }
       } catch {
         // The same campaign and link are accessible in the page without session storage.
@@ -190,6 +217,16 @@ function activateCampaignNotice() {
     if (next) timer = setTimeout(update, Math.min(next - now, 2147483647));
   }
 
+  launcher.addEventListener('click', () => {
+    if (Date.now() >= ends) {
+      update();
+      return;
+    }
+    // Native dialog dismissal restores focus to this button, including on touch browsers.
+    launcher.focus({ preventScroll: true });
+    dialog.showModal();
+    autoNoticePending = false;
+  });
   dialog.querySelectorAll('[data-dialog-close]').forEach(button => {
     button.addEventListener('click', () => dialog.close());
   });

@@ -17,7 +17,7 @@
   color: var(--light);
   background: var(--charcoal);
   border: 1px solid #696055;
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid var(--sapphire-light);
   border-radius: 3px;
   box-shadow: 0 1.3rem 4rem #0006;
 }
@@ -64,3 +64,31 @@
   text-underline-offset: .3em;
 }
 html:has(.campaign-dialog[open]) { overflow: hidden; }
+
+.campaign-launcher {
+  position: fixed;
+  z-index: 4;
+  inset-inline-end: max(1rem, env(safe-area-inset-right));
+  bottom: calc(.9rem + env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  min-height: 2.75rem;
+  padding: .45rem .9rem;
+  border: 1px solid #bfc6d1;
+  border-radius: 2rem;
+  background: var(--light);
+  color: var(--ink);
+  box-shadow: 0 2px 9px #11121421;
+  font: 600 .875rem/1.25 var(--sans);
+}
+.campaign-launcher svg { flex: none; color: var(--sapphire-ink); }
+.campaign-launcher:is(:hover, :focus-visible) { background: var(--sapphire-wash); color: var(--sapphire-ink); border-color: currentColor; }
+.campaign-launcher:focus-visible { outline-color: var(--sapphire-ink); }
+.campaign-dialog[open] + .campaign-launcher { visibility: hidden; }
+.campaign-launcher:not([hidden]) ~ .site-footer { padding-bottom: calc(3.5rem + env(safe-area-inset-bottom)); }
+@media (max-width: 48rem), (max-height: 32rem) {
+  body:has(.inquiry-form :is(input, select, textarea):focus) .campaign-launcher { visibility: hidden; }
+}
+@media print { .campaign-launcher { display: none; } }

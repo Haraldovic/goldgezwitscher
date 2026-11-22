@@ -28,6 +28,9 @@
   --muted: #52545a;
   --gold: #e3c892;
   --brass: #755628;
+  --sapphire-ink: #294986;
+  --sapphire-light: #aec6ff;
+  --sapphire-wash: #edf2fb;
   --paper: #f5f5f5;
   --light: #fafafa;
   --mist: #e5e6e8;
@@ -124,11 +127,12 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
 .cover-hero .eyebrow { color: var(--gold); font-size: .79rem; letter-spacing: .15em; }
 .hero-copy .show-title { font-size: clamp(5.8rem, 8.6vw, 8.7rem); line-height: .8; letter-spacing: -.063em; margin: 1.7rem 0 1.7rem -.04em; }
 .show-title em { display: block; line-height: .94; font-weight: 400; }
-.show-title em span { color: var(--gold); }
+.show-title em span { color: var(--sapphire-light); }
 .hero-intro { max-width: 32rem; color: #dddde0; font-size: clamp(1.04rem, 1.25vw, 1.19rem); line-height: 1.59; }
 .release-date { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: .65rem; margin-top: .6rem; color: #c7c7cd; font-size: .91rem; }
 .release-date time { color: white; font-weight: 600; }
 .date-action { display: inline-flex; align-items: center; min-height: 2.75rem; text-underline-offset: .25em; }
+.release-date .date-action { color: var(--sapphire-light); }
 .hero-actions { margin-top: 1.5rem; gap: .65rem .8rem; }
 .hero-actions .button-outline { border-color: #9d9b96; color: white; background: transparent; }
 .hero-actions .button-outline:hover { background: #292a2d; border-color: var(--gold); }
@@ -208,7 +212,9 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 }
 .campaign-note h2 { font-size: clamp(1.95rem, 2.6vw, 2.7rem); }
 .campaign-note p { max-width: 57ch; margin-top: .55rem; color: var(--muted); }
-.campaign-note .text-link { flex-shrink: 0; color: var(--brass); }
+.campaign-note .text-link { flex-shrink: 0; color: var(--sapphire-ink); text-decoration-color: currentColor; }
+.campaign-dialog [data-campaign-link] { background: var(--sapphire-light); color: var(--deep); }
+.campaign-dialog [data-campaign-link]:hover { background: #cfddff; }
 .newsletter-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
