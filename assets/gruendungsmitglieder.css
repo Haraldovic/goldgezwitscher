@@ -12,7 +12,7 @@
   hyphens: manual;
 }
 .founder-cover .eyebrow { color: var(--gold); }
-.founder-cover h1 span, .founder-cover .text-link { color: var(--sapphire-light); }
+.founder-cover h1 span, .founder-cover .text-link { color: var(--gold); }
 .founder-cover-copy > p:not(.eyebrow) {
   max-width: 38ch;
   margin-top: 1.25rem;
@@ -39,7 +39,7 @@
 .founder-contact { padding-left: clamp(1.5rem, 3vw, 3rem); border-left: 1px solid #c3b493; }
 .founder-contact h2 { font-size: clamp(2rem, 3vw, 2.9rem); }
 .founder-contact p { margin-top: .8rem; }
-.founder-contact .text-link { margin-top: .5rem; color: var(--sapphire-ink); text-decoration-color: currentColor; }
+.founder-contact .text-link { margin-top: .5rem; color: var(--brass); text-decoration-color: currentColor; }
 
 @media (max-width: 47.99rem) {
   .founder-cover-layout, .founder-content { grid-template-columns: minmax(0, 1fr); }

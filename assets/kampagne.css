@@ -17,7 +17,7 @@
   color: var(--light);
   background: var(--charcoal);
   border: 1px solid #696055;
-  border-top: 3px solid var(--sapphire-light);
+  border-top: 3px solid var(--gold);
   border-radius: 3px;
   box-shadow: 0 1.3rem 4rem #0006;
 }
@@ -76,16 +76,16 @@ html:has(.campaign-dialog[open]) { overflow: hidden; }
   gap: .45rem;
   min-height: 2.75rem;
   padding: .45rem .9rem;
-  border: 1px solid #bfc6d1;
+  border: 1px solid #bdb8ad;
   border-radius: 2rem;
   background: var(--light);
   color: var(--ink);
   box-shadow: 0 2px 9px #11121421;
   font: 600 .875rem/1.25 var(--sans);
 }
-.campaign-launcher svg { flex: none; color: var(--sapphire-ink); }
-.campaign-launcher:is(:hover, :focus-visible) { background: var(--sapphire-wash); color: var(--sapphire-ink); border-color: currentColor; }
-.campaign-launcher:focus-visible { outline-color: var(--sapphire-ink); }
+.campaign-launcher svg { flex: none; color: var(--brass); }
+.campaign-launcher:is(:hover, :focus-visible) { background: #faf3e4; color: var(--brass); border-color: currentColor; }
+.campaign-launcher:focus-visible { outline-color: var(--brass); }
 .campaign-dialog[open] + .campaign-launcher { visibility: hidden; }
 .campaign-launcher:not([hidden]) ~ .site-footer { padding-bottom: calc(3.5rem + env(safe-area-inset-bottom)); }
 @media (max-width: 48rem), (max-height: 32rem) {

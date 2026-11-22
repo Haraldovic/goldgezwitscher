@@ -28,10 +28,8 @@
   --muted: #52545a;
   --gold: #e3c892;
   --brass: #755628;
-  --sapphire-ink: #294986;
-  --sapphire-light: #aec6ff;
-  --sapphire: #365fc0;
-  --sapphire-wash: #edf2fb;
+  --button-gold: #e7b653;
+  --button-gold-hover: #f1c675;
   --paper: #f5f5f5;
   --light: #fafafa;
   --mist: #e5e6e8;
@@ -87,12 +85,9 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
   border-radius: 3px; font: 650 1rem/1.35 var(--sans); text-decoration: none;
   transition: background-color .2s ease, border-color .2s ease;
 }
-.button-gold { background: var(--gold); color: var(--deep); }
-.button-gold:hover { background: #f1ddb3; }
-.button-sapphire { background: var(--sapphire); color: white; }
-.button-sapphire:hover { background: #2c4ea0; }
-.button-green { background: var(--charcoal); color: var(--light); }
-.button-green:hover { background: #36373b; }
+.button-gold { background: var(--button-gold); color: var(--deep); }
+.button-gold:hover { background: var(--button-gold-hover); }
+.inquiry-form .button-gold { border-color: var(--brass); }
 .button-paper { color: var(--ink); background: transparent; border-color: #85868b; }
 .button-paper:hover { background: #e9eaed; }
 .text-link {
@@ -130,12 +125,12 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
 .cover-hero .eyebrow { color: var(--gold); font-size: .79rem; letter-spacing: .15em; }
 .hero-copy .show-title { font-size: clamp(5.8rem, 8.6vw, 8.7rem); line-height: .8; letter-spacing: -.063em; margin: 1.7rem 0 1.7rem -.04em; }
 .show-title em { display: block; line-height: .94; font-weight: 400; }
-.show-title em span { color: var(--sapphire-light); }
+.show-title em span { color: var(--gold); }
 .hero-intro { max-width: 32rem; color: #dddde0; font-size: clamp(1.04rem, 1.25vw, 1.19rem); line-height: 1.59; }
 .release-date { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: .65rem; margin-top: .6rem; color: #c7c7cd; font-size: .91rem; }
 .release-date time { color: white; font-weight: 600; }
 .date-action { display: inline-flex; align-items: center; min-height: 2.75rem; text-underline-offset: .25em; }
-.release-date .date-action { color: var(--sapphire-light); }
+.release-date .date-action { color: var(--gold); }
 .hero-actions { margin-top: 1.5rem; gap: .65rem .8rem; }
 .hero-actions .button-outline { border-color: #9d9b96; color: white; background: transparent; }
 .hero-actions .button-outline:hover { background: #292a2d; border-color: var(--gold); }
@@ -215,9 +210,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 }
 .campaign-note h2 { font-size: clamp(1.95rem, 2.6vw, 2.7rem); }
 .campaign-note p { max-width: 57ch; margin-top: .55rem; color: var(--muted); }
-.campaign-note .text-link { flex-shrink: 0; color: var(--sapphire-ink); text-decoration-color: currentColor; }
-.campaign-dialog [data-campaign-link] { background: var(--sapphire-light); color: var(--deep); }
-.campaign-dialog [data-campaign-link]:hover { background: #cfddff; }
+.campaign-note .text-link { flex-shrink: 0; color: var(--brass); text-decoration-color: currentColor; }
 .newsletter-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
@@ -226,11 +219,10 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 }
 .newsletter-layout h2 em { display: block; }
 .section-lead { max-width: 43ch; margin-top: 1.2rem; font-size: clamp(1.02rem, 1.35vw, 1.18rem); line-height: 1.6; }
-.newsletter-section { background: #191b20; color: white; }
+.newsletter-section { background: var(--charcoal); color: var(--light); }
 .newsletter-layout .eyebrow { color: var(--gold); }
 .newsletter-layout .section-lead { color: #e2e2e5; }
 .newsletter-enrollment { max-width: 32rem; }
-.newsletter-enrollment > .button { color: #1b1916; }
 .newsletter-enrollment .fine-print { margin-top: 1rem; font-size: .9rem; color: #c5c6cc; }
 .newsletter-webmail { margin-top: .3rem; color: #d7d8dd; font-size: .94rem; }
 .draft-text summary { width: fit-content; cursor: pointer; padding-block: .72rem; text-decoration: underline; text-underline-offset: .25em; }
@@ -242,7 +234,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 .newsletter-section :focus-visible, .guest-invite :focus-visible { outline-color: var(--gold); }
 
 /* Invitation to take the second microphone. */
-.guest-invite { color: white; background: #192438; }
+.guest-invite { color: var(--light); background: var(--charcoal); }
 .invite-spread { align-items: center; padding-block: var(--section-space); }
 .invite-image { overflow: hidden; }
 .invite-image img { width: 100%; height: auto; aspect-ratio: 1.23; object-fit: cover; object-position: 58% 47%; }
@@ -303,9 +295,9 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 .partner-description { margin-bottom: 1.35rem; line-height: 1.55; }
 .partner-action {
   width: 100%; margin-top: auto; border-top: 1px solid var(--line); padding: .82rem 0 .25rem; min-height: 2.75rem;
-  display: flex; align-items: center; color: var(--charcoal); font-weight: 650; text-decoration-thickness: 1px; text-underline-offset: .28em;
+  display: flex; align-items: center; color: var(--brass); font-weight: 650; text-decoration-thickness: 1px; text-underline-offset: .28em;
 }
-.partner-action:hover { color: #715123; }
+.partner-action:hover { color: var(--ink); }
 .partner-card:focus-within { border-color: var(--edge); }
 .sponsor-inquiry-link { margin-top: 1.15rem; }
 @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {

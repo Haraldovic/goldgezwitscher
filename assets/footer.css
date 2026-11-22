@@ -71,7 +71,7 @@
 }
 .footer-directory nav a { width: fit-content; }
 .footer-legal { flex-wrap: wrap; gap: 0 clamp(.65rem, 2vw, 1.6rem); }
-.site-footer :is(.footer-email, .footer-channels a, .footer-legal a, .footer-directory a, .footer-directory summary):is(:hover, :focus-visible) { color: var(--sapphire-light); }
+.site-footer :is(.footer-email, .footer-channels a, .footer-legal a, .footer-directory a, .footer-directory summary):is(:hover, :focus-visible) { color: var(--gold); }
 
 @media (max-width: 48rem) {
   .footer-identity { grid-template-columns: minmax(0, 1fr) auto; gap: .3rem .5rem; padding-bottom: .6rem; }

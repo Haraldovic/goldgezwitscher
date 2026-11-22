@@ -31,12 +31,12 @@
     text-decoration: none;
   }
   .faq-group:target .topic-open { display: none; }
-  .faq-group:target .topic-close, .faq-category a:hover { color: var(--sapphire-ink); }
+  .faq-group:target .topic-close, .faq-category a:hover { color: var(--brass); }
   .faq-category a::after {
     content: "";
     flex: 0 0 .55rem;
     height: .55rem;
-    border: solid var(--sapphire-ink);
+    border: solid var(--brass);
     border-width: 0 1.5px 1.5px 0;
     transform: rotate(45deg);
   }
@@ -44,7 +44,7 @@
   .topic-questions {
     padding-inline-start: 1rem;
     margin-bottom: .7rem;
-    border-inline-start: 2px solid var(--sapphire-light);
+    border-inline-start: 2px solid var(--gold);
   }
   .topic-questions details:last-child { border-bottom: none; }
   .topic-questions summary { padding-block: .82rem; font-size: 1rem; }
