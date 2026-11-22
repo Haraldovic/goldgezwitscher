@@ -41,8 +41,6 @@ Die eingegangene Nachricht mit Zeitpunkt und Einwilligung aufbewahren. Die Absen
 
 Die statischen Formulare bereiten die Eingaben als E-Mail an `info@nachlassgold.de` auf. Interessierte prüfen den Entwurf und öffnen ihre E-Mail-App oder kopieren den Nachrichtentext. Die Angaben bleiben bis zum Wechsel in die E-Mail-App im Browser. Bei deaktiviertem JavaScript ist die E-Mail-Adresse direkt erreichbar.
 
-Der Startnext-Hinweis nach den Unternehmensporträts führt zur Kampagne für die ersten vier Folgen.
-
 Silber (199 € je Episode) enthält einen als Werbung gekennzeichneten, eingesprochenen Spot mit Firmenname und Leistungen sowie einen Link in der Videobeschreibung. Gold (750 € je Episode) bietet die exklusive Präsentation einer Folge mit sichtbarem Studiologo, Nennung zu Beginn und zum Ende sowie Firmenlink. Beim individuellen Sponsoring vereinbaren Dietmar und das Unternehmen Umfang, Laufzeit und Preis. Die Startnext-Dankeschöns sind auf der Kampagnenseite beschrieben.
 
 ## Übergabe an das Hosting

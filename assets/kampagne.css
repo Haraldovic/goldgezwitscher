@@ -46,41 +46,71 @@
 .campaign-dialog .campaign-period { font-size: .95rem; color: var(--gold); }
 .campaign-dialog .campaign-funding { margin-block: .9rem 1.3rem; }
 .campaign-funding {
-  --track-color: #e6dfd2;
-  --track-outline: #837b6b;
-  --funding-number: var(--brass);
+  --rail-edge: #897e69;
+  --rail-top: #ded8cd;
+  --rail-base: #f0ebe2;
+  --rail-tick: #9c917d;
+  --fill-top: #966927;
+  --fill-base: #88601e;
+  --funding-number: #775322;
   --funding-muted: var(--muted);
+  --rail-surface: linear-gradient(90deg, transparent calc(100% - 1px), var(--rail-tick) 0)
+      0 100% / 25% .28rem repeat-x,
+    linear-gradient(var(--rail-top), var(--rail-base));
+  --fill-surface: linear-gradient(var(--fill-top), var(--fill-base));
   width: 100%;
   min-width: 0;
 }
 .campaign-dialog .campaign-funding {
-  --track-color: #393630;
-  --track-outline: #8b8171;
+  --rail-edge: #8c8272;
+  --rail-top: #302d28;
+  --rail-base: #423d34;
+  --rail-tick: #827866;
+  --fill-top: #f2c975;
+  --fill-base: #d6a249;
   --funding-number: var(--button-gold);
   --funding-muted: #c8c4c1;
 }
-.funding-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .2rem .75rem; }
-.funding-heading > span:first-child { font-size: .94rem; font-weight: 600; }
-.funding-amounts { font-size: .95rem; font-variant-numeric: tabular-nums; }
-.funding-amounts [data-funding-value] { font-size: 1.15rem; color: var(--funding-number); }
+.funding-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .12rem .75rem;
+}
+.funding-heading > span:first-child { font-size: .95rem; font-weight: 600; }
+.funding-amounts { color: var(--funding-muted); font-size: .9375rem; font-variant-numeric: lining-nums tabular-nums; }
+.funding-amounts [data-funding-value] {
+  color: var(--funding-number);
+  font: 620 clamp(1.45rem, 2vw, 1.85rem)/1.05 var(--sans);
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -.035em;
+}
+.funding-amounts [data-funding-goal] { font-weight: 550; }
 .campaign-funding progress, .funding-track-placeholder {
   display: block;
   width: 100%;
-  height: .75rem;
-  margin-block: .4rem;
-  border: 1px solid var(--track-outline);
-  border-radius: 1rem;
+  height: .875rem;
+  margin-block: .52rem .42rem;
   overflow: hidden;
-  background: var(--track-color);
+  padding: 0;
+  border: 1px solid var(--rail-edge);
+  border-radius: .25rem;
+  background: var(--rail-surface);
 }
-.campaign-funding progress { appearance: none; accent-color: var(--button-gold); }
-.campaign-funding progress::-webkit-progress-bar { background: var(--track-color); }
-.campaign-funding progress::-webkit-progress-value { background: var(--button-gold); }
-.campaign-funding progress::-moz-progress-bar { background: var(--button-gold); }
-.campaign-funding small { display: block; color: var(--funding-muted); font-size: .875rem; }
+.campaign-funding progress { appearance: none; accent-color: var(--fill-base); }
+.campaign-funding progress::-webkit-progress-bar { background: var(--rail-surface); }
+/* The engraved ticks belong to the rail. Only the actual amount receives gold. */
+.campaign-funding progress::-webkit-progress-value { background: var(--fill-surface); }
+.campaign-funding progress::-moz-progress-bar { background: var(--fill-surface); }
+.campaign-funding small { display: block; color: var(--funding-muted); font-size: .875rem; line-height: 1.4; }
 .campaign-members { display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: .2rem; color: var(--gold); font-size: .95rem; }
 @media (forced-colors: active) {
   .campaign-funding progress { appearance: auto; }
+  .campaign-funding progress, .funding-track-placeholder { border-color: CanvasText; }
+  .campaign-funding progress::-webkit-progress-bar { background: Canvas; }
+  .campaign-funding progress::-webkit-progress-value { background: Highlight; }
+  .campaign-funding progress::-moz-progress-bar { background: Highlight; }
 }
 .campaign-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .9rem; }
 .campaign-continue {
