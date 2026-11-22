@@ -16,11 +16,13 @@
     <link rel="icon" href="assets/haus-vogel.webp" type="image/webp">
     <link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/cormorant-italic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/podcast.css?v=saphir1">
-    <link rel="stylesheet" href="assets/sponsoring.css?v=angebote1">
-    <link rel="stylesheet" href="assets/gastgeber.css?v=redaktion1">
+    <link rel="stylesheet" href="assets/podcast.css?v=mobil3">
+    <link rel="stylesheet" href="assets/faq.css?v=themen1">
+    <link rel="stylesheet" href="assets/sponsoring.css?v=mobil3">
+    <link rel="stylesheet" href="assets/gastgeber.css?v=mobil3">
     <link rel="stylesheet" href="assets/kampagne.css?v=saphir1">
-    <script src="assets/podcast.js?v=saphir1" defer></script>
+    <script src="assets/podcast.js?v=mobil3" defer></script>
+    <link rel="stylesheet" href="assets/footer.css?v=kompakt1">
   </head>
   <body class="page-index">
     <a class="skip" href="#inhalt">Zum Inhalt</a>
@@ -44,12 +46,12 @@
             <div class="hero-copy">
               <p class="eyebrow">Videopodcast über Gold und Schmuck</p>
               <h1 class="show-title" aria-label="Goldgezwitscher">Gold<em>gezwitscher<span>.</span></em></h1>
-              <p class="hero-intro">Ich bin Dietmar Vogelmann. Meine Gäste schmieden Gold, prüfen Edelsteine oder handeln mit Schmuck. Im Podcast erzählen sie, wie sie angefangen haben und was sie an ihrer Arbeit bis heute begeistert.</p>
+              <p class="hero-intro">Ich bin Dietmar Vogelmann. Bei mir erzählen Goldschmiede, Händler und Sammler, wie sie zu ihrer Arbeit kamen und welches Stück ihnen bis heute im Kopf bleibt.</p>
               <div class="actions hero-actions">
-                <a class="button button-gold" href="bewerben.html#anfrage">Als Gast bewerben</a>
+                <a class="button button-sapphire" href="bewerben.html#anfrage">Als Gast bewerben</a>
                 <a class="button button-outline" href="#sponsoring">Sponsoring ansehen</a>
               </div>
-              <p class="release-date"><span data-premiere-status>Geplanter Premieremonat · <time datetime="2027-02">Februar 2027</time></span> <a class="date-action" href="https://www.youtube.com/@feingoldvogel" data-premiere-action rel="external noreferrer">Mein YouTube-Kanal</a></p>
+              <p class="release-date"><span data-premiere-status>Premiere geplant für <time datetime="2027-02">Februar 2027</time></span> <a class="date-action" href="https://www.youtube.com/@feingoldvogel" data-premiere-action rel="external noreferrer">Mein YouTube-Kanal</a></p>
               <div class="theme-player" data-theme-player hidden>
                 <p id="titelsong-label">Mein Titelsong</p>
                 <audio aria-labelledby="titelsong-label" controls preload="none"></audio>
@@ -80,13 +82,13 @@
         <div class="container">
           <div class="presenter-profile" id="gastgeber">
             <figure class="presenter-portrait">
-              <img src="assets/dietmar-portrait-v13-640.webp" srcset="assets/dietmar-portrait-v13-640.webp 640w, assets/dietmar-portrait-v13-1120.webp 1120w" sizes="(min-width: 76rem) 28rem, (min-width: 48rem) 38vw, (min-width: 30rem) 24rem, 85vw" width="640" height="800" loading="lazy" decoding="async" alt="Mein Porträt im dunklen Sakko">
+              <img src="assets/dietmar-portrait-v13-640.webp" srcset="assets/dietmar-portrait-v13-640.webp 640w, assets/dietmar-portrait-v13-1120.webp 1120w" sizes="(min-width: 76rem) 28rem, (min-width: 48rem) 38vw, 6rem" width="640" height="800" loading="lazy" decoding="async" alt="Mein Porträt im dunklen Sakko">
             </figure>
             <div class="presenter-story">
               <p class="eyebrow">Mein Podcast</p>
               <h2 id="format-title">Dietmar <em>Vogelmann.</em></h2>
-              <p class="presenter-intro">Auf Instagram und TikTok zeige ich, wie ich eine Goldmünze auf Echtheit prüfe. Wie jemand diesen Blick für sein Handwerk entwickelt hat, lasse ich mir lieber in Ruhe erzählen.</p>
-              <p class="presenter-detail">So kam ich auf die Idee zu Goldgezwitscher. Ich bin selbst Goldhändler in Karlsbad. Im Studio in Karlsruhe reden wir wie am Wohnzimmertisch. Wenn es fachlich wird, frage ich nach, damit du uns auch ohne Vorwissen folgen kannst.</p>
+              <p class="presenter-intro">Auf Instagram und TikTok zeige ich, wie ich eine Goldmünze prüfe. Im Podcast nehme ich mir Zeit für die Menschen, die hinter solchen Geschichten stehen.</p>
+              <p class="presenter-detail">Ich bin selbst Goldhändler in Karlsbad. Im Studio in Karlsruhe reden wir wie am Wohnzimmertisch. Wenn es fachlich wird, frage ich nach.</p>
               <div class="profile-links presenter-social" aria-label="Meine Social-Media-Profile">
                 <a href="https://www.youtube.com/@feingoldvogel" rel="external noreferrer">YouTube</a>
                 <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a>
@@ -102,9 +104,9 @@
           <div class="invite-copy">
             <p class="eyebrow">Gast werden</p>
             <h2 id="guest-title">Dein Platz am <em>Mikrofon.</em></h2>
-            <p>Vielleicht hast du eine Werkstatt übernommen, handelst mit Edelmetallen oder hütest ein Erbstück, dessen Geschichte du erzählen möchtest. Schreib mir kurz, wie du dazugekommen bist und worüber du mit mir sprechen willst.</p>
+            <p>Ob du eine Werkstatt führst oder die Geschichte eines Erbstücks kennst – schreib mir, worüber du mit mir sprechen möchtest.</p>
             <ol class="guest-steps" aria-label="So läuft die Gastbewerbung ab"><li>Kurzprofil</li><li>Vorgespräch</li><li>Aufnahme</li></ol>
-            <a class="button button-gold" href="bewerben.html#anfrage">Kurzprofil ausfüllen</a>
+            <a class="button button-sapphire" href="bewerben.html#anfrage">Kurzprofil ausfüllen</a>
           </div>
         </div>
       </section>
@@ -126,12 +128,17 @@
               <div class="partner-details">
                 <p class="partner-scope">Werbepartner</p>
                 <p class="partner-price">199 € <span class="price-unit">je Episode</span></p>
-                <p class="partner-description">In einer passenden Folge stelle ich deinen Betrieb und seine Leistungen in einer kurzen Werbesequenz vor.</p>
-                <ul class="partner-benefits">
-                  <li>Ich spreche die Sequenz selbst ein. Sie dauert etwa 15–20 Sekunden.</li>
-                  <li>Ich binde sie während der Folge ein und kennzeichne sie als Werbung.</li>
-                  <li>Ich verlinke dein Unternehmen in der Videobeschreibung.</li>
-                </ul>
+                <details class="partner-disclosure">
+                  <summary aria-controls="leistungen-silber" aria-label="Leistungen für Silber">Leistungen</summary>
+                </details>
+                <div class="partner-terms" id="leistungen-silber">
+                  <p class="partner-description">In einer passenden Folge stelle ich deinen Betrieb und seine Leistungen in einer kurzen Werbesequenz vor.</p>
+                  <ul class="partner-benefits">
+                    <li>Ich spreche die Sequenz selbst ein. Sie dauert etwa 15–20 Sekunden.</li>
+                    <li>Ich binde sie während der Folge ein und kennzeichne sie als Werbung.</li>
+                    <li>Ich verlinke dein Unternehmen in der Videobeschreibung.</li>
+                  </ul>
+                </div>
                 <a class="partner-action" href="sponsoren.html?paket=silber#anfrage">Silber anfragen</a>
               </div>
             </article>
@@ -143,12 +150,17 @@
               <div class="partner-details">
                 <p class="partner-scope">Episodensponsor</p>
                 <p class="partner-price">750 € <span class="price-unit">je Episode</span></p>
-                <p class="partner-description">Dein Unternehmen ist der offizielle Präsentationspartner einer kompletten Folge. Den Platz als Episodensponsor vergebe ich für diese Folge exklusiv an dich.</p>
-                <ul class="partner-benefits">
-                  <li>Dein Firmenlogo ist während der gesamten Folge im Studiohintergrund sichtbar.</li>
-                  <li>Ich nenne dein Unternehmen zu Beginn und am Ende der Folge.</li>
-                  <li>Ich verlinke dein Unternehmen in der Videobeschreibung.</li>
-                </ul>
+                <details class="partner-disclosure">
+                  <summary aria-controls="leistungen-gold" aria-label="Leistungen für Gold">Leistungen</summary>
+                </details>
+                <div class="partner-terms" id="leistungen-gold">
+                  <p class="partner-description">Dein Unternehmen ist der offizielle Präsentationspartner einer kompletten Folge. Den Platz als Episodensponsor vergebe ich für diese Folge exklusiv an dich.</p>
+                  <ul class="partner-benefits">
+                    <li>Dein Firmenlogo ist während der gesamten Folge im Studiohintergrund sichtbar.</li>
+                    <li>Ich nenne dein Unternehmen zu Beginn und am Ende der Folge.</li>
+                    <li>Ich verlinke dein Unternehmen in der Videobeschreibung.</li>
+                  </ul>
+                </div>
                 <a class="partner-action" href="sponsoren.html?paket=gold#anfrage">Gold anfragen</a>
               </div>
             </article>
@@ -159,13 +171,18 @@
               <div class="partner-details">
                 <p class="partner-scope">Eigene Kooperation</p>
                 <p class="partner-price">Preis auf Anfrage</p>
-                <p class="partner-description">Du planst mehrere Folgen, eine Produkteinführung oder eine besondere Aktion? Dafür vereinbaren wir Umfang, Laufzeit und Preis persönlich.</p>
-                <ul class="partner-benefits">
-                  <li>Langfristige Partnerschaft rund um den Podcast</li>
-                  <li>Unternehmensvorstellung im Gespräch mit deiner Geschäftsführung oder jemandem aus deinem Team</li>
-                  <li>Individuelle Markenauftritte und zusätzliche Werbeeinblendungen</li>
-                  <li>Begleitende Kampagnen auf TikTok, Instagram oder YouTube</li>
-                </ul>
+                <details class="partner-disclosure">
+                  <summary aria-controls="leistungen-individuell" aria-label="Leistungen für individuelles Sponsoring">Leistungen</summary>
+                </details>
+                <div class="partner-terms" id="leistungen-individuell">
+                  <p class="partner-description">Du planst mehrere Folgen, eine Produkteinführung oder eine besondere Aktion? Dafür vereinbaren wir Umfang, Laufzeit und Preis persönlich.</p>
+                  <ul class="partner-benefits">
+                    <li>Langfristige Partnerschaft rund um den Podcast</li>
+                    <li>Unternehmensvorstellung im Gespräch mit deiner Geschäftsführung oder jemandem aus deinem Team</li>
+                    <li>Individuelle Markenauftritte und zusätzliche Werbeeinblendungen</li>
+                    <li>Begleitende Kampagnen auf TikTok, Instagram oder YouTube</li>
+                  </ul>
+                </div>
                 <a class="partner-action" href="sponsoren.html?paket=individuell#anfrage">Eigene Idee anfragen</a>
               </div>
             </article>
@@ -184,61 +201,85 @@
             <a class="text-link faq-contact" href="mailto:info@nachlassgold.de?subject=Frage%20zu%20Goldgezwitscher">Eine andere Frage stellen</a>
           </div>
           <div class="faq-questions">
-            <h3 class="faq-category" id="gastfragen">Als Gast</h3>
-            <details>
-              <summary>Kann ich auch als Privatperson zu Gast sein?</summary>
-              <p>Ja. Vielleicht besitzt du einen Ring, der in deiner Familie von Hand zu Hand gegangen ist, oder sammelst Münzen und kannst von einem besonderen Fund erzählen. Mich interessiert, was du selbst erlebt hast. Im <a href="bewerben.html#anfrage">Kurzprofil</a> kannst du „Ich komme als Privatperson“ auswählen.</p>
-            </details>
-            <details>
-              <summary>Brauche ich einen fertigen Lebenslauf?</summary>
-              <p>Ein paar Stichpunkte im Formular reichen mir. Schreib mir, wie du zu deinem Thema gekommen bist und über welches Erlebnis du gern sprechen würdest. Wenn du mir deine Arbeit zeigen möchtest, kannst du eine Website oder ein Social-Media-Profil verlinken.</p>
-            </details>
-            <details>
-              <summary>Wie schicke ich dir mein Kurzprofil?</summary>
-              <p>Am Ende des <a href="bewerben.html#anfrage">Gastformulars</a> kannst du deine Angaben als E-Mail vorbereiten und in Ruhe durchlesen. Deine Bewerbung erreicht mich, sobald du die Nachricht in deinem Postfach abgeschickt hast. Für Webmail kannst du den fertigen Text auch kopieren.</p>
-            </details>
-            <details>
-              <summary>Wie läuft das Vorgespräch ab?</summary>
-              <p>Wenn dein Thema zu einer Folge passt, melde ich mich per E-Mail, und wir verabreden uns zum Telefonieren. Du erzählst mir, was dir an deiner Geschichte wichtig ist. Danach entscheiden wir gemeinsam, ob wir das Gespräch im Studio in Karlsruhe aufnehmen.</p>
-            </details>
-            <h3 class="faq-category" id="sponsorfragen">Als Sponsor</h3>
-            <details>
-              <summary>Wie hört sich die Werbung mit Silber an?</summary>
-              <p>Ich spreche eine etwa 15–20 Sekunden lange Sequenz ein, die zum Thema der Folge passt. Darin nenne ich deinen Betrieb und seine Leistungen. Ich kennzeichne die Sequenz als Werbung und setze deinen Unternehmenslink in die Videobeschreibung. <a href="sponsoren.html?paket=silber#anfrage">Als Werbepartner anfragen</a></p>
-            </details>
-            <details>
-              <summary>Wo ist mein Unternehmen als Episodensponsor zu sehen?</summary>
-              <p>Mit <a href="sponsoren.html?paket=gold#anfrage">Gold</a> ist dein Logo die ganze Folge über im Studiohintergrund sichtbar. Ich stelle dein Unternehmen zu Beginn und am Ende namentlich vor. In der Videobeschreibung können die Zuschauer direkt auf deine Website gehen.</p>
-            </details>
-            <details>
-              <summary>Teile ich den Platz als Episodensponsor mit einem anderen Unternehmen?</summary>
-              <p>Für jede Folge vergebe ich die Rolle des offiziellen Präsentationspartners exklusiv an ein Unternehmen. Wenn du dich für eine bestimmte Folge interessierst, besprechen wir vor deiner Zusage, ob der Platz noch frei ist und ob das Thema zu dir passt.</p>
-            </details>
-            <details>
-              <summary>Kann ich mehrere Folgen begleiten oder mein Unternehmen im Gespräch vorstellen?</summary>
-              <p>Ja. Im Rahmen einer <a href="sponsoren.html?paket=individuell#anfrage">individuellen Kooperation</a> können wir eine Folgenreihe planen oder ein Gespräch mit jemandem aus deinem Unternehmen aufnehmen. Auch eine Produkteinführung oder eine begleitende Social-Media-Kampagne ist möglich. Dafür vereinbaren wir Umfang, Laufzeit und Preis gemeinsam.</p>
-            </details>
-            <details>
-              <summary>Wie läuft eine Sponsoringanfrage ab?</summary>
-              <p>Erzähl mir in der <a href="sponsoren.html#anfrage">Sponsoringanfrage</a> kurz von deinem Betrieb und deiner Idee. Wenn du noch kein Paket im Sinn hast, wähle „Ich bin noch unsicher“. Ich melde mich per E-Mail, und wir besprechen die Einzelheiten, bevor du dich entscheidest.</p>
-            </details>
-            <h3 class="faq-category" id="hoererfragen">Zum Zuhören</h3>
-            <details>
-              <summary>Wann und wo sehe ich die erste Folge?</summary>
-              <p><span data-premiere-status>Für die erste Folge habe ich <time datetime="2027-02">Februar 2027</time> als Premieremonat vorgesehen.</span> Meine Gespräche veröffentliche ich in voller Länge kostenlos auf YouTube. <a href="https://www.youtube.com/@feingoldvogel" data-premiere-action rel="external noreferrer">Zu meinem YouTube-Kanal</a></p>
-            </details>
-            <details>
-              <summary>Kann ich den Gesprächen auch ohne Vorwissen folgen?</summary>
-              <p>Ja. Wenn ein Gast zum Beispiel erzählt, wie er einen Edelstein beurteilt, frage ich, worauf er dabei achtet. Mich interessieren die kleinen Unterschiede, die du beim ersten Hinsehen vielleicht übersiehst.</p>
-            </details>
-            <details>
-              <summary>Wird es kurze Ausschnitte zum Reinschauen geben?</summary>
-              <p>Ja, ich plane Ausschnitte für <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a>, <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> und <a href="https://www.youtube.com/@feingoldvogel" rel="external noreferrer">YouTube Shorts</a>. So kannst du dir erst einmal einen Eindruck vom Gast und vom Gespräch machen.</p>
-            </details>
-            <details>
-              <summary>Wie erfahre ich von neuen Folgen?</summary>
-              <p>Über <a href="#startpost">meinen Newsletter</a> bekommst du den Link zur ganzen Folge und ein paar Zeilen zu meinem Gast. Ich kündige die Gespräche auch auf meinen Feingold-Vogel-Kanälen bei <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a> und <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> an.</p>
-            </details>
+            <section class="faq-group" id="gastfragen" aria-labelledby="gastfragen-titel">
+              <h3 class="faq-category" id="gastfragen-titel">
+                <span class="topic-label">Als Gast</span>
+                <a class="topic-open" href="#gastfragen" aria-label="Als Gast – Fragen anzeigen">Als Gast</a>
+                <a class="topic-close" href="#faq" aria-label="Als Gast – Fragen schließen">Als Gast</a>
+              </h3>
+              <div class="topic-questions">
+                <details>
+                  <summary>Kann ich auch als Privatperson zu Gast sein?</summary>
+                  <p>Ja. Vielleicht besitzt du einen Ring, der in deiner Familie von Hand zu Hand gegangen ist, oder sammelst Münzen und kannst von einem besonderen Fund erzählen. Mich interessiert, was du selbst erlebt hast. Im <a href="bewerben.html#anfrage">Kurzprofil</a> kannst du „Ich komme als Privatperson“ auswählen.</p>
+                </details>
+                <details>
+                  <summary>Brauche ich einen fertigen Lebenslauf?</summary>
+                  <p>Ein paar Stichpunkte im Formular reichen mir. Schreib mir, wie du zu deinem Thema gekommen bist und über welches Erlebnis du gern sprechen würdest. Wenn du mir deine Arbeit zeigen möchtest, kannst du eine Website oder ein Social-Media-Profil verlinken.</p>
+                </details>
+                <details>
+                  <summary>Wie schicke ich dir mein Kurzprofil?</summary>
+                  <p>Am Ende des <a href="bewerben.html#anfrage">Gastformulars</a> kannst du deine Angaben als E-Mail vorbereiten und in Ruhe durchlesen. Deine Bewerbung erreicht mich, sobald du die Nachricht in deinem Postfach abgeschickt hast. Für Webmail kannst du den fertigen Text auch kopieren.</p>
+                </details>
+                <details>
+                  <summary>Wie läuft das Vorgespräch ab?</summary>
+                  <p>Wenn dein Thema zu einer Folge passt, melde ich mich per E-Mail, und wir verabreden uns zum Telefonieren. Du erzählst mir, was dir an deiner Geschichte wichtig ist. Danach entscheiden wir gemeinsam, ob wir das Gespräch im Studio in Karlsruhe aufnehmen.</p>
+                </details>
+              </div>
+            </section>
+            <section class="faq-group" id="sponsorfragen" aria-labelledby="sponsorfragen-titel">
+              <h3 class="faq-category" id="sponsorfragen-titel">
+                <span class="topic-label">Als Sponsor</span>
+                <a class="topic-open" href="#sponsorfragen" aria-label="Als Sponsor – Fragen anzeigen">Als Sponsor</a>
+                <a class="topic-close" href="#faq" aria-label="Als Sponsor – Fragen schließen">Als Sponsor</a>
+              </h3>
+              <div class="topic-questions">
+                <details>
+                  <summary>Wie hört sich die Werbung mit Silber an?</summary>
+                  <p>Ich spreche eine etwa 15–20 Sekunden lange Sequenz ein, die zum Thema der Folge passt. Darin nenne ich deinen Betrieb und seine Leistungen. Ich kennzeichne die Sequenz als Werbung und setze deinen Unternehmenslink in die Videobeschreibung. <a href="sponsoren.html?paket=silber#anfrage">Als Werbepartner anfragen</a></p>
+                </details>
+                <details>
+                  <summary>Wo ist mein Unternehmen als Episodensponsor zu sehen?</summary>
+                  <p>Mit <a href="sponsoren.html?paket=gold#anfrage">Gold</a> ist dein Logo die ganze Folge über im Studiohintergrund sichtbar. Ich stelle dein Unternehmen zu Beginn und am Ende namentlich vor. In der Videobeschreibung können die Zuschauer direkt auf deine Website gehen.</p>
+                </details>
+                <details>
+                  <summary>Teile ich den Platz als Episodensponsor mit einem anderen Unternehmen?</summary>
+                  <p>Für jede Folge vergebe ich die Rolle des offiziellen Präsentationspartners exklusiv an ein Unternehmen. Wenn du dich für eine bestimmte Folge interessierst, besprechen wir vor deiner Zusage, ob der Platz noch frei ist und ob das Thema zu dir passt.</p>
+                </details>
+                <details>
+                  <summary>Kann ich mehrere Folgen begleiten oder mein Unternehmen im Gespräch vorstellen?</summary>
+                  <p>Ja. Im Rahmen einer <a href="sponsoren.html?paket=individuell#anfrage">individuellen Kooperation</a> können wir eine Folgenreihe planen oder ein Gespräch mit jemandem aus deinem Unternehmen aufnehmen. Auch eine Produkteinführung oder eine begleitende Social-Media-Kampagne ist möglich. Dafür vereinbaren wir Umfang, Laufzeit und Preis gemeinsam.</p>
+                </details>
+                <details>
+                  <summary>Wie läuft eine Sponsoringanfrage ab?</summary>
+                  <p>Erzähl mir in der <a href="sponsoren.html#anfrage">Sponsoringanfrage</a> kurz von deinem Betrieb und deiner Idee. Wenn du noch kein Paket im Sinn hast, wähle „Ich bin noch unsicher“. Ich melde mich per E-Mail, und wir besprechen die Einzelheiten, bevor du dich entscheidest.</p>
+                </details>
+              </div>
+            </section>
+            <section class="faq-group" id="hoererfragen" aria-labelledby="hoererfragen-titel">
+              <h3 class="faq-category" id="hoererfragen-titel">
+                <span class="topic-label">Zum Zuhören</span>
+                <a class="topic-open" href="#hoererfragen" aria-label="Zum Zuhören – Fragen anzeigen">Zum Zuhören</a>
+                <a class="topic-close" href="#faq" aria-label="Zum Zuhören – Fragen schließen">Zum Zuhören</a>
+              </h3>
+              <div class="topic-questions">
+                <details>
+                  <summary>Wann und wo sehe ich die erste Folge?</summary>
+                  <p><span data-premiere-status>Für die erste Folge habe ich <time datetime="2027-02">Februar 2027</time> als Premieremonat vorgesehen.</span> Meine Gespräche veröffentliche ich in voller Länge kostenlos auf YouTube. <a href="https://www.youtube.com/@feingoldvogel" data-premiere-action rel="external noreferrer">Zu meinem YouTube-Kanal</a></p>
+                </details>
+                <details>
+                  <summary>Kann ich den Gesprächen auch ohne Vorwissen folgen?</summary>
+                  <p>Ja. Wenn ein Gast zum Beispiel erzählt, wie er einen Edelstein beurteilt, frage ich, worauf er dabei achtet. Mich interessieren die kleinen Unterschiede, die du beim ersten Hinsehen vielleicht übersiehst.</p>
+                </details>
+                <details>
+                  <summary>Wird es kurze Ausschnitte zum Reinschauen geben?</summary>
+                  <p>Ja, ich plane Ausschnitte für <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a>, <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> und <a href="https://www.youtube.com/@feingoldvogel" rel="external noreferrer">YouTube Shorts</a>. So kannst du dir erst einmal einen Eindruck vom Gast und vom Gespräch machen.</p>
+                </details>
+                <details>
+                  <summary>Wie erfahre ich von neuen Folgen?</summary>
+                  <p>Über <a href="#startpost">meinen Newsletter</a> bekommst du den Link zur ganzen Folge und ein paar Zeilen zu meinem Gast. Ich kündige die Gespräche auch auf meinen Feingold-Vogel-Kanälen bei <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer">Instagram</a> und <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer">TikTok</a> an.</p>
+                </details>
+              </div>
+            </section>
           </div>
         </div>
       </section>
@@ -265,7 +306,7 @@
         <div class="container campaign-note-inner">
           <div>
             <h2 id="campaign-title">Der Podcaststart</h2>
-            <p>Für meine ersten Gespräche habe ich ein Crowdfunding auf Startnext vorbereitet. Mein Ziel sind <strong>3.500&nbsp;€</strong>. Als Kampagnenzeitraum habe ich den <time datetime="2026-12-01">1.</time> bis <time datetime="2026-12-31">31. Dezember 2026</time> angesetzt.</p>
+            <p>Vom <time datetime="2026-12-01">1.</time> bis <time datetime="2026-12-31">31. Dezember 2026</time> läuft mein Crowdfunding für die ersten Folgen. Mein Ziel sind <strong>3.500&nbsp;€</strong>.</p>
             <a class="text-link campaign-founders" href="gruendungsmitglieder.html">Zu meinen Gründungsmitgliedern</a>
           </div>
           <div class="campaign-links">
@@ -278,12 +319,12 @@
         <div class="container newsletter-layout">
           <div>
             <p class="eyebrow">Mein Newsletter</p>
-            <h2 id="signup-title">Neue Folgen <em>per E-Mail.</em></h2>
+            <h2 id="signup-title">Neue Folgen <em>per&nbsp;E&#8209;Mail.</em></h2>
             <p class="section-lead">Zu jeder neuen Folge schicke ich dir den Link und ein paar Zeilen über meinen Gast und unser Gesprächsthema.</p>
           </div>
           <div class="newsletter-enrollment">
             <a class="button button-gold" href="mailto:info@nachlassgold.de?subject=Anmeldung%20zum%20Goldgezwitscher-Newsletter&amp;body=Hallo%20Dietmar%2C%0D%0A%0D%0Aich%20m%C3%B6chte%20deinen%20Goldgezwitscher-Newsletter%20zu%20neuen%20Folgen%2C%20G%C3%A4sten%20und%20zum%20Crowdfunding%20erhalten.%20Bitte%20schicke%20ihn%20an%20die%20Absenderadresse%20dieser%20E-Mail.%0D%0A%0D%0AViele%20Gr%C3%BC%C3%9Fe">Per E-Mail abonnieren</a>
-            <p class="fine-print">Schick mir die vorbereitete Anmeldung von der Adresse, an der du den Newsletter lesen möchtest. Zum Abmelden genügt eine Antwort. <a href="startpost-datenschutz.html">Datenschutz zum Newsletter</a></p>
+            <p class="fine-print">Schick mir die vorbereitete E-Mail. Abmelden kannst du dich per Antwort. <a href="startpost-datenschutz.html">Datenschutz zum Newsletter</a></p>
             <details class="draft-text newsletter-webmail">
               <summary>Mit Webmail anmelden</summary>
               <p>Schicke mir diesen Text an <a href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>.</p>
@@ -300,46 +341,37 @@ Viele Grüße</textarea>
       </section>
     </main>
     <footer class="site-footer" id="social">
-      <div class="container">
-        <div class="footer-main">
-          <div>
-            <a class="brand" href="index.html" aria-label="Goldgezwitscher, Startseite"><img src="assets/haus-vogel.webp" width="37" height="40" alt=""><span>Goldgezwitscher<span class="brand-stop">.</span></span></a>
-            <p>Gespräche über Gold, Schmuck und die Menschen dahinter.<br>Dietmar Vogelmann</p>
-          </div>
-          <nav aria-label="Mitmachen">
-            <h2>Mitmachen</h2>
-            <a href="bewerben.html#anfrage">Als Gast bewerben</a>
-            <a href="#sponsoring">Sponsoring</a>
-            <a href="#faq">Häufige Fragen</a>
-            <a href="#startpost">Newsletter</a>
-            <a href="#crowdfunding">Die ersten Folgen</a>
-            <a href="gruendungsmitglieder.html">Gründungsmitglieder</a>
+      <div class="container footer-wrap">
+        <div class="footer-identity">
+          <a class="brand" href="index.html" aria-label="Goldgezwitscher, Startseite"><img src="assets/haus-vogel.webp" width="37" height="40" alt=""><span>Goldgezwitscher<span class="brand-stop">.</span></span></a>
+          <nav class="footer-contact" aria-label="Kontakt und Social Media">
+            <a class="footer-email" href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>
+            <span class="footer-channels">
+              <a href="https://www.youtube.com/@feingoldvogel" rel="external noreferrer" aria-label="YouTube" title="YouTube"><span>YouTube</span></a>
+              <a href="https://www.instagram.com/feingold_vogel/" rel="external noreferrer" aria-label="Instagram" title="Instagram"><span>Instagram</span></a>
+              <a href="https://www.tiktok.com/@feingold.vogel" rel="external noreferrer" aria-label="TikTok" title="TikTok"><span>TikTok</span></a>
+            </span>
           </nav>
-          <nav aria-label="Kontakt und Social Media">
-            <h2>Kontakt</h2>
-            <a href="mailto:info@nachlassgold.de">info@nachlassgold.de</a>
-            <div class="footer-social">
-              <a href="https://www.youtube.com/@feingoldvogel" rel="external noreferrer">YouTube</a>
-              <a href="https://www.instagram.com/feingold_vogel/" class="" rel="external noreferrer">Instagram</a>
-              <a href="https://www.tiktok.com/@feingold.vogel" class="" rel="external noreferrer">TikTok</a>
-              <a href="impressum.html#kontakt">Weitere Kontaktwege</a>
-            </div>
-          </nav>
+          <a class="regional" href="https://karlsbader-selbststaendigen.de/" rel="external noreferrer"><img src="assets/karlsbader-v20-480.webp" width="480" height="270" loading="lazy" alt="Die Karlsbader Selbstständigen"></a>
         </div>
-        <div class="footer-family">
-          <span>Meine Arbeit mit Gold und Schmuck</span>
-          <a href="https://www.nachlassgold.de/" class="" rel="external noreferrer">Nachlassgold</a>
-          <a href="https://www.feingold-vogel.com/" class="" rel="external noreferrer">Feingold-Vogel</a>
-        </div>
-        <div class="footer-fine">
-          <span>© 2026 Goldgezwitscher</span>
-          <nav aria-label="Rechtliches">
+        <div class="footer-bottom">
+          <details class="footer-directory">
+            <summary>Podcast &amp; Unternehmen</summary>
+            <nav aria-label="Podcast und Unternehmen">
+              <a href="bewerben.html#anfrage">Gast werden</a>
+              <a href="#sponsoring">Sponsoring</a>
+              <a href="#crowdfunding">Crowdfunding</a>
+              <a href="gruendungsmitglieder.html">Gründungsmitglieder</a>
+              <a href="https://www.nachlassgold.de/" rel="external noreferrer">Nachlassgold</a>
+              <a href="https://www.feingold-vogel.com/" rel="external noreferrer">Feingold-Vogel</a>
+            </nav>
+          </details>
+          <nav class="footer-legal" aria-label="Rechtliches">
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
             <a href="agb.html">AGB</a>
             <a href="bildnachweise.html">Bildnachweise</a>
           </nav>
-          <a class="regional" href="https://karlsbader-selbststaendigen.de/" rel="external noreferrer"><img src="assets/karlsbader-v20-480.webp" width="96" height="54" loading="lazy" alt="Die Karlsbader Selbstständigen"></a>
         </div>
       </div>
     </footer>

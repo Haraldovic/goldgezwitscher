@@ -21,21 +21,6 @@ function connectOriginalNotices() {
     <a href="index.html#startpost">Newsletter</a>
   `);
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#121315');
-  const footer = document.querySelector('.site-footer');
-  const footerNav = footer.querySelector('nav[aria-label="Mitmachen"]');
-  footerNav.innerHTML = `
-    <h2>Mitmachen</h2>
-    <a href="bewerben.html#anfrage">Als Gast bewerben</a>
-    <a href="index.html#sponsoring">Sponsoring</a>
-    <a href="index.html#faq">Häufige Fragen</a>
-    <a href="index.html#startpost">Newsletter</a>
-    <a href="index.html#crowdfunding">Die ersten Folgen</a>
-    <a href="gruendungsmitglieder.html">Gründungsmitglieder</a>
-  `;
-  footer.querySelector('.brand + p').replaceChildren(
-    'Gespräche über Gold, Schmuck und die Menschen dahinter.', document.createElement('br'), 'Dietmar Vogelmann'
-  );
-  footer.querySelector('.footer-family span').textContent = 'Meine Arbeit mit Gold und Schmuck';
   const privacyOverview = document.querySelector('.page-datenschutz .legal-overview');
   if (privacyOverview) {
     privacyOverview.insertAdjacentHTML('beforeend', '<p><a href="startpost-datenschutz.html">Datenschutz zum Newsletter</a></p>');

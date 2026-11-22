@@ -24,3 +24,68 @@
 @media (min-width: 561px) and (max-width: 760px) {
   .tier-individuell .partner-face h3 { font-size: clamp(1.65rem, 4.6vw, 2.2rem); }
 }
+
+/* One set of terms serves both layouts. On desktop all terms are always visible. */
+.partner-disclosure { display: none; }
+@media (max-width: 760px) {
+  .partner-card { display: flex; }
+  .partner-face { min-height: 3.15rem; padding: .7rem 1rem; align-items: center; }
+  .partner-face h3 { font-size: 2.05rem; }
+  .tier-individuell .partner-face h3 { font-size: clamp(1.65rem, 6vw, 2rem); }
+  .tier-individuell .partner-face h3 em { display: inline; }
+  .foil-stamp { width: 2.1rem; right: 1rem; top: calc(50% - 1.05rem); }
+  .partner-details {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0 .65rem;
+    padding: .75rem 1rem .35rem;
+  }
+  .partner-scope { font-size: .875rem; }
+  .partner-price, .tier-individuell .partner-price {
+    justify-self: end;
+    margin: 0;
+    font-size: clamp(1.05rem, 4.9vw, 1.4rem);
+    text-align: right;
+  }
+  .tier-individuell .partner-price { font-size: 1rem; }
+  .partner-price .price-unit { font-size: .75rem; }
+  .partner-disclosure { display: block; grid-area: 2 / 1; }
+  .partner-disclosure summary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: .4rem;
+    cursor: pointer;
+    list-style: none;
+    font-size: .9rem;
+  }
+  .partner-disclosure summary::-webkit-details-marker { display: none; }
+  .partner-disclosure summary::after {
+    content: '';
+    width: .42rem;
+    height: .42rem;
+    margin-block-start: -.15rem;
+    border: solid currentColor;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .partner-disclosure[open] summary::after { margin-block-start: .2rem; transform: rotate(225deg); }
+  .partner-disclosure:not([open]) + .partner-terms { display: none; }
+  .partner-terms {
+    grid-area: 3 / 1 / auto / -1;
+    padding-top: .75rem;
+    border-top: 1px solid var(--line);
+  }
+  .partner-terms .partner-benefits { margin-bottom: .6rem; }
+  .partner-action {
+    grid-area: 2 / 2;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--sapphire-ink);
+    font-size: .9rem;
+    text-align: right;
+  }
+}

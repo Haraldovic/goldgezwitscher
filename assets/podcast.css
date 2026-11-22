@@ -30,6 +30,7 @@
   --brass: #755628;
   --sapphire-ink: #294986;
   --sapphire-light: #aec6ff;
+  --sapphire: #365fc0;
   --sapphire-wash: #edf2fb;
   --paper: #f5f5f5;
   --light: #fafafa;
@@ -88,6 +89,8 @@ select:focus-visible, textarea:focus-visible, [tabindex="-1"]:focus-visible {
 }
 .button-gold { background: var(--gold); color: var(--deep); }
 .button-gold:hover { background: #f1ddb3; }
+.button-sapphire { background: var(--sapphire); color: white; }
+.button-sapphire:hover { background: #2c4ea0; }
 .button-green { background: var(--charcoal); color: var(--light); }
 .button-green:hover { background: #36373b; }
 .button-paper { color: var(--ink); background: transparent; border-color: #85868b; }
@@ -239,7 +242,7 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 .newsletter-section :focus-visible, .guest-invite :focus-visible { outline-color: var(--gold); }
 
 /* Invitation to take the second microphone. */
-.guest-invite { color: white; background: #1a1b1e; }
+.guest-invite { color: white; background: #192438; }
 .invite-spread { align-items: center; padding-block: var(--section-space); }
 .invite-image { overflow: hidden; }
 .invite-image img { width: 100%; height: auto; aspect-ratio: 1.23; object-fit: cover; object-position: 58% 47%; }
@@ -372,16 +375,6 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
 
 /* Colophon and legal text */
 .site-footer { background: var(--deep); color: var(--light); }
-.footer-main { display: grid; grid-template-columns: 1.18fr .7fr 1fr; gap: 2rem; padding-block: 3.6rem 2.4rem; }
-.footer-main .brand + p { color: #c9cacf; margin-top: .95rem; }
-.footer-main nav { display: flex; align-items: flex-start; flex-direction: column; }
-.footer-main h2 { margin: .28rem 0 .6rem; color: var(--gold); font: 600 .93rem/1.4 var(--sans); letter-spacing: .02em; }
-.footer-main nav a, .footer-family a, .footer-fine nav a { display: inline-flex; align-items: center; min-height: 2.4rem; text-decoration-color: #929399; }
-.footer-social, .footer-family, .footer-fine, .footer-fine nav { display: flex; flex-wrap: wrap; align-items: center; gap: .1rem 1.15rem; }
-.footer-family { border-block: 1px solid var(--dark-line); padding-block: .75rem; }
-.footer-family span, .footer-fine span { color: #bdbec3; }
-.footer-fine { justify-content: space-between; padding-block: .8rem 1.25rem; gap: .55rem 1.2rem; font-size: .91rem; }
-.regional img { width: 4.8rem; height: auto; }
 .legal-intro, .v16-legal-intro { padding-block: clamp(2.8rem, 6vw, 5rem) clamp(2rem, 4vw, 3.2rem); }
 .legal-intro h1, .v16-legal-intro h1 { font-size: clamp(2.75rem, 6.3vw, 5.45rem); overflow-wrap: anywhere; margin-block: .8rem; }
 .legal-intro .eyeline > span { display: none; }
@@ -404,7 +397,6 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   .hero-actions .button { padding-inline: 1rem; }
   .main-nav { gap: 1rem; }
   .partner-grid { gap: .8rem; }
-  .footer-main { grid-template-columns: 1fr .65fr 1fr; }
 }
 @media (max-width: 900px) {
   .menu-ready { scroll-padding-top: 5.1rem; }
@@ -437,16 +429,12 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   .release-date { grid-row: 6; margin-top: .7rem; }
   .hero-actions { grid-row: 5; margin: 1.05rem 0 0; }
   .theme-player { grid-row: 7; }
-  .footer-main { grid-template-columns: 1fr 1fr; }
-  .footer-main > div { grid-column: 1/-1; }
-  .footer-main nav a, .footer-family a, .footer-fine nav a { min-height: 2.75rem; }
   .partner-intro, .invite-spread, .form-grid, .legal-layout { grid-template-columns: minmax(0,1fr); gap: 1.65rem; }
   .partner-intro h2 { max-width: 12em; }
   .campaign-note-inner { flex-direction: column; align-items: flex-start; gap: .4rem; }
   .newsletter-layout { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
   .newsletter-layout h2 em { display: inline; }
-  .invite-spread { gap: 2rem; }
-  .invite-image img { aspect-ratio: 2.15; }
+  .guest-invite .invite-image { display: none; }
   .invite-copy h2 em { display: inline; }
   .partner-grid { grid-template-columns: 1fr; }
   .partner-card { display: grid; grid-template-columns: minmax(7.5rem,.64fr) minmax(0,1.36fr); }
@@ -475,9 +463,6 @@ a:is([href*="instagram.com/" i], [href*="tiktok.com/" i], [href*="youtube.com/" 
   .release-date { align-items: center; }
   .button { min-height: 3.05rem; }
   .form-row { grid-template-columns: 1fr; gap: 1.2rem; }
-  .footer-main { gap: 1.15rem; grid-template-columns: 1fr; padding-block: 2.6rem 1.35rem; }
-  .footer-main > div { grid-column: auto; }
-  .footer-family > span { flex-basis: 100%; }
 }
 @media (max-width: 355px) {
   :root { --gutter: 1rem; }
